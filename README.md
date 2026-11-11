@@ -10,8 +10,8 @@ A feasibility study for a 3D printer that carries UV-resin droplets through the 
 |---|---|
 | ![Array cage](docs/img/cage.png) | ![Benchy prints compared](docs/img/benchy_compare.png) |
 | 18 boards with 450 transducers on a rhombicuboctahedron | Simulated Benchy prints: one droplet size, fine shell, and Benchy-measured landing errors |
-| ![In-camera view](docs/img/cam_uv.png) | ![Transducer board](docs/img/tb25_layers.png) |
-| In-camera view during a cure flash | TB-25 transducer board, 4 layers, routed and checked from its Gerber files |
+| ![In-camera view of the print](docs/img/cam_print.gif) | ![Transducer board](docs/img/tb25_layers.png) |
+| In-camera view of the whole 4 h print at about 1000× speed, with UV cure flashes | TB-25 transducer board, 4 layers, routed and checked from its Gerber files |
 
 ## Key numbers (simulated)
 
