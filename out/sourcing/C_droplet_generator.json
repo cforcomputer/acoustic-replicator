@@ -1,0 +1,205 @@
+{
+  "meta": {
+    "title": "C - Drop-on-demand droplet generator: research for a from-scratch build",
+    "date": "2026-11-10",
+    "status": "PARTIAL DRAFT v1 - written early so results survive; sections 'parts', 'jettability' and 'failure_modes' are still being researched and are incomplete",
+    "provenance_convention": "Every entry separates 'read_on_page' (I opened the source in this session and read the number there) from 'from_memory_or_inferred' (recalled, or calculated by me from read values; not verified against a source in this session)."
+  },
+  "designs": [
+    {
+      "id": "harris_liu_bush_2015",
+      "citation": "D. M. Harris, T. Liu, J. W. M. Bush, 'A low-cost, precise piezoelectric droplet-on-demand generator', Exp. Fluids 56:83 (2015), doi:10.1007/s00348-015-1950-6",
+      "urls": [
+        "http://math.mit.edu/~bush/wordpress/wp-content/uploads/2015/04/Harris-DropGenerator.pdf",
+        "https://dspace.mit.edu/handle/1721.1/104621",
+        "https://thales.mit.edu/bush/index.php/2015/02/06/how-to-build-a-better-drop-generator/"
+      ],
+      "read_on_page": [
+        "Full text read (author PDF on math.mit.edu).",
+        "Actuator: commercial piezo buzzer CUI CEB-35D26, diameter 35 mm, Digi-Key 102-1128-ND. Brass base of the disc is in direct contact with the working fluid.",
+        "Piezo seal: bonded to the top of the chamber with RTV silicone sealant, then clamped at its edge by an acrylic ring.",
+        "Chamber: cylinder 28.6 mm diameter x 9.7 mm deep bored in an aluminium block, tapering to a tapped hole at the bottom where the nozzle screws in, sealed with an O-ring.",
+        "Nozzles: eight machined stainless-steel nozzles, outlet 0.50 to 1.40 mm, with a 45 degree OUTER taper to discourage wetting of the nozzle face.",
+        "Meniscus pressure: height-adjustable overflow reservoir (concentric cylinders 69.9 and 50.8 mm dia) on a Thorlabs PT1 micrometer stage, refilled by a Williamson 100-series peristaltic pump. Static meniscus is stable for |dh| <= 2*sigma/(rho*g*a), a = nozzle radius.",
+        "Drive: adjustable DC supply 0-72 V + H-bridge + Arduino Uno. Square pulse; piezo rests at constant NEGATIVE voltage, is switched positive for the pulse width (resolution 1 us, interrupts disabled), then back to negative (which sucks the tail back).",
+        "Liquid: silicone oil only, 20.9 cSt, density 950 kg/m3, surface tension 20.6 mN/m. Ohnesorge number (based on nozzle RADIUS) 0.16 < Oh < 0.28.",
+        "Window example, 0.90 mm nozzle at 30 V: no drop below 380 us, single drop 380-540 us, satellites above 540 us. 1.40 mm nozzle at 30 V: 460 us none, 660 us single, 850 us multiple.",
+        "Droplet diameter 0.5-1.4 mm, roughly equal to nozzle diameter; tunable by pulse width, voltage (about 26-34 V explored on the 0.9 mm nozzle) and reservoir height (dh from -8 to +2 mm).",
+        "Repeatability of DIAMETER: < 0.5 % within a run (>2500 drops), +/-1 % day to day after re-bleeding. No pump: diameter drifts < 2 % over 5000 drops as the reservoir level falls.",
+        "Rate: tested at 5 Hz; below about 10 Hz drop size is independent of rate ('true DOD mode').",
+        "Bubble removal: invert the generator, hold it low until fluid bleeds from the nozzle, seal the tip, restore. Done once per session.",
+        "Cost: 'less than a few hundred dollars'; made on manual mill and lathe.",
+        "Orientation: fires DOWN. Ejection speed and speed repeatability are NOT reported anywhere in the paper."
+      ],
+      "from_memory_or_inferred": [
+        "CEB-35D26 electrical data (resonance about 2.6 kHz, capacitance about 26 nF) is implied by the part number and recalled, not read in this session."
+      ]
+    },
+    {
+      "id": "dropgen_v3_harris_lab_github",
+      "citation": "Harris Lab (Brown University) DropGen v3, OSHWA certified US002701, CC-BY-SA-4.0. FDM-printed successor of Ionkin & Harris 2018.",
+      "urls": [
+        "https://github.com/harrislab-brown/DropGen",
+        "https://github.com/harrislab-brown/DropGen/wiki",
+        "https://certification.oshwa.org/us002701.html",
+        "https://sites.brown.edu/harrislab/hardware/"
+      ],
+      "read_on_page": [
+        "Repository contents read directly (README, wiki pages 1, 2, 5, 7, firmware sources, PCB BOM). Repo last pushed 2026-08-28.",
+        "CAD: STL + 3MF + STEP + Fusion 360 archive ('dropgen assembly modular head m6 v3.f3z'); KiCad 8 PCB with JLCPCB production files; PlatformIO firmware for Seeed XIAO ESP32-S3.",
+        "Piezo: CUI CEB-35D26 35 mm disc (Digi-Key link in the wiki BOM).",
+        "Piezo seal: one O-ring 1-3/8 in OD x 1-1/4 in ID x 1/16 in (McMaster 9452K113) compressed between the printed funnel-shaped chamber and the disc by a printed clamp with six M3x18 screws into heat-set inserts, tightened evenly in a star pattern, 'snug but not too tight'.",
+        "Nozzle: off-the-shelf M6-thread brass 3D-printer nozzle screwed into an M6 hex nut pressed into the print, sealed by a small O-ring 1/4 in OD x 1/8 in ID x 1/16 in (McMaster 94115K006). Versions before 2025-08-15 used M7 nozzles.",
+        "Print settings: PLA, 0.4 mm nozzle, 0.2 mm layers, 3 walls, 5 top/bottom layers, 25 % infill; O-ring sealing faces printed without supports.",
+        "Fluid ports: 10-24 to 1/8 in hose barbs with rubber washers; overflow reservoir raised/lowered by a stepper linear actuator.",
+        "Driver: L293D H-bridge in a DIP socket, switched by two ESP32 GPIOs (A high/B low for the pulse width, then reversed and left reversed). Board accepts up to 30 V on the barrel jack, so the piezo sees +/-(supply) up to +/-30 V.",
+        "Firmware defaults: pulse width 1000 us, 500 ms between drops, 100 drops. Tuning procedure: start at about 50 us and increase in 50 us steps until drops appear.",
+        "Bleeding: point the nozzle UP, below reservoir level, tap and rotate until liquid sprays continuously. An air bubble is recognised by a louder 'clack' from the piezo or by no drops.",
+        "Meniscus setting: lower reservoir until liquid runs out, raise in small steps until it just stops, dab nozzle dry.",
+        "Claimed range: OSHWA page 'more than 1 mm down to less than 0.2 mm' diameter; Harris Lab hardware page 'drop radii from 0.1 - 0.7 mm', 'tested with water/glycerol and silicone oils'."
+      ],
+      "from_memory_or_inferred": [
+        "No viscosity, speed or repeatability numbers are given in the repository; the wiki text says 'oil' throughout (the lab's standard liquid is 20 cSt silicone oil).",
+        "The whole design is intended to fire downward; the nozzle-up attitude is used only for bleeding."
+      ]
+    },
+    {
+      "id": "ionkin_harris_2018",
+      "citation": "N. Ionkin, D. M. Harris, 'Note: A versatile 3D-printed droplet-on-demand generator', Rev. Sci. Instrum. 89, 116103 (2018), doi:10.1063/1.5054400",
+      "urls": [
+        "https://doi.org/10.1063/1.5054400",
+        "https://pubs.aip.org/rsi/article-supplement/364018/zip/116103_1_supplements/",
+        "https://meetings-archive.aps.org/mar/2019/r48/9"
+      ],
+      "read_on_page": [
+        "Only abstract-level material could be read (publisher full text and the supplement zip returned HTTP 403 to automated download).",
+        "Abstract / APS abstract (via search-result text): modelled on Harris-Liu-Bush 2015 with the principal components 3D-printed; tested with deionized water and water-glycerol mixtures; single drops of 0.65-1.32 mm diameter with overall variability < 1 %.",
+        "CAD files, parts list, sample software and circuit layout are published as supplementary material; the Harris Lab hardware page links the supplement zip at the pubs.aip.org URL above ('Design Files')."
+      ],
+      "from_memory_or_inferred": [
+        "Printed in Formlabs clear SLA resin (search snippet showed the cartridge code 'RS-F2-GPCL-'); same CEB-35D26 disc and Arduino + H-bridge drive as the 2015 design. Not verified against the full text."
+      ]
+    },
+    {
+      "id": "yang_1997",
+      "citation": "J. C. Yang, W. Chien, M. King, W. L. Grosshandler, 'A simple piezoelectric droplet generator', Exp. Fluids 23, 445-447 (1997)",
+      "urls": [
+        "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=911561",
+        "https://www.nist.gov/node/588691"
+      ],
+      "read_on_page": [
+        "Full text read (NIST scan).",
+        "Body: SS 304. One chamber wall is a piezoelectric ceramic disc, American Piezo Ceramics model APC352428A (Fig. 1 dimensions: disc 34.93 mm with 26.99 mm inner feature, 0.25 mm and 3.18 mm thickness callouts), sealed with a Parker 2-025 O-ring and four 6-32 screws on a 45.72 mm circle. Body 50.8 mm across; chamber features 15.88 mm and 7.94 mm wide, 11.43 / 5.08 mm deep; 10-32 threaded feed port; 1.59 mm bleed hole.",
+        "Nozzle: press-fitted into a Teflon ring. Two types: pulled Pyrex capillary (2.9 mm OD, 1.4 mm ID stock) and synthetic sapphire orifice (Swiss Jewel Co. SP-160, 200 um opening). All openings 125-250 um. Sapphire recommended because identical glass nozzles are hard to duplicate.",
+        "Drive: HP 214B pulse generator; pulse width < 10 ms and amplitude < 30 V; a slightly higher amplitude or longer pulse is 'occasionally required' to START generation, then can be reduced (a first-drop effect).",
+        "Operation at 0.2-0.4 Hz.",
+        "Liquids: aqueous potassium acetate 0-60 % w/w.",
+        "Feed: 125 mL bottle on a clamp, Teflon tubing 3.18 mm OD / 1.91 mm ID; bottle height sets the hydrostatic head. Primed by sucking liquid through the nozzle with a syringe to avoid bubbles.",
+        "Droplet diameter: less than twice the nozzle opening (so < 500 um). Size repeatability within the 15 um measurement uncertainty, i.e. better than 10 %.",
+        "Ejection speed: 0.5 to 0.7 m/s for all fluids; 'only a very narrow range of stable droplet ejection velocities is achieved'.",
+        "Orientation: fires down."
+      ],
+      "from_memory_or_inferred": [
+        "This is the closest published match in SIZE (125-250 um nozzle, < 0.5 mm drops) and SPEED (0.5-0.7 m/s) to the requirement, but with water-like viscosity and no speed-repeatability figure."
+      ]
+    },
+    {
+      "id": "amirzadeh_chandra_pneumatic",
+      "citation": "A. Amirzadeh Goghari, PhD thesis, Univ. of Toronto (supervisor S. Chandra), 'Producing small droplets of aqueous solutions and molten metals using a pneumatic droplet generator' (2010); related papers: Cheng & Chandra, Exp. Fluids 34, 755 (2003); Amirzadeh Goghari & Chandra, Exp. Fluids 44, 105 (2008); Amirzadeh & Chandra, Exp. Therm. Fluid Sci. 34, 1488 (2010)",
+      "urls": [
+        "https://hdl.handle.net/1807/26125",
+        "https://doi.org/10.1007/s00348-003-0629-6",
+        "https://doi.org/10.1016/j.expthermflusci.2010.07.013"
+      ],
+      "read_on_page": [
+        "Thesis full text read (chapters 2-4).",
+        "Principle: a solenoid valve opens for a few ms and puts a gas pressure pulse on the liquid above a nozzle; an open vent tube lets the pressure ring negative afterwards and pull the jet back.",
+        "The original downward-firing generator suffered leakage and liquid accumulation on the nozzle face (low surface tension liquids, water, and any nozzle > 200 um); the generator was therefore REDESIGNED TO FIRE UPWARD, with the liquid supply level set to the height of the nozzle tip.",
+        "Hardware: Swagelok SS-400-4 cross with 6.4 mm tube; Numatics HSO2L6H50B solenoid valve (8 ms to open fully); nitrogen at 35-276 kPa; vent tube 4.8 mm ID of chosen length plus ball valve; rate 0.5 Hz.",
+        "Nozzles: synthetic sapphire orifices from Swiss Jewel Company (Philadelphia): 100 um (model 2-80-004), 250 um (2-80-010), 300 um (2-80-012), 450 um (2-80-018), 800 um (2-80-032), press-fitted in an aluminium holder; also flame-pulled, ground Pyrex cones.",
+        "Pulse widths 4.1-10.7 ms; measured gas pressure swings of only a few kPa (e.g. 3.5-5 kPa amplitude, ring frequency 294 Hz).",
+        "Viscosity results: best with 60 wt% glycerin (kinematic viscosity 8.15e-6 m2/s, density 1151, sigma 0.067 at 25 C): 170-180 um single drops from a 200 um nozzle. Above 70 wt% NO drops could be produced from the 200 um nozzle; with 80 wt% 'repeatable small droplets could not be produced'. Pure glycerin needed a 750 um nozzle (drop = nozzle size).",
+        "With an added co-flowing 'secondary gas flow' (downward firing): 80 wt% glycerin from a 200 um nozzle gave drops 130-175 um (mean 150) at 3.1-4.6 m/s (mean 3.7 m/s; 1.8 m/s without the gas flow). Pure glycerin from 450 um: 0.8-0.9 m/s with a satellite; from 300 um: single drops 1.5x nozzle diameter but 'poor repeatability'.",
+        "Pulse-width sensitivity is extreme: 4.1 ms gave a 180 um drop, 4.2 ms gave a 75 um drop followed by a 200 um one."
+      ],
+      "from_memory_or_inferred": [
+        "60 wt% glycerin is about 9 mPa.s and 80 wt% about 45-60 mPa.s at 20-25 C, so this pneumatic method FAILED at the viscosity of the target resin (75-85 mPa.s) with 200-300 um nozzles. Diameter scatter of +/-15 % at 80 wt% implies speed scatter far outside the 1-3 % requirement. Recommendation: do not build a pneumatic generator for this liquid."
+      ]
+    },
+    {
+      "id": "liquid_time_crystals_generator",
+      "citation": "Harris-type generator described in arXiv:2202.05407 ('Liquid Time Crystals' experiment paper)",
+      "urls": ["https://arxiv.org/abs/2202.05407"],
+      "read_on_page": [
+        "Chamber printed in nylon PA11 (HP Jet Fusion), same 35 mm buzzer disc clamped on the chamber; STL in the paper's supplement.",
+        "Replaceable M6-thread brass 3D-printer nozzles, 0.1-1.0 mm.",
+        "Square pulses of +/-30 V from the H-bridge of a stepper driver on an Arduino CNC shield; pulse duration nozzle-size dependent, 'typically on the order of a millisecond'.",
+        "Peristaltic pump + micrometer stage set the reservoir height."
+      ],
+      "from_memory_or_inferred": []
+    }
+  ],
+  "injection_in_levitation_papers": [
+    {
+      "id": "andrade_camargo_marzo_2018",
+      "citation": "M. A. B. Andrade, T. S. A. Camargo, A. Marzo, 'Automatic contactless injection, transportation, merging, and ejection of droplets with a multifocal point acoustic levitator', Rev. Sci. Instrum. 89, 125105 (2018)",
+      "urls": [
+        "https://academica-e.unavarra.es/entities/publication/94df5e84-36a1-4cea-abf0-e7b78c2d9dda",
+        "https://doi.org/10.1063/1.5063715"
+      ],
+      "read_on_page": [
+        "Full text read (UPNA repository copy).",
+        "Levitator: 16 x 16 array of 40 kHz transducers (Manorshi MSO-P1040H07T, 9.8 mm) facing a plane reflector 110 mm away, 20 Vpp drive.",
+        "Injector: the Harris-Liu-Bush 2015 low-cost generator (reservoir + chamber + piezo buzzer) with a 1 mm outlet nozzle, mounted nozzle-UP in a 5.5 mm hole in the reflector. One square pulse of 60 Vpp, 1 ms injects a droplet, which is caught at the lowest pressure node 2.5 mm above the reflector.",
+        "After injection the droplet oscillates about the trap with 3 mm peak-to-peak for a few seconds before settling."
+      ],
+      "from_memory_or_inferred": [
+        "This is the only paper found in which a DIY piezo DoD generator fires upward into a 40 kHz phased-array trap. It differs from the requirement in scale (about 1 mm drops, 2.5 mm flight instead of 36 mm) and no liquid viscosity, speed or repeatability is given. The 3 mm residual oscillation shows the trap, not the injector, absorbed the speed error."
+      ]
+    },
+    {
+      "id": "acoustofab_ucl_2025",
+      "citation": "H. Chen et al., 'Omnidirectional and Multi-Material In Situ 3D Printing Using Acoustic Levitation' (AcoustoFab), Adv. Mater. Technol. 10(9), 2401792 (2025)",
+      "urls": ["https://discovery.ucl.ac.uk/id/eprint/10211390"],
+      "read_on_page": [
+        "Full text read (UCL Discovery open-access PDF).",
+        "No ballistic injection: a fixed extruder nozzle (one per material, driven by a NEMA 17 stepper under an Arduino Nano) slowly extrudes a pendant drop; a 40 kHz phased-array trap is created lambda/4 (about 2 mm) below the nozzle tip and its acoustic force plus gravity overcome the capillary force pi*sigma*d to detach the drop, which is then carried away by moving the trap.",
+        "Droplet volume is set by flow rate and detachment time: 2-10 uL (glycerol), 2.5 uL for the accuracy test, 7 uL for bioink.",
+        "Liquids 1 to 5,000,000 mPa.s (zero-shear), including a transparent UV resin (Liqcreate 'Clear Impact'); too strong a trap atomizes the drop."
+      ],
+      "from_memory_or_inferred": [
+        "2.5 uL is a 1.7 mm droplet, about 180 times the 14 nL target volume. Acoustic-assisted detachment at 40 kHz with hobby array pressures cannot pull off a 0.3 mm drop (see Foresti entry for the required force)."
+      ]
+    },
+    {
+      "id": "foresti_2018_acoustophoretic_printing",
+      "citation": "D. Foresti et al., 'Acoustophoretic printing', Sci. Adv. 4, eaat1659 (2018)",
+      "urls": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC6118516/", "https://doi.org/10.1126/sciadv.aat1659"],
+      "read_on_page": [
+        "Full text read (Europe PMC).",
+        "A pendant drop on a nozzle tip sits inside a sub-wavelength Fabry-Perot resonator ('subWAVE': cavity height 5.1 mm = 0.36 lambda, bore 2 mm = 0.14 lambda) driven at about 25 kHz (magnetostrictive Etrema C18A, 26.46 / 23.64 kHz) reaching about 170 dB.",
+        "Detachment law: V = pi*d*sigma / (rho*g_eq), independent of viscosity. Demonstrated 0.5 to 25,000 mPa.s. Acoustic force up to 116 times gravity; drop radius from > 800 um (gravity only, d = 140 um nozzle) to < 65 um (116 g, d = 13 um nozzle).",
+        "Nozzles: pulled tapered glass (Sutter P-97), tips coated hydrophobic (silane or 'Fusso' by Crystal Armor).",
+        "With acoustic force > 10 g drops can be ejected in any direction; trajectory accuracy degrades at the highest force (62 g)."
+      ],
+      "from_memory_or_inferred": [
+        "CALC for the target: a 14 nL (0.30 mm) resin drop (sigma 0.035, rho 1100) needs g_eq of about 36 g from a 50 um tip or 73 g from a 100 um tip. That is inside Foresti's range but needs a 170 dB tuned resonator and a pulled glass capillary - not a hobby-budget build, and the drop leaves slowly rather than at a controlled 1 m/s."
+      ]
+    },
+    {
+      "id": "leviprint_2022",
+      "citation": "I. Ezcurdia, R. Morales, M. A. B. Andrade, A. Marzo, 'LeviPrint', SIGGRAPH 2022, doi:10.1145/3528233.3530752",
+      "urls": ["https://academica-e.unavarra.es/handle/2454/47391"],
+      "read_on_page": [
+        "Press-release level only: a droplet of UV glue is dispensed by a syringe and held by the levitator at the joint position, a part is brought to it, UV light cures it."
+      ],
+      "from_memory_or_inferred": [
+        "Droplets are needle-dispensed directly into the trap (uL scale), not fired ballistically."
+      ]
+    }
+  ],
+  "jettability": {"status": "in progress"},
+  "parts": {"status": "in progress"},
+  "failure_modes": {"status": "in progress"},
+  "recommended_design": {"status": "in progress"}
+}

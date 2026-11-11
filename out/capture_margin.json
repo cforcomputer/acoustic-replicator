@@ -1,0 +1,216 @@
+[
+ {
+  "label": "speed +0 %",
+  "status": "landed",
+  "err_um": 45.4078884618943,
+  "ba_dyn": 1.0466258094627754,
+  "speed_err": 0.0
+ },
+ {
+  "label": "speed +1 %",
+  "status": "landed",
+  "err_um": 106.2893071678384,
+  "ba_dyn": 1.0454485783463525,
+  "speed_err": 0.01
+ },
+ {
+  "label": "speed -1 %",
+  "status": "landed",
+  "err_um": 156.6842071667527,
+  "ba_dyn": 1.0593980309760047,
+  "speed_err": -0.01
+ },
+ {
+  "label": "speed +2 %",
+  "status": "landed",
+  "err_um": 274.01766013321776,
+  "ba_dyn": 1.0410063613816325,
+  "speed_err": 0.02
+ },
+ {
+  "label": "speed -2 %",
+  "status": "landed",
+  "err_um": 377.624057981014,
+  "ba_dyn": 1.049589684136096,
+  "speed_err": -0.02
+ },
+ {
+  "label": "speed +3 %",
+  "status": "landed",
+  "err_um": 90.31913127354194,
+  "ba_dyn": 1.0535364258439148,
+  "speed_err": 0.03
+ },
+ {
+  "label": "speed -3 %",
+  "status": "landed",
+  "err_um": 345.0702981372009,
+  "ba_dyn": 1.0612580698224672,
+  "speed_err": -0.03
+ },
+ {
+  "label": "speed +5 %",
+  "status": "lost",
+  "err_um": null,
+  "ba_dyn": 1.2227432131560927,
+  "speed_err": 0.05
+ },
+ {
+  "label": "speed -5 %",
+  "status": "landed",
+  "err_um": 735.5677185860496,
+  "ba_dyn": 1.3210442257280994,
+  "speed_err": -0.05
+ },
+ {
+  "label": "speed +8 %",
+  "status": "lost",
+  "err_um": null,
+  "ba_dyn": 0.9990455806270246,
+  "speed_err": 0.08
+ },
+ {
+  "label": "speed -8 %",
+  "status": "lost",
+  "err_um": null,
+  "ba_dyn": 1.8785836645698621,
+  "speed_err": -0.08
+ },
+ {
+  "label": "speed +12 %",
+  "status": "lost",
+  "err_um": null,
+  "ba_dyn": 0.15838883813175264,
+  "speed_err": 0.12
+ },
+ {
+  "label": "tilt 0.5 deg",
+  "status": "landed",
+  "err_um": 33.298977086500784,
+  "ba_dyn": 1.0352878548991429,
+  "angle": [
+   0.008726646259971648,
+   0.0
+  ]
+ },
+ {
+  "label": "tilt 1 deg",
+  "status": "landed",
+  "err_um": 41.260471344414704,
+  "ba_dyn": 1.0386437280537306,
+  "angle": [
+   0.017453292519943295,
+   0.0
+  ]
+ },
+ {
+  "label": "tilt 2 deg",
+  "status": "landed",
+  "err_um": 410.124413206332,
+  "ba_dyn": 1.013375878991833,
+  "angle": [
+   0.03490658503988659,
+   0.0
+  ]
+ },
+ {
+  "label": "tilt 3 deg",
+  "status": "landed",
+  "err_um": 406.06450774372803,
+  "ba_dyn": 1.047955778213149,
+  "angle": [
+   0.05235987755982989,
+   0.0
+  ]
+ },
+ {
+  "label": "tilt 4 deg",
+  "status": "landed",
+  "err_um": 1042.4166735365204,
+  "ba_dyn": 1.2210747749624877,
+  "angle": [
+   0.06981317007977318,
+   0.0
+  ]
+ },
+ {
+  "label": "tilt 6 deg",
+  "status": "lost",
+  "err_um": null,
+  "ba_dyn": 0.612887226879136,
+  "angle": [
+   0.10471975511965978,
+   0.0
+  ]
+ },
+ {
+  "label": "late by 0.2 ms",
+  "status": "landed",
+  "err_um": 59.04206058219041,
+  "ba_dyn": 1.0463103610240199,
+  "time_err": 0.0002
+ },
+ {
+  "label": "early by 0.2 ms",
+  "status": "landed",
+  "err_um": 56.88208103911444,
+  "ba_dyn": 1.047231293122904,
+  "time_err": -0.0002
+ },
+ {
+  "label": "late by 0.5 ms",
+  "status": "landed",
+  "err_um": 97.10014619491385,
+  "ba_dyn": 1.0524219936034667,
+  "time_err": 0.0005
+ },
+ {
+  "label": "early by 0.5 ms",
+  "status": "landed",
+  "err_um": 102.65804252453171,
+  "ba_dyn": 1.0503783418715351,
+  "time_err": -0.0005
+ },
+ {
+  "label": "late by 1 ms",
+  "status": "landed",
+  "err_um": 250.18649734564102,
+  "ba_dyn": 1.0594753117347377,
+  "time_err": 0.001
+ },
+ {
+  "label": "early by 1 ms",
+  "status": "landed",
+  "err_um": 141.29316006800568,
+  "ba_dyn": 1.0461159764555483,
+  "time_err": -0.001
+ },
+ {
+  "label": "late by 2 ms",
+  "status": "landed",
+  "err_um": 474.73238805683553,
+  "ba_dyn": 1.0469985261054853,
+  "time_err": 0.002
+ },
+ {
+  "label": "early by 2 ms",
+  "status": "landed",
+  "err_um": 427.55171345506835,
+  "ba_dyn": 1.0422642470669274,
+  "time_err": -0.002
+ },
+ {
+  "label": "late by 4 ms",
+  "status": "lost",
+  "err_um": null,
+  "ba_dyn": 1.7247953405713101,
+  "time_err": 0.004
+ },
+ {
+  "label": "early by 4 ms",
+  "status": "lost",
+  "err_um": null,
+  "ba_dyn": 1.1588237438884876,
+  "time_err": -0.004
+ }
+]

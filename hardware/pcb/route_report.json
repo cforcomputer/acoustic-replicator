@@ -1,0 +1,385 @@
+{
+ "routing": {
+  "steps": 842,
+  "ripups": 638,
+  "not_completed": [],
+  "tracks": 342,
+  "vias": 235,
+  "plane_vias": 117,
+  "total_track_mm": 1260.4,
+  "longest": [
+   [
+    77.9,
+    "+3V3"
+   ],
+   [
+    61.5,
+    "+1V1"
+   ],
+   [
+    50.5,
+    "PH15"
+   ],
+   [
+    50.0,
+    "PH10"
+   ],
+   [
+    46.6,
+    "GND"
+   ]
+  ],
+  "rules": {
+   "grid_mm": 0.05,
+   "clearance_mm": 0.15,
+   "track_signal_mm": 0.15,
+   "track_power_mm": 0.2,
+   "track_output_mm": 0.25,
+   "via_drill_mm": 0.3,
+   "via_pad_mm": 0.6,
+   "stack": "L1 ground pour / L2 +V_DRIVE plane with +3V3 island / L3 signals / L4 parts and signals"
+  }
+ },
+ "files": [
+  "TB-25-B_Cu.gbl",
+  "TB-25-B_Mask.gbs",
+  "TB-25-B_Paste.gbp",
+  "TB-25-B_Silkscreen.gbo",
+  "TB-25-Edge_Cuts.gm1",
+  "TB-25-F_Cu.gtl",
+  "TB-25-F_Mask.gts",
+  "TB-25-F_Silkscreen.gto",
+  "TB-25-In1_Cu.g2",
+  "TB-25-In2_Cu.g3",
+  "TB-25-NPTH.drl",
+  "TB-25-PTH.drl"
+ ],
+ "assembly": {
+  "bom_lines": 21,
+  "placed": 68,
+  "extended": [
+   "C131025",
+   "C160352",
+   "C160403",
+   "C160405",
+   "C171845",
+   "C2040",
+   "C20625731",
+   "C2879853"
+  ],
+  "groups": [
+   {
+    "desc": "RP2040",
+    "package": "LQFN-56_L7.0-W7.0-P0.4-EP",
+    "lcsc": "C2040",
+    "cls": "extended",
+    "qty": 1,
+    "refs": [
+     "U1"
+    ]
+   },
+   {
+    "desc": "W25Q16JVSSIQ, 16 Mbit QSPI flash",
+    "package": "SOIC-8_L5.3-W5.3-P1.27-LS8.0-BL",
+    "lcsc": "C131025",
+    "cls": "extended",
+    "qty": 1,
+    "refs": [
+     "U2"
+    ]
+   },
+   {
+    "desc": "SP3485EN-L/TR",
+    "package": "SOIC-8_L5.0-W4.0-P1.27-LS6.0-BL",
+    "lcsc": "C8963",
+    "cls": "basic",
+    "qty": 1,
+    "refs": [
+     "U3"
+    ]
+   },
+   {
+    "desc": "AMS1117-3.3",
+    "package": "SOT-223-3_L6.5-W3.4-P2.30-LS7.0-BR",
+    "lcsc": "C6186",
+    "cls": "basic",
+    "qty": 1,
+    "refs": [
+     "U4"
+    ]
+   },
+   {
+    "desc": "ABM8-272-T3, 12 MHz, CL 10 pF (the crystal Raspberry Pi specifies)",
+    "package": "CRYSTAL-SMD_4P-L3.2-W2.5-BL",
+    "lcsc": "C20625731",
+    "cls": "extended",
+    "qty": 1,
+    "refs": [
+     "Y1"
+    ]
+   },
+   {
+    "desc": "SPH0641LU4H-1 ultrasonic PDM microphone",
+    "package": "MIC-SMD_5P_L3.5-W2.7-P0.82_SPH0641LU4H-1",
+    "lcsc": "C2879853",
+    "cls": "extended",
+    "qty": 1,
+    "refs": [
+     "MK1"
+    ]
+   },
+   {
+    "desc": "IX4427NTR dual 1.5 A driver, 4.5-30 V",
+    "package": "SOIC-8_L4.9-W3.9-P1.27-LS6.0-BL",
+    "lcsc": "C171845",
+    "cls": "extended",
+    "qty": 13,
+    "refs": [
+     "D1",
+     "D2",
+     "D3",
+     "D4",
+     "D5",
+     "D6",
+     "D7",
+     "D8",
+     "D9",
+     "D10",
+     "D11",
+     "D12",
+     "D13"
+    ]
+   },
+   {
+    "desc": "SM06B-SRSS-TB",
+    "package": "CONN-SMD_SM06B-SRSS-TB-LF-SN",
+    "lcsc": "C160405",
+    "cls": "extended",
+    "qty": 2,
+    "refs": [
+     "J1",
+     "J2"
+    ]
+   },
+   {
+    "desc": "B2B-PH-SM4-TB",
+    "package": "CONN-SMD_B2B-PH-SM4-TB-LF-SN",
+    "lcsc": "C160352",
+    "cls": "extended",
+    "qty": 2,
+    "refs": [
+     "J3",
+     "J4"
+    ]
+   },
+   {
+    "desc": "SM03B-SRSS-TB",
+    "package": "CONN-SMD_SM03B-SRSS-TB-LF-SN-P",
+    "lcsc": "C160403",
+    "cls": "extended",
+    "qty": 1,
+    "refs": [
+     "J5"
+    ]
+   },
+   {
+    "desc": "10 uF 50 V X5R 1206",
+    "package": "C1206",
+    "lcsc": "C13585",
+    "cls": "basic",
+    "qty": 2,
+    "refs": [
+     "CB1",
+     "CB2"
+    ]
+   },
+   {
+    "desc": "1 uF 50 V X5R 0603",
+    "package": "C0603",
+    "lcsc": "C15849",
+    "cls": "basic",
+    "qty": 13,
+    "refs": [
+     "CD1",
+     "CD2",
+     "CD3",
+     "CD4",
+     "CD5",
+     "CD6",
+     "CD7",
+     "CD8",
+     "CD9",
+     "CD10",
+     "CD11",
+     "CD12",
+     "CD13"
+    ]
+   },
+   {
+    "desc": "1 uF 25 V X5R 0402",
+    "package": "C0402",
+    "lcsc": "C52923",
+    "cls": "basic",
+    "qty": 2,
+    "refs": [
+     "C10",
+     "C9"
+    ]
+   },
+   {
+    "desc": "100 nF 16 V X7R 0402",
+    "package": "C0402",
+    "lcsc": "C1525",
+    "cls": "basic",
+    "qty": 13,
+    "refs": [
+     "C18",
+     "C19",
+     "C1",
+     "C2",
+     "C3",
+     "C4",
+     "C5",
+     "C6",
+     "C7",
+     "C8",
+     "C13",
+     "C16",
+     "C17"
+    ]
+   },
+   {
+    "desc": "15 pF 50 V C0G 0402",
+    "package": "C0402",
+    "lcsc": "C1548",
+    "cls": "basic",
+    "qty": 2,
+    "refs": [
+     "C11",
+     "C12"
+    ]
+   },
+   {
+    "desc": "1 k 1 % 0402",
+    "package": "R0402",
+    "lcsc": "C11702",
+    "cls": "basic",
+    "qty": 2,
+    "refs": [
+     "R1",
+     "R6"
+    ]
+   },
+   {
+    "desc": "10 k 1 % 0402",
+    "package": "R0402",
+    "lcsc": "C25744",
+    "cls": "basic",
+    "qty": 4,
+    "refs": [
+     "R2",
+     "R8",
+     "R7",
+     "R5"
+    ]
+   },
+   {
+    "desc": "10 uF 25 V X5R 0805",
+    "package": "C0805",
+    "lcsc": "C15850",
+    "cls": "basic",
+    "qty": 3,
+    "refs": [
+     "C14",
+     "C15",
+     "C20"
+    ]
+   },
+   {
+    "desc": "MMBT3904",
+    "package": "SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR",
+    "lcsc": "C20526",
+    "cls": "basic",
+    "qty": 1,
+    "refs": [
+     "Q1"
+    ]
+   },
+   {
+    "desc": "100 R 1 % 0402",
+    "package": "R0402",
+    "lcsc": "C25076",
+    "cls": "basic",
+    "qty": 1,
+    "refs": [
+     "R4"
+    ]
+   },
+   {
+    "desc": "red LED 0603",
+    "package": "LED-SMD_L1.6-W0.8-R-RD",
+    "lcsc": "C2286",
+    "cls": "basic",
+    "qty": 1,
+    "refs": [
+     "LD1"
+    ]
+   }
+  ]
+ },
+ "verification": {
+  "opens": {},
+  "shorts": [],
+  "pads_without_copper": [],
+  "plated_holes": 285,
+  "non_plated_holes": 5,
+  "holes_touching_no_copper": 0,
+  "clearance": {
+   "L1": {
+    "min_gap_mm": 0.179,
+    "at": [
+     -17.619999999999997,
+     10.060000000000002
+    ],
+    "edge_mm": 0.4,
+    "copper_pct": 91.6
+   },
+   "L2": {
+    "min_gap_mm": 0.3,
+    "at": [
+     -22.6,
+     1.4400000000000013
+    ],
+    "edge_mm": 0.4,
+    "copper_pct": 87.0
+   },
+   "L3": {
+    "min_gap_mm": 0.14,
+    "at": [
+     6.800000000000004,
+     20.64
+    ],
+    "edge_mm": 2.12,
+    "copper_pct": 7.8
+   },
+   "L4": {
+    "min_gap_mm": 0.135,
+    "at": [
+     -4.66,
+     8.600000000000001
+    ],
+    "edge_mm": 0.48,
+    "copper_pct": 17.7
+   }
+  },
+  "clearance_rule_mm": 0.127,
+  "clearance_violations": [],
+  "n_clearance_violations": 0,
+  "hole_wall_to_wall_min_mm": 0.5,
+  "annular_ring_under_0p12": [],
+  "n_annular": 0,
+  "nets_checked": 120,
+  "pads_checked": 367,
+  "ok": true
+ }
+}

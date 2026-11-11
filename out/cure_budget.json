@@ -1,0 +1,79 @@
+{
+ "n_emitters": 11,
+ "emitter": {
+  "flux_w": 1.2,
+  "lens_efficiency": 0.85,
+  "fwhm_deg": 20.0
+ },
+ "irradiance_w_cm2": {
+  "centre": {
+   "min": 0.1552862373529958,
+   "p10": 0.23697625850794546,
+   "median": 0.29011880778849003,
+   "max": 0.3906780481347886
+  },
+  "10 mm off centre": {
+   "min": 0.0959664075662815,
+   "p10": 0.17904407630271874,
+   "median": 0.2377354528603598,
+   "max": 0.3378056867088665
+  }
+ },
+ "blob_depth_um": 120.0,
+ "rows": [
+  {
+   "resin": "PR48",
+   "Ec": 6.3,
+   "Dp_um": 53.0,
+   "gel_ms_typ": 26.500044163377144,
+   "gel_ms_low": 35.186866441469284,
+   "through_dose": 60.62458942076432,
+   "through_ms_typ": 255.00861857727958
+  },
+  {
+   "resin": "Formlabs Clear",
+   "Ec": 12.6,
+   "Dp_um": 192.0,
+   "gel_ms_typ": 53.00008832675429,
+   "gel_ms_low": 70.37373288293857,
+   "through_dose": 23.539899063646,
+   "through_ms_typ": 99.01720076000942
+  },
+  {
+   "resin": "VeroWhitePlus",
+   "Ec": 1.9,
+   "Dp_um": 145.0,
+   "gel_ms_typ": 7.992076811177234,
+   "gel_ms_low": 10.611912101395498,
+   "through_dose": 4.346800655768673,
+   "through_ms_typ": 18.284191959883582
+  },
+  {
+   "resin": "TangoBlackPlus",
+   "Ec": 4.1,
+   "Dp_um": 151.0,
+   "gel_ms_typ": 17.246060487277187,
+   "gel_ms_low": 22.89938927143239,
+   "through_dose": 9.076502765763184,
+   "through_ms_typ": 38.17900383202209
+  },
+  {
+   "resin": "VeroClear",
+   "Ec": 6.9,
+   "Dp_um": 568.0,
+   "gel_ms_typ": 29.023857893222587,
+   "gel_ms_low": 38.53799657875208,
+   "through_dose": 8.52317579462724,
+   "through_ms_typ": 35.851513487277614
+  },
+  {
+   "resin": "typical hobby resin (assumed Ec 4, Dp 120)",
+   "Ec": 4.0,
+   "Dp_um": 120.0,
+   "gel_ms_typ": 16.825424865636283,
+   "gel_ms_low": 22.34086758188526,
+   "through_dose": 10.87312731383618,
+   "through_ms_typ": 45.73624666836208
+  }
+ ]
+}

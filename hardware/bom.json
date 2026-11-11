@@ -1,0 +1,309 @@
+{
+ "bom": [
+  {
+   "item": "40 kHz transmitter, 10 mm can, Sunny TCT40-10T2, guaranteed 110 dB (+25 spares)",
+   "qty": 475,
+   "unit_usd": 0.24,
+   "total_usd": 114.0,
+   "where": "Maritex",
+   "status": "verified"
+  },
+  {
+   "item": "TB-25 board: 4-layer PCB, parts and back-side assembly at JLCPCB (order 20; parts 15.7 USD each from their library prices, board and fees estimated)",
+   "qty": 20,
+   "unit_usd": 21.0,
+   "total_usd": 420.0,
+   "where": "JLCPCB",
+   "status": "verified"
+  },
+  {
+   "item": "Raspberry Pi Debug Probe (programs the boards through the 3-pin SWD connector)",
+   "qty": 1,
+   "unit_usd": 12.0,
+   "total_usd": 12.0,
+   "where": "Raspberry Pi resellers",
+   "status": "listed"
+  },
+  {
+   "item": "JST-SH 6-pin cable, 150 mm (bus jumpers and trunks)",
+   "qty": 18,
+   "unit_usd": 3.32,
+   "total_usd": 59.76,
+   "where": "Pololu 5543",
+   "status": "verified"
+  },
+  {
+   "item": "JST-PH 2-pin cable (power jumpers and trunks)",
+   "qty": 18,
+   "unit_usd": 0.75,
+   "total_usd": 13.5,
+   "where": "Adafruit 261",
+   "status": "verified"
+  },
+  {
+   "item": "Screws, by count in the model: 16 M2, 22 M2.5, 68 M3, 11 M4, 3 M5, 24 wood screws (assortment boxes M2 / M2.5 / M3 / M4, see hardware/fasteners.json)",
+   "qty": 1,
+   "unit_usd": 24.0,
+   "total_usd": 24.0,
+   "where": "any",
+   "status": "generic"
+  },
+  {
+   "item": "M3 knurled thumb screws (4 in the model: pin clamp, chuck, cap, cartridge lock)",
+   "qty": 1,
+   "unit_usd": 8.0,
+   "total_usd": 8.0,
+   "where": "any",
+   "status": "generic"
+  },
+  {
+   "item": "Heat-set inserts (33 in the model: M2.5, M3, M4, M5 assortment)",
+   "qty": 1,
+   "unit_usd": 21.0,
+   "total_usd": 21.0,
+   "where": "CNC Kitchen / Prusa",
+   "status": "verified"
+  },
+  {
+   "item": "PETG filament for frame, legs, dock, pods, chuck, cartridge body (~0.7 kg used)",
+   "qty": 1,
+   "unit_usd": 24.0,
+   "total_usd": 24.0,
+   "where": "Prusament",
+   "status": "verified"
+  },
+  {
+   "item": "Global-shutter camera InnoMaker U20CAM-9281M with trigger input and 2.8 mm M12 lens",
+   "qty": 3,
+   "unit_usd": 32.99,
+   "total_usd": 98.97,
+   "where": "inno-maker.com",
+   "status": "verified"
+  },
+  {
+   "item": "405 nm LED Luminus SST-10-UV-A130-G405 + 20 mm star board for 3535",
+   "qty": 11,
+   "unit_usd": 4.2,
+   "total_usd": 46.2,
+   "where": "Digi-Key / Cutter",
+   "status": "verified"
+  },
+  {
+   "item": "Lens for the UV LEDs, Ledil LISA2-RS-PIN (10 mm)",
+   "qty": 11,
+   "unit_usd": 1.68,
+   "total_usd": 18.48,
+   "where": "Digi-Key",
+   "status": "verified"
+  },
+  {
+   "item": "UV string driver Mean Well LDD-700L",
+   "qty": 3,
+   "unit_usd": 3.25,
+   "total_usd": 9.75,
+   "where": "Digi-Key",
+   "status": "verified"
+  },
+  {
+   "item": "Red LED on star, Cree XP-E2",
+   "qty": 3,
+   "unit_usd": 5.25,
+   "total_usd": 15.75,
+   "where": "LEDSupply",
+   "status": "verified"
+  },
+  {
+   "item": "Opal acrylic sheet for strobe diffusers",
+   "qty": 1,
+   "unit_usd": 10.7,
+   "total_usd": 10.7,
+   "where": "US Plastic",
+   "status": "listed"
+  },
+  {
+   "item": "MOSFET driver for the strobes",
+   "qty": 3,
+   "unit_usd": 3.95,
+   "total_usd": 11.85,
+   "where": "Adafruit 5648",
+   "status": "verified"
+  },
+  {
+   "item": "Line laser 650 nm 5 mW",
+   "qty": 1,
+   "unit_usd": 8.95,
+   "total_usd": 8.95,
+   "where": "Adafruit 1057",
+   "status": "verified"
+  },
+  {
+   "item": "Slotted photo-interrupter Vishay TCST2300 (droplet light gate)",
+   "qty": 2,
+   "unit_usd": 1.54,
+   "total_usd": 3.08,
+   "where": "Digi-Key",
+   "status": "verified"
+  },
+  {
+   "item": "BME280 temperature / humidity / pressure breakout",
+   "qty": 2,
+   "unit_usd": 14.95,
+   "total_usd": 29.9,
+   "where": "Adafruit 2652",
+   "status": "verified"
+  },
+  {
+   "item": "Raspberry Pi Pico (bus hub) + RS-485 breakout + prototyping board",
+   "qty": 1,
+   "unit_usd": 20.5,
+   "total_usd": 20.5,
+   "where": "Raspberry Pi / SparkFun",
+   "status": "verified"
+  },
+  {
+   "item": "Drive supply Mean Well LRS-100-24 (24 V 4.5 A, trims to 27 V)",
+   "qty": 1,
+   "unit_usd": 17.6,
+   "total_usd": 17.6,
+   "where": "Mouser",
+   "status": "listed"
+  },
+  {
+   "item": "Thermal supply 12 V 12.5 A (LRS-150-12 class)",
+   "qty": 1,
+   "unit_usd": 22.0,
+   "total_usd": 22.0,
+   "where": "Mouser",
+   "status": "generic"
+  },
+  {
+   "item": "Step-down converters: adjustable 5 A (drive voltage) and 5 V 3 A",
+   "qty": 2,
+   "unit_usd": 5.0,
+   "total_usd": 10.0,
+   "where": "any",
+   "status": "generic"
+  },
+  {
+   "item": "Peltier assembly 12 V 5 A with heat sink and fan",
+   "qty": 2,
+   "unit_usd": 34.95,
+   "total_usd": 69.9,
+   "where": "Adafruit 1335",
+   "status": "verified"
+  },
+  {
+   "item": "Inside heat sink 100 x 70 x 25 mm + 120 mm PWM fan (Arctic P12)",
+   "qty": 2,
+   "unit_usd": 16.0,
+   "total_usd": 32.0,
+   "where": "any / Arctic",
+   "status": "listed"
+  },
+  {
+   "item": "H-bridge module BTS7960",
+   "qty": 1,
+   "unit_usd": 5.0,
+   "total_usd": 5.0,
+   "where": "AliExpress",
+   "status": "listed"
+  },
+  {
+   "item": "Melamine foam sheet 48 x 24 x 1 in",
+   "qty": 1,
+   "unit_usd": 49.12,
+   "total_usd": 49.12,
+   "where": "Penn Tool Co",
+   "status": "verified"
+  },
+  {
+   "item": "Plywood 1/4 in for enclosure and drawer (4 panels 24 x 24 in), wood glue, glue blocks",
+   "qty": 4,
+   "unit_usd": 15.0,
+   "total_usd": 60.0,
+   "where": "any",
+   "status": "generic"
+  },
+  {
+   "item": "405 nm blocking acrylic 24 x 12 x 1/8 in (door window)",
+   "qty": 1,
+   "unit_usd": 34.99,
+   "total_usd": 34.99,
+   "where": "J Tech Photonics",
+   "status": "verified"
+  },
+  {
+   "item": "Interlock switch Omron SS-5GL",
+   "qty": 2,
+   "unit_usd": 2.09,
+   "total_usd": 4.18,
+   "where": "Digi-Key",
+   "status": "verified"
+  },
+  {
+   "item": "Hinges (4), magnetic catches (6), gasket tape, cable ties and clips, wire",
+   "qty": 1,
+   "unit_usd": 45.0,
+   "total_usd": 45.0,
+   "where": "any",
+   "status": "generic"
+  },
+  {
+   "item": "Build pins: 2.5 mm stainless rod, cut to 100 mm (20 pcs)",
+   "qty": 1,
+   "unit_usd": 8.0,
+   "total_usd": 8.0,
+   "where": "any",
+   "status": "generic"
+  },
+  {
+   "item": "UV resin 1 kg (thinnest found: Anycubic High Speed 2.0, 75-85 mPa.s)",
+   "qty": 1,
+   "unit_usd": 32.0,
+   "total_usd": 32.0,
+   "where": "Anycubic",
+   "status": "listed"
+  },
+  {
+   "item": "Droplet generator: piezo disc CUI CEB-35D26 (2), spare included",
+   "qty": 2,
+   "unit_usd": 2.5,
+   "total_usd": 5.0,
+   "where": "Digi-Key 102-1128-ND",
+   "status": "listed"
+  },
+  {
+   "item": "Droplet generator: brass M6 3-D printer nozzles 0.2 / 0.25 / 0.3 / 0.4 mm (set)",
+   "qty": 1,
+   "unit_usd": 9.0,
+   "total_usd": 9.0,
+   "where": "any 3-D printer parts shop",
+   "status": "generic"
+  },
+  {
+   "item": "Droplet generator: hot-end heater block + M6 heat break + 24 V heater cartridge + 100 k thermistor",
+   "qty": 1,
+   "unit_usd": 12.0,
+   "total_usd": 12.0,
+   "where": "any 3-D printer parts shop",
+   "status": "generic"
+  },
+  {
+   "item": "Droplet generator: O-rings (1-1/4 in ID x 1/16 in for the piezo; 1/8 in ID for the feed tube), 10-24 hose barbs, 1/8 in opaque tubing, 10 mL syringes",
+   "qty": 1,
+   "unit_usd": 22.0,
+   "total_usd": 22.0,
+   "where": "McMaster-Carr 9452K113, 94115K006",
+   "status": "listed"
+  },
+  {
+   "item": "Droplet generator: dual H-bridge for the piezo pulse (L293D or DRV8871) + small adjustable 5-30 V converter + logic-level MOSFET for the heater",
+   "qty": 1,
+   "unit_usd": 14.0,
+   "total_usd": 14.0,
+   "where": "Digi-Key / any",
+   "status": "generic"
+  }
+ ],
+ "total_usd": 1422.18
+}

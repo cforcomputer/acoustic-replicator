@@ -1,0 +1,38 @@
+{
+ "droplets": 73533,
+ "sites": 74358,
+ "stats": {
+  "blocked": 4692,
+  "tilted": 7509,
+  "lost": 371,
+  "waited": 112,
+  "up": 241,
+  "side": 11529,
+  "down": 61763,
+  "attempts": 78708,
+  "never_printed": 825
+ },
+ "completeness": 0.9889050270313887,
+ "target_volume_mm3": 996.908472,
+ "printed_volume_mm3": 987.7205269575315,
+ "surf_dev_um": {
+  "mean_signed": 10.33054256439209,
+  "mean_abs": 49.137420654296875,
+  "rms": 64.13418579101562,
+  "p95": 133.37721252441406,
+  "p99": 209.20950317382812,
+  "frac_over_300um": 0.0011370104101368346
+ },
+ "interior_void_fraction": 0.011510594785222377,
+ "sigma_um": 125.0,
+ "p_fail": 0.005,
+ "drop_d_mm": 0.3,
+ "pitch_mm": 0.3215378107802415,
+ "layer_mm": 0.15,
+ "theta_c_deg": 45.491755847907115,
+ "normals": {
+  "up": 241,
+  "side": 11529,
+  "down": 61763
+ }
+}

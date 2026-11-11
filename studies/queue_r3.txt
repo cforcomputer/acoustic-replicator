@@ -1,0 +1,23 @@
+opposed16 sph20 side --plants nominal,R0.3 --n 3
+opposed16 sph20 bottom --plants nominal,R0.3 --n 3
+box5_12 sph20 upper45 --plants nominal,R0.3 --n 3
+box6_12 sph20 top
+box6_12 sph20 side --tilt 35 --tag _tilt35
+box6_12 sph20 side --mu 0.010 --tag _mu10
+box6_12 sph20 side --d 0.4
+box6_12 benchy:0.030 autodown
+box6_12 benchy:0.250 autoside
+box6_12 benchy:0.850 autodown
+box6_12 benchy:0.650 autoside
+box6_12 sph20 farside --model_R 0.6 --plants R0.5,R0.7 --tag _reflaware
+box6_12 sph20 bottom --tag _final
+box6_12 sph20 lower45 --tag _final
+box6_12 sph20 side --tag _final
+box6_12 sph20 farside --tag _final
+box6_12 sph20 upper45 --tag _final
+box6_12 tip bottom --tag _final
+box6_12 tip side --tag _final
+box6_12 benchy:0.450 autodown --tag _final
+box6_12 sph20 bottom --bottom_gain 0.7 --tag _screen70
+box6_12 sph20 side --bottom_gain 0.7 --tag _screen70
+box6_12 sph20 bottom --bottom_gain 0.5 --tag _screen50

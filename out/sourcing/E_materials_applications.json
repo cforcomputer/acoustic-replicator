@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "title": "E - resin material data for structural checks, and applications review",
+    "date": "2026-11-10",
+    "status": "PARTIAL - research in progress; sections marked TODO are not yet filled",
+    "provenance_key": {
+      "read_on_page": "I fetched the page or PDF in this session and the number was in the text returned",
+      "search_snippet": "number appeared in a web-search result summary for the cited URL; the page itself was not opened or could not be opened",
+      "recalled": "from memory, not verified in this session; treat as a lead, not a citation",
+      "derived": "my own arithmetic from numbers with the stated provenance"
+    }
+  },
+  "material_data": {
+    "a_modulus_strength_gel_dose": {
+      "green_vs_postcured_datasheets": [
+        {
+          "material": "Formlabs Standard resins (Clear FLGPCL04 etc.), Form 2, 100 um layers",
+          "green": {"tensile_modulus_GPa": 1.6, "UTS_MPa": 38, "elongation_pct": 12, "flexural_modulus_GPa": 1.25},
+          "post_cured": {"tensile_modulus_GPa": 2.8, "UTS_MPa": 65, "elongation_pct": 6.2, "flexural_modulus_GPa": 2.2},
+          "conditions": "green = washed and air dried without post cure; post-cured = 1.25 mW/cm2 of 405 nm for 60 min at 60 C (4.5 J/cm2)",
+          "url": "https://formlabs-media.formlabs.com/datasheets/Clear_Resin_Technical.pdf",
+          "provenance": "read_on_page (PDF text extracted locally)"
+        },
+        {
+          "material": "Elegoo Standard Photopolymer Resin (PJHC-D series)",
+          "post_cured": {"tensile_modulus_MPa": 521, "tensile_strength_MPa": 33.8, "flexural_modulus_MPa": 709, "flexural_strength_MPa": 30.1, "elongation_break_pct": 8.8, "shore_D": "80-88"},
+          "liquid": {"viscosity_mPas": "200-400", "density_g_cm3": "1.05-1.25"},
+          "conditions": "post cure = in water under 405 nm at 200 mW/cm2 for one minute (12 J/cm2); recommended layer exposure 2.5-3.5 s at 3.5-4.5 mW/cm2 (about 9-16 mJ/cm2 per 50 um layer)",
+          "url": "https://123-3d.nl/pdf/Elegoo_Standaard_Resin_TDS_EN.pdf",
+          "provenance": "read_on_page (PDF text extracted locally)"
+        }
+      ],
+      "TODO": "modulus vs conversion, Ec/Dp table, remaining items being written"
+    }
+  },
+  "applications": {"TODO": "in progress"},
+  "optical_printing": {"TODO": "in progress"},
+  "gecko_adhesive_moulds": {"TODO": "in progress"}
+}

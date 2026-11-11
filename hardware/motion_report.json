@@ -1,0 +1,44 @@
+[
+ {
+  "name": "lift the build-pin chuck, pin and a 30 mm part out through the top port (lid open)",
+  "moving_parts": 10,
+  "steps": 6,
+  "pairs_checked": 32,
+  "collisions": []
+ },
+ {
+  "name": "lift the frame cap with its six boards straight off (chuck removed, lid open)",
+  "moving_parts": 217,
+  "steps": 5,
+  "pairs_checked": 870,
+  "collisions": []
+ },
+ {
+  "name": "slide the droplet-generator cartridge out to the front (lock screw removed, door open)",
+  "moving_parts": 32,
+  "steps": 6,
+  "pairs_checked": 23,
+  "collisions": []
+ },
+ {
+  "name": "swing the door open",
+  "moving_parts": 19,
+  "steps": 4,
+  "pairs_checked": 1,
+  "collisions": []
+ },
+ {
+  "name": "swing the lid open",
+  "moving_parts": 2,
+  "steps": 4,
+  "pairs_checked": 3,
+  "collisions": []
+ },
+ {
+  "name": "pull one board (sq07) straight out of its pocket (4 screws and 2 plugs removed)",
+  "moving_parts": 27,
+  "steps": 3,
+  "pairs_checked": 452,
+  "collisions": []
+ }
+]

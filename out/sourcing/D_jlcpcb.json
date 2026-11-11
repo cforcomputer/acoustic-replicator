@@ -1,0 +1,645 @@
+{
+ "meta": {
+  "title": "TB-25 JLCPCB sourcing, land patterns, fab and assembly rules",
+  "date_of_research": "2026-11-10",
+  "status": "PARTIAL - being filled in",
+  "provenance_convention": "Every block carries 'provenance': 'READ_TODAY' (fetched and read on 2026-11-10, URL given), 'DERIVED' (computed by me from READ_TODAY numbers, formula given) or 'RECALLED' (from memory, not verified today - check before relying on it).",
+  "jlcpcb_library_source": "Stock, price, Basic/Extended and MPN were read from JLCPCB's own parts-library endpoints (the same data the jlcpcb.com/parts pages render): POST https://jlcpcb.com/api/overseas-pcb-order/v1/shoppingCart/smtGood/selectSmtComponentList (search) and GET https://cart.jlcpcb.com/shoppingCart/smtGood/getComponentDetail?componentCode=Cxxxx (detail). componentLibraryType 'base' = Basic, 'expand' = Extended. Prices are USD per piece at the quantity break shown. Stock moves daily.",
+  "coordinate_convention": "All land-pattern coordinates are in mm, component TOP view (looking at the part from above as it sits on its own side of the board), origin at the body / pad-pattern centre unless stated, +x right, +y up. For a part placed on the bottom copper layer the router must mirror the pattern itself."
+ },
+ "components": {
+  "1": {
+   "item": "RP2040 microcontroller, QFN-56 7x7 mm",
+   "chosen": {
+    "lcsc": "C2040",
+    "mpn": "RP2040",
+    "manufacturer": "Raspberry Pi",
+    "jlc_package_name": "LQFN-56(7x7)",
+    "library_type": "Extended",
+    "stock_today": 85553,
+    "price_usd": {
+     "1+": 1.0865,
+     "10+": 0.9998,
+     "30+": 0.918,
+     "100+": 0.8558
+    },
+    "assembly_process": "SMT",
+    "jlc_msl_note": "JLC lists MSL 3; the Raspberry Pi datasheet says MSL 1",
+    "provenance": "READ_TODAY",
+    "sources": {
+     "jlcpcb_part_page": "https://jlcpcb.com/partdetail/C2040",
+     "jlcpcb_api_read_today": "https://cart.jlcpcb.com/shoppingCart/smtGood/getComponentDetail?componentCode=C2040"
+    },
+    "do_not_use": "C2961140, C2761095, C5157610, C6855416 are other RP2040 listings with ZERO stock today."
+   },
+   "pinout": {
+    "provenance": "READ_TODAY",
+    "source": "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf  (Figure 3 / Figure 170, Tables 615-621)",
+    "numbering": "Top view, pin 1 at the top of the LEFT side (dot in top-left corner), counting counter-clockwise: 1-14 down the left side, 15-28 left-to-right along the bottom, 29-42 up the right side, 43-56 right-to-left along the top. Pad 57 = centre GND.",
+    "pins": {
+     "1": "IOVDD",
+     "2": "GPIO0",
+     "3": "GPIO1",
+     "4": "GPIO2",
+     "5": "GPIO3",
+     "6": "GPIO4",
+     "7": "GPIO5",
+     "8": "GPIO6",
+     "9": "GPIO7",
+     "10": "IOVDD",
+     "11": "GPIO8",
+     "12": "GPIO9",
+     "13": "GPIO10",
+     "14": "GPIO11",
+     "15": "GPIO12",
+     "16": "GPIO13",
+     "17": "GPIO14",
+     "18": "GPIO15",
+     "19": "TESTEN",
+     "20": "XIN",
+     "21": "XOUT",
+     "22": "IOVDD",
+     "23": "DVDD",
+     "24": "SWCLK",
+     "25": "SWDIO",
+     "26": "RUN",
+     "27": "GPIO16",
+     "28": "GPIO17",
+     "29": "GPIO18",
+     "30": "GPIO19",
+     "31": "GPIO20",
+     "32": "GPIO21",
+     "33": "IOVDD",
+     "34": "GPIO22",
+     "35": "GPIO23",
+     "36": "GPIO24",
+     "37": "GPIO25",
+     "38": "GPIO26/ADC0",
+     "39": "GPIO27/ADC1",
+     "40": "GPIO28/ADC2",
+     "41": "GPIO29/ADC3",
+     "42": "IOVDD",
+     "43": "ADC_AVDD",
+     "44": "VREG_VIN",
+     "45": "VREG_VOUT",
+     "46": "USB_DM",
+     "47": "USB_DP",
+     "48": "USB_VDD",
+     "49": "IOVDD",
+     "50": "DVDD",
+     "51": "QSPI_SD3",
+     "52": "QSPI_SCLK",
+     "53": "QSPI_SD0",
+     "54": "QSPI_SD2",
+     "55": "QSPI_SD1",
+     "56": "QSPI_SS_N (QSPI_CSn)",
+     "57": "GND (exposed centre pad - the ONLY ground connection)"
+    },
+    "gpio_to_pin": {
+     "GPIO0": 2,
+     "GPIO1": 3,
+     "GPIO2": 4,
+     "GPIO3": 5,
+     "GPIO4": 6,
+     "GPIO5": 7,
+     "GPIO6": 8,
+     "GPIO7": 9,
+     "GPIO8": 11,
+     "GPIO9": 12,
+     "GPIO10": 13,
+     "GPIO11": 14,
+     "GPIO12": 15,
+     "GPIO13": 16,
+     "GPIO14": 17,
+     "GPIO15": 18,
+     "GPIO16": 27,
+     "GPIO17": 28,
+     "GPIO18": 29,
+     "GPIO19": 30,
+     "GPIO20": 31,
+     "GPIO21": 32,
+     "GPIO22": 34,
+     "GPIO23": 35,
+     "GPIO24": 36,
+     "GPIO25": 37,
+     "GPIO26_ADC0": 38,
+     "GPIO27_ADC1": 39,
+     "GPIO28_ADC2": 40,
+     "GPIO29_ADC3": 41
+    },
+    "power_pins": {
+     "IOVDD": [
+      1,
+      10,
+      22,
+      33,
+      42,
+      49
+     ],
+     "DVDD": [
+      23,
+      50
+     ],
+     "VREG_VIN": 44,
+     "VREG_VOUT": 45,
+     "USB_VDD": 48,
+     "ADC_AVDD": 43,
+     "GND": 57
+    },
+    "reset_states": "GPIO0-29 pull-down; QSPI_SCLK pull-down; QSPI_CSn pull-up; SWCLK, SWDIO pull-up; RUN pull-up; TESTEN pull-down (Tables 615-619)."
+   },
+   "body": {
+    "provenance": "READ_TODAY",
+    "source": "RP2040 datasheet Figure 166 table",
+    "D_x_E_mm": "7.00 x 7.00 BSC",
+    "height_A_max_mm": 0.9,
+    "lead_width_b_min_nom_max": [
+     0.13,
+     0.18,
+     0.23
+    ],
+    "lead_length_L_min_nom_max": [
+     0.3,
+     0.4,
+     0.5
+    ],
+    "pitch_e": 0.4,
+    "exposed_pad_D2_E2_min_nom_max": [
+     3.0,
+     3.1,
+     3.2
+    ],
+    "note": "The ePad is deliberately smaller than a generic QFN-56 (3.1 mm, not ~5.6 mm): a stock 'QFN-56 7x7 P0.4' footprint has the wrong centre pad."
+   },
+   "land_pattern": {
+    "provenance": "READ_TODAY (dimensions) + DERIVED (per-pad centre coordinates)",
+    "source": "RP2040 datasheet section 5.1.2, Figure 167 'Recommended PCB Footprint for the RP2040 QFN-56 package'",
+    "figure_dimensions_mm": {
+     "overall_outer_extent_of_pad_rows": 7.75,
+     "inner_extent_between_opposite_pad_rows": 6.0,
+     "pad_width": 0.2,
+     "pitch": 0.4,
+     "row_length_outer_edge_to_outer_edge_of_14_pads": 5.4,
+     "centre_pad": "3.20 x 3.20",
+     "dims_0.875_and_1.175": "0.875 = pad length ((7.75-6.00)/2); 1.175 = corner offset ((7.75-5.40)/2)"
+    },
+    "derived": {
+     "pad_length": 0.875,
+     "pad_centre_distance_from_origin": 3.4375,
+     "formula": "6.00/2 + 0.875/2",
+     "first_pad_centre_offset_along_row": 2.6,
+     "formula2": "(5.40-0.20)/2 = 13*0.40/2"
+    },
+    "pads": {
+     "1": {
+      "name": "IOVDD",
+      "x": -3.4375,
+      "y": 2.6,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "2": {
+      "name": "GPIO0",
+      "x": -3.4375,
+      "y": 2.2,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "3": {
+      "name": "GPIO1",
+      "x": -3.4375,
+      "y": 1.8,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "4": {
+      "name": "GPIO2",
+      "x": -3.4375,
+      "y": 1.4,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "5": {
+      "name": "GPIO3",
+      "x": -3.4375,
+      "y": 1.0,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "6": {
+      "name": "GPIO4",
+      "x": -3.4375,
+      "y": 0.6,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "7": {
+      "name": "GPIO5",
+      "x": -3.4375,
+      "y": 0.2,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "8": {
+      "name": "GPIO6",
+      "x": -3.4375,
+      "y": -0.2,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "9": {
+      "name": "GPIO7",
+      "x": -3.4375,
+      "y": -0.6,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "10": {
+      "name": "IOVDD",
+      "x": -3.4375,
+      "y": -1.0,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "11": {
+      "name": "GPIO8",
+      "x": -3.4375,
+      "y": -1.4,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "12": {
+      "name": "GPIO9",
+      "x": -3.4375,
+      "y": -1.8,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "13": {
+      "name": "GPIO10",
+      "x": -3.4375,
+      "y": -2.2,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "14": {
+      "name": "GPIO11",
+      "x": -3.4375,
+      "y": -2.6,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "15": {
+      "name": "GPIO12",
+      "x": -2.6,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "16": {
+      "name": "GPIO13",
+      "x": -2.2,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "17": {
+      "name": "GPIO14",
+      "x": -1.8,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "18": {
+      "name": "GPIO15",
+      "x": -1.4,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "19": {
+      "name": "TESTEN",
+      "x": -1.0,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "20": {
+      "name": "XIN",
+      "x": -0.6,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "21": {
+      "name": "XOUT",
+      "x": -0.2,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "22": {
+      "name": "IOVDD",
+      "x": 0.2,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "23": {
+      "name": "DVDD",
+      "x": 0.6,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "24": {
+      "name": "SWCLK",
+      "x": 1.0,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "25": {
+      "name": "SWDIO",
+      "x": 1.4,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "26": {
+      "name": "RUN",
+      "x": 1.8,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "27": {
+      "name": "GPIO16",
+      "x": 2.2,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "28": {
+      "name": "GPIO17",
+      "x": 2.6,
+      "y": -3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "29": {
+      "name": "GPIO18",
+      "x": 3.4375,
+      "y": -2.6,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "30": {
+      "name": "GPIO19",
+      "x": 3.4375,
+      "y": -2.2,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "31": {
+      "name": "GPIO20",
+      "x": 3.4375,
+      "y": -1.8,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "32": {
+      "name": "GPIO21",
+      "x": 3.4375,
+      "y": -1.4,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "33": {
+      "name": "IOVDD",
+      "x": 3.4375,
+      "y": -1.0,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "34": {
+      "name": "GPIO22",
+      "x": 3.4375,
+      "y": -0.6,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "35": {
+      "name": "GPIO23",
+      "x": 3.4375,
+      "y": -0.2,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "36": {
+      "name": "GPIO24",
+      "x": 3.4375,
+      "y": 0.2,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "37": {
+      "name": "GPIO25",
+      "x": 3.4375,
+      "y": 0.6,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "38": {
+      "name": "GPIO26/ADC0",
+      "x": 3.4375,
+      "y": 1.0,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "39": {
+      "name": "GPIO27/ADC1",
+      "x": 3.4375,
+      "y": 1.4,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "40": {
+      "name": "GPIO28/ADC2",
+      "x": 3.4375,
+      "y": 1.8,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "41": {
+      "name": "GPIO29/ADC3",
+      "x": 3.4375,
+      "y": 2.2,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "42": {
+      "name": "IOVDD",
+      "x": 3.4375,
+      "y": 2.6,
+      "size_x": 0.875,
+      "size_y": 0.2
+     },
+     "43": {
+      "name": "ADC_AVDD",
+      "x": 2.6,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "44": {
+      "name": "VREG_VIN",
+      "x": 2.2,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "45": {
+      "name": "VREG_VOUT",
+      "x": 1.8,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "46": {
+      "name": "USB_DM",
+      "x": 1.4,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "47": {
+      "name": "USB_DP",
+      "x": 1.0,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "48": {
+      "name": "USB_VDD",
+      "x": 0.6,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "49": {
+      "name": "IOVDD",
+      "x": 0.2,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "50": {
+      "name": "DVDD",
+      "x": -0.2,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "51": {
+      "name": "QSPI_SD3",
+      "x": -0.6,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "52": {
+      "name": "QSPI_SCLK",
+      "x": -1.0,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "53": {
+      "name": "QSPI_SD0",
+      "x": -1.4,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "54": {
+      "name": "QSPI_SD2",
+      "x": -1.8,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "55": {
+      "name": "QSPI_SD1",
+      "x": -2.2,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "56": {
+      "name": "QSPI_SS_N (QSPI_CSn)",
+      "x": -2.6,
+      "y": 3.4375,
+      "size_x": 0.2,
+      "size_y": 0.875
+     },
+     "57": {
+      "name": "GND (exposed centre pad - the ONLY ground connection)",
+      "x": 0.0,
+      "y": 0.0,
+      "size_x": 3.2,
+      "size_y": 3.2
+     }
+    }
+   },
+   "minimal_support_circuit": {
+    "provenance": "READ_TODAY",
+    "sources": [
+     "https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf  (chapter 2 text + Figure 11 complete schematic, read as rendered image)",
+     "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf  (sections 2.9.1-2.9.5, 2.10, 2.12.5)"
+    ],
+    "decoupling_100nF": {
+     "rule": "One 100 nF close to EACH IOVDD pin (1, 10, 22, 33, 42, 49), EACH DVDD pin (23, 50), USB_VDD (48) and ADC_AVDD (43) - datasheet 2.9.1, 2.9.2, 2.9.4, 2.9.5.",
+     "minimal_design_actual": "C6, C7 = 100 nF on +1V1 (the two DVDD pins); C9, C11, C12, C13, C14, C15, C16 = 7 x 100 nF on +3V3 (pins 48 and 49 share one capacitor for lack of room on a 2-layer board). All 0402 (M1005) X7R 10 %.",
+     "total_for_full_rule": "10 x 100 nF (6 IOVDD + 2 DVDD + USB_VDD + ADC_AVDD)"
+    },
+    "core_regulator_1V1": {
+     "VREG_VIN": "pin 44, tie to +3V3 (1.8-3.3 V), 1 uF to GND close to the pin (C10 in the guide, 0402 X5R 16 V)",
+     "VREG_VOUT": "pin 45, 1.1 V out 100 mA max, 1 uF to GND close to the pin (C8), and it MUST be wired off-chip to both DVDD pins 23 and 50",
+     "note": "VREG_VIN also powers the POR/brown-out blocks so it must be powered even if an external 1.1 V were used."
+    },
+    "crystal": {
+     "recommended_part": "Abracon ABM8-272-T3, 12 MHz, CL 10 pF, ESR max 50 ohm, +/-30 ppm, drive 10 uW typ / 200 uW max",
+     "circuit": "Crystal pad 1 -> XIN (pin 20) with C2 = 15 pF C0G to GND; crystal pad 3 -> C3 = 15 pF C0G to GND and through R5 = 1 kohm series resistor to XOUT (pin 21); crystal pads 2 and 4 -> GND.",
+     "load_cap_math": "15 pF || 15 pF in series = 7.5 pF + ~3 pF stray = 10.5 pF vs 10 pF target (guide section 2.3).",
+     "warning": "Guide: any deviation from this crystal / 15 pF / 1 k combination at 3.3 V IOVDD 'will require extensive testing'."
+    },
+    "qspi_flash": {
+     "connections": {
+      "QSPI_SS (pin 56)": "flash pin 1 /CS",
+      "QSPI_SD1 (pin 55)": "flash pin 2 DO(IO1)",
+      "QSPI_SD2 (pin 54)": "flash pin 3 /WP(IO2)",
+      "QSPI_SD0 (pin 53)": "flash pin 5 DI(IO0)",
+      "QSPI_SCLK (pin 52)": "flash pin 6 CLK",
+      "QSPI_SD3 (pin 51)": "flash pin 7 /HOLD(IO3)",
+      "+3V3": "flash pin 8 VCC with 100 nF (C5)",
+      "GND": "flash pin 4"
+     },
+     "boot_strap": "QSPI_SS is the BOOTSEL strap: R1 = 1 kohm from QSPI_SS to a 2-pin header/button to GND (pull low at reset -> USB BOOTSEL mode). R2 = 10 kohm pull-up from QSPI_SS to +3V3 is drawn but DNF with the W25Q128JV; the guide says fit it if a different flash is used. Keep R1/R2 next to the flash.",
+     "guide_flash": "W25Q128JVSIQ (16 MB is the largest RP2040 supports); any 25-series flash answering 03h with 24-bit addressing works (guide 2.6)."
+    },
+    "usb": {
+     "used": "27 ohm series resistor in each of USB_DP (47) and USB_DM (46), close to the chip; no external pull-ups.",
+     "unused": "USB_VDD (48) must NOT be left unconnected - tie to +3V3 (any 1.8-3.3 V supply) with its 100 nF (datasheet 2.9.4). The datasheet text I read gives no instruction for unused USB_DP/USB_DM; leaving them unconnected is my RECALLED practice, not a quoted rule. Without USB there is no BOOTSEL mass-storage path: the first program must go in over SWD."
+    },
+    "RUN": "pin 26, active-low reset, internal pull-up; 'If RUN is not used, it should be tied high' (datasheet 2.12.5). The minimal design just brings it to a header.",
+    "TESTEN": "pin 19: tie to GND.",
+    "SWD": "SWCLK pin 24, SWDIO pin 25 (both internal pull-up), plus GND; the minimal design routes them straight to the header with no series parts.",
+    "ADC_AVDD": "pin 43: 3.3 V nominal, 100 nF close to the pin; the minimal design ties it directly to +3V3 (no filter).",
+    "GND": "Only through pad 57 - it must be soldered and via-stitched to the ground plane."
+   }
+  }
+ },
+ "fab_rules": {},
+ "assembly_rules": {}
+}

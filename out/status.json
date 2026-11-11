@@ -1,0 +1,88 @@
+{
+ "activity": "Final design: routed boards, serviceable frame, home-built droplet generator. See REPORT.md for what is and is not proven.",
+ "tests": {
+  "hardware": {
+   "title": "Final assembly: nothing overlaps, nothing floats, every screw drawn, nothing collides when taken out",
+   "state": "pass",
+   "detail": "1197 solids at real size \u00b7 5994 close pairs checked \u00b7 0 overlaps\nevery part fastened to something and connected to the enclosure floor: yes\n224 wire conductors, 51.45 m \u00b7 loose ends 0 \u00b7 through a solid 0\n6 service motions (chuck out, cap off, generator cartridge out, door, lid, one board out): collisions 0\n15 printed parts, 378 cm\u00b3; each one solid and sound after peeling 0.6-0.8 mm off every surface: yes"
+  },
+  "pcb": {
+   "title": "Transducer board TB-25: routed; files for JLCPCB",
+   "state": "pass",
+   "detail": "4 layers \u00b7 342 tracks, 1.26 m \u00b7 235 vias \u00b7 68 parts placed by the assembler, 21 part numbers from JLCPCB's library\nrebuilt from the Gerber and drill files alone: 120 nets, 367 pads \u00b7 open circuits 0 \u00b7 shorts 0 \u00b7 smallest gap between nets 0.135 mm\ndriver headroom at 18 V: 40.0 % \u00b7 microcontroller pins 30/30\nno board has been built and there is no firmware yet"
+  },
+  "sourcing": {
+   "title": "Can every part be bought?",
+   "state": "warn",
+   "detail": "38 lines, about $1422 without a host computer \u00b7 20 lines checked on a supplier page on 2026-11-10\nthe droplet generator is built, not bought: a piezo generator after a published open design, unproven at 0.3 mm with warmed resin;\nthinnest hobby resin found is 75-85 mPa\u00b7s, not the 30 assumed"
+  },
+  "land_smooth": {
+   "title": "Landings on a smooth 20 mm part (all directions, imperfect machine)",
+   "state": "pass",
+   "detail": "0.3 mm droplets: landed 42/42 \u00b7 median 104 \u00b5m \u00b7 9 in 10 within 250 \u00b5m \u00b7 worst 333 \u00b5m\nbare pin tip (first droplets): landed 6/6 \u00b7 median 185 \u00b5m \u00b7 9 in 10 within 253 \u00b5m \u00b7 worst 305 \u00b5m"
+  },
+  "land_benchy": {
+   "title": "Landings on the real Benchy geometry mid-print",
+   "state": "warn",
+   "detail": "under-side sites, 10 % printed: landed 4/6 \u00b7 median 372 \u00b5m \u00b7 9 in 10 within 504 \u00b5m \u00b7 worst 558 \u00b5m\nunder-side sites, 45 % printed: landed 12/12 \u00b7 median 159 \u00b5m \u00b7 9 in 10 within 384 \u00b5m \u00b7 worst 488 \u00b5m\nside wall, 25 % printed: landed 12/12 \u00b7 median 358 \u00b5m \u00b7 9 in 10 within 1326 \u00b5m \u00b7 worst 2025 \u00b5m\nthis is the weak spot: on thin or crowded geometry some droplets are lost or land in the wrong place"
+  },
+  "land_fine": {
+   "title": "0.2 mm droplets (used for the fine shell)",
+   "state": "warn",
+   "detail": "smooth part + Benchy under-side: landed 36/36 \u00b7 median 76 \u00b5m \u00b7 9 in 10 within 208 \u00b5m \u00b7 worst 230 \u00b5m\nBenchy side wall: landed 10/12 \u00b7 median 269 \u00b5m \u00b7 9 in 10 within 1204 \u00b5m \u00b7 worst 2058 \u00b5m"
+  },
+  "land_power": {
+   "title": "How much acoustic power is really needed? (cheaper, weaker transducers)",
+   "state": "pass",
+   "detail": "71 % of the simulated sound pressure: landed 18/18 \u00b7 median 80 \u00b5m \u00b7 9 in 10 within 216 \u00b5m \u00b7 worst 249 \u00b5m\n50 % of the simulated sound pressure: landed 18/18 \u00b7 median 65 \u00b5m \u00b7 9 in 10 within 127 \u00b5m \u00b7 worst 200 \u00b5m\n40 % of the simulated sound pressure: landed 12/12 \u00b7 median 106 \u00b5m \u00b7 9 in 10 within 168 \u00b5m \u00b7 worst 199 \u00b5m\nthe cheapest transducers at their guaranteed minimum reach about 47 % at 27 V, the most the chosen supply gives"
+  },
+  "land_mu": {
+   "title": "Thicker resin (80 mPa\u00b7s, the thinnest hobby resin found)",
+   "state": "pass",
+   "detail": "under-side site: landed 6/6 \u00b7 median 121 \u00b5m \u00b7 9 in 10 within 160 \u00b5m \u00b7 worst 162 \u00b5m"
+  },
+  "print": {
+   "title": "Benchy at 40 % scale (24 mm long), printed hanging from the pin",
+   "state": "warn",
+   "detail": "0.3 mm droplets, smooth-part landing scatter: 73,533 droplets \u00b7 surface error 62 \u00b5m mean (57 on faces, 111 on edges) \u00b7 internal voids 1.2 % \u00b7 built 98.9 % of sites\n0.3 mm core + 0.2 mm shell, smooth-part landing scatter: 126,006 droplets \u00b7 surface error 51 \u00b5m mean (47 on faces, 87 on edges) \u00b7 internal voids 1.5 % \u00b7 built 99.4 % of sites\n0.3 mm, landing errors and losses taken from the Benchy flight tests: 72,463 droplets \u00b7 surface error 86 \u00b5m mean (82 on faces, 127 on edges) \u00b7 internal voids 4.5 % \u00b7 built 97.5 % of sites\nfloor set by droplet size alone on edges: 94 \u00b5m for 0.3 mm droplets, 78 \u00b5m for 0.2 mm"
+  },
+  "structure": {
+   "title": "Does the half-built part need structural support?",
+   "state": "warn",
+   "detail": "own weight, 17 snapshots: stress up to 0.06 MPa, sag up to 11 \u00b5m at a resin modulus of 1 GPa\nsound field during a delivery, 3 Benchy sites: net force on the part up to 2.2 mN, stress up to 0.17 MPa, movement up to 28 \u00b5m at 1 GPa\nstrength is no issue (resin about 30 MPa); soft, freshly cured thin walls can move by tens of \u00b5m, which the print simulation does not include\non the thin side wall 2730 of 8275 boundary-element panels had to be clipped: the solver is at its limit there"
+  },
+  "twin": {
+   "title": "Digital twin: measure the built machine, correct the model, re-plan",
+   "state": "pass",
+   "detail": "uncalibrated cheap transducers (14\u00b0 phase and 15 % amplitude scatter, air 1.5 K off, steady draught): landed 4/4, median 81 \u00b5m\nboard microphones recover the sound speed to 0.02 m/s and the phase error from 13.4\u00b0 to 0.2\u00b0 rms; landing after calibration 4/4, 86 \u00b5m\ncamera trap test infers the draught (0.30 m/s vs 0.20 true); with feed-forward 4/4, 94 \u00b5m\non this easy site calibration fixes the model but does not change the landing error measurably"
+  },
+  "uv": {
+   "title": "UV flash from the eleven 405 nm emitters as placed",
+   "state": "pass",
+   "detail": "0.24 W/cm\u00b2 typical on any surface orientation (worst 0.10)\ntypical hobby resin: shape frozen after 17 ms of light; cured through after 46 ms in total (later flashes add up)"
+  },
+  "geometry": {
+   "title": "Why a polyhedron and not a box, a sphere or flexible boards",
+   "state": "pass",
+   "detail": "box 864 transducers: 64 % of a sphere's output reaches the centre \u00b7 polyhedron 450: 90 % \u00b7 ideal sphere 450: 100 % (+16 % trap stiffness)\nlandings still succeed at 40 % of the sound pressure, so the last 16 % does not justify flexible boards and hand wiring"
+  }
+ },
+ "order": [
+  "hardware",
+  "pcb",
+  "sourcing",
+  "land_smooth",
+  "land_benchy",
+  "land_fine",
+  "land_power",
+  "land_mu",
+  "print",
+  "structure",
+  "twin",
+  "uv",
+  "geometry"
+ ],
+ "notes": [],
+ "updated": "16:29:01",
+ "verdict": "Simulation supports building a bench prototype; it is not a guarantee. 42/42 droplets landed on a smooth part, 28/30 on real Benchy geometry with some landings off by more than 1 mm. The droplet generator must be built and proven first. See REPORT.md."
+}

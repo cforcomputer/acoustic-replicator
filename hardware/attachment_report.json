@@ -1,0 +1,24 @@
+{
+ "n_parts": 1197,
+ "unmounted": [],
+ "gaps": [],
+ "unrooted": [],
+ "split_bodies": [],
+ "bodies": {
+  "frame_cap": 7,
+  "frame_lower": 43,
+  "frame_mid": 30,
+  "chuck": 6,
+  "stand_leg0": 4,
+  "stand_leg1": 3,
+  "stand_leg2": 3,
+  "dock": 1,
+  "jet_body": 6,
+  "jet_clamp": 2,
+  "gate_bracket": 2,
+  "res_clamp": 1,
+  "pod0": 6,
+  "pod1": 6,
+  "pod2": 7
+ }
+}

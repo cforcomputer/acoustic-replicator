@@ -1,0 +1,1117 @@
+[
+  {
+    "item": "1 Drop-on-demand droplet generator (valve + nozzle + driver)",
+    "role": "Fires single ~0.3 mm (14 nL) UV-resin droplets straight up at 1.0-1.5 m/s, 5-20 per second, from the bottom of the cavity",
+    "recommended": {
+      "mfr": "The Lee Company",
+      "mpn": "IKTX0322000A (VHS Valve Evaluation Kit: INKX0514300A valve, IECX0501350A spike-and-hold driver, INZA4710975H / INZA4670915K / INZA4650935K nozzles, INMX0350000A 12 um screen, adapters, tubing, torque wrench, lead wire, clip)",
+      "supplier": "The Lee Company (direct, quote / 'Request' button; no web shop)",
+      "url": "https://www.theleeco.com/uploads/2024/11/INIX0500250A-E1.pdf",
+      "unit_price_usd": null,
+      "price_qty": 1,
+      "stock_note": "Quote-only. Kit contents read from Lee document INIX0500250A Rev E (June 2024) and from the Lee Health Science handbook 10.2; Lee web pages list the kit as current. No price published anywhere I could fetch; my recollection of a few hundred USD for a single valve and roughly 700-1000 USD for the kit is NOT verified.",
+      "verified": true,
+      "verification": "manufacturer_catalogue (PDF and web catalogue pages fetched; price and stock not shown)"
+    },
+    "alternates": [
+      {
+        "mfr": "The Lee Company",
+        "mpn": "INKX0514100A (VHS M/M, 062 MINSTAC in/out, FFKM seal, 24 V spike / 3.2 V hold, 0-120 psig) + INZA6670915K (062 MINSTAC nozzle, 0.0075 in / 0.19 mm sapphire orifice, PTFE-coated)",
+        "supplier": "The Lee Company (direct quote)",
+        "url": "https://www.theleeco.com/uploads/2024/04/Technical-Fluid-Control-Handbook-for-Health-Science-10.2-Digital-Edition-High-Quality.pdf",
+        "unit_price_usd": null,
+        "price_qty": 1,
+        "stock_note": "Part numbers and specs read from handbook section B (VHS series). FFKM is my choice for acrylate monomer compatibility (general chemical-resistance knowledge, not a Lee statement); FKM/FFKM valves need a 0.5 ms minimum spike instead of 0.35 ms. Price not published.",
+        "verified": true,
+        "verification": "manufacturer_catalogue"
+      },
+      {
+        "mfr": "Harris Lab, Brown University (open hardware, OSHWA US002701)",
+        "mpn": "DropGen V3 (3D-printed piezo-buzzer drop-on-demand generator; piezo disc CUI CEB-35D26; M6 brass 3D-printer nozzle; custom ESP32-S3 PCB)",
+        "supplier": "Self-build from github.com/harrislab-brown/DropGen; piezo from Digi-Key",
+        "url": "https://github.com/harrislab-brown/DropGen",
+        "unit_price_usd": 2.46,
+        "price_qty": 1,
+        "stock_note": "Price shown is only the piezo disc (Digi-Key CEB-35D26, 2,199 in stock when fetched). Whole build is 3D prints, O-rings, magnets, a printer nozzle and a PCB; the repository gives no total cost. Harris 2015 says 'less than a few hundred dollars' for the original machined version.",
+        "verified": true,
+        "verification": "product_page for the piezo (Digi-Key); repository README and wiki read directly"
+      },
+      {
+        "mfr": "Fritz Gyger AG",
+        "mpn": "SMLD 300G / 300GC micro valve",
+        "supplier": "Trajan / LEAP (CERTUS FLEX spare valve) or Gyger distributors",
+        "url": "https://www.trajanscimed.com/products/certus-flex-smld-300gc-valves",
+        "unit_price_usd": 575.0,
+        "price_qty": 1,
+        "stock_note": "Price is from a search-result snippet of a reseller page that now returns HTTP 410; Trajan page returned 429. Not verified. Needs its own controller.",
+        "verified": false,
+        "verification": "search_snippet"
+      }
+    ],
+    "key_specs": {
+      "lee_vhs_dispense_volume": "Catalogue: 'as low as 10 nL up to milliliters' (MINSTAC outlet with nozzle: 10 nL to mL). Kit document: kit covers '500 microliters down to 20 nanoliters'. Handbook: 'Stated minimum dispense volumes may not be achievable in all cases'.",
+      "lee_vhs_viscosity_statement": "Kit document section 3: 'Using significantly viscous fluids above 30 centipoises will have difficulty being dispensed.' No numeric limit on the product pages.",
+      "lee_vhs_low_pressure_warning": "Kit document section 4: at lower pressure 'the droplet will have a reduced velocity ... Fluid will begin to collect at the tip and dispense volumes will become very erratic.' Starting pressure for water-like fluids 2-5 psig.",
+      "lee_vhs_response": "Response as low as 250 us, up to 1 kHz; minimum spike 0.35 ms (EPDM) or 0.5 ms (FKM/FFKM); do not exceed 500 mW average coil power; coil max 66 C",
+      "lee_vhs_pressure": "0-120 psig (M/M); barb-inlet versions 0-30 psig",
+      "lee_vhs_internal_volume": "40 uL (062 MINSTAC inlet), 35 uL (barb inlet)",
+      "lee_vhs_wetted_materials": "PEEK, stainless steel, PPS, seal material (EPDM / FKM / FFKM), epoxy; nozzle: stainless, epoxy (not on PTFE-coated), synthetic sapphire",
+      "lee_vhs_life": "250 million cycles typical on water",
+      "lee_nozzles_062_minstac_8.9mm": "INZA4650935K 0.005 in (0.13 mm) 35,000 Lohm; INZA4670915K 0.0075 in (0.19 mm) 15,400 Lohm; INZA6670915K same, PTFE-coated; INZA4710975H 0.010 in (0.25 mm) 7,500 Lohm",
+      "lee_driver": "IECX0501350A spike-and-hold driver, spike adjustable 0.1-5 ms, needs 24 V (20 W) spike supply, 3.2 V (2 W) hold supply and a 5 V TTL signal; screw terminals 1-6",
+      "valve_connector": "Two contact pins 0.025 in (0.64 mm) square on 0.100 in (2.54 mm) centres, bent 90 degrees to the body; mating lead assembly IHWX0248120A (24 in, 24 AWG PTFE, flying leads)",
+      "valve_body_colour": "Not stated on any page fetched",
+      "my_sizing_estimate_not_sourced": "14 nL through the 0.19 mm orifice at 1.25 m/s is a 0.5 mm long slug delivered in about 0.4 ms, i.e. right at the valve's minimum spike time; with the 0.25 mm orifice it would need 0.23 ms (too short), with 0.13 mm about 0.9 ms but a slender jet. Orifice viscous drop at 30 mPa.s is of order 0.1 bar; feed-line inertia dominates, so the reservoir must sit within a few cm of the valve.",
+      "option_b_DOD_marking_valves": "Large-character 'DOD' coder valves are sold on AliExpress only as spare parts for specific printheads (seen on fetched results pages: 61.59 USD for a solenoid valve listed for the Willett 3150SI DOD printer; 30-205 USD for Citronix/Videojet/Domino valves, which are continuous-inkjet parts). No listing or data sheet I found gives nozzle diameter, drop volume or a viscosity range. Not recommended: undocumented, built for thin solvent inks and millimetre-size dots (the last clause is general knowledge, not from a fetched page).",
+      "option_c_piezo": "MicroFab MJ-AB/MJ-AT: orifices 20-80 um (MJ-ABL 80-120 um), fluid viscosity '< 20 cPs', surface tension 20-70 dynes/cm, quote-only (manufacturer page fetched) - fails both the 0.3 mm size and 30 mPa.s. Nordson PICO Pulse: quote-only, page blocked; search snippet says deposits from 0.5 nL, orifices 50-600 um. Chinese piezo jet valves: 821.79 and 986.69 USD on a fetched AliExpress results page (valve only, specs not readable); one Chinese SFJ2500 valve quoted at 4550 USD in a snippet. All exceed or consume the whole 1000 USD budget.",
+      "option_d_DIY_published": "Harris, Liu, Bush 2015 (full text read): droplets 0.5-1.4 mm from eight nozzles 0.50-1.40 mm, tested only with 20.9 cSt silicone oil (950 kg/m3, 20.6 mN/m, i.e. about 20 mPa.s), 0.16 < Oh < 0.28, 5 Hz, diameter repeatable to +/-0.5 % in a run and about +/-1 % day to day; nozzle points down, reservoir head sets the meniscus; ejection speed is not reported. Ionkin and Harris 2018 (abstract only): water and water-glycerol, 0.65-1.32 mm, variability under 1 %; viscosities not confirmed. DropGen V3 (OSHWA page): 'more than 1 mm down to less than 0.2 mm' with brass 3D-printer nozzles; no viscosity or speed data on the pages read. So 0.3 mm is inside the V3 claim but outside both papers' demonstrated range; 30 mPa.s is above the only oil viscosity demonstrated (about 20 mPa.s); upward firing at 1.0-1.5 m/s and 1 % speed repeatability are not demonstrated anywhere."
+    },
+    "dims_mm": {
+      "valve_body_diameter": 5.6,
+      "valve_drawing_callouts_MM_config": "0.83 in (21.2), 0.52 in (13.2), 0.22 in (5.6) boss, pin pitch 2.5; drawing not to scale - overall length about 34-40 by my reading, request the inspection drawing",
+      "valve_weight_g": "< 2",
+      "nozzle_length": 8.9,
+      "nozzle_tube_outer_diameter": 1.27,
+      "nozzle_orifice_diameter": 0.19,
+      "nozzle_thread": "062 MINSTAC (0.138-40 UNF)",
+      "dropgen_piezo_disc_diameter": 35.0
+    },
+    "risk": "high",
+    "note": "Recommendation for a hobbyist: buy the Lee VHS evaluation kit (or the FFKM valve plus the PTFE-coated 0.0075 in nozzle) by quote and build a DropGen-style piezo generator in parallel as the cheap fallback. Unproven for this use: (1) 14 nL sits at Lee's stated floor (10-20 nL) while 30 mPa.s sits at Lee's stated 'difficulty' threshold, both at once; (2) the low launch speed wanted (1.0-1.5 m/s) is the low-pressure regime where Lee warns of fluid collecting at the tip and erratic volumes; (3) firing upward makes tip flooding worse; (4) no source gives shot-to-shot speed repeatability, so 1 % is an assumption; (5) EPDM (kit valve) and the wetted epoxy against acrylate monomers are untested - Lee offers material samples for compatibility tests; (6) stray 405 nm light can cure resin in the nozzle; (7) price is unknown until quoted and may take a third or more of the 1000 USD budget. The DIY piezo generator meets the budget but its body is about 50 mm wide at the nozzle (35 mm piezo disc), it is only demonstrated firing downward at low, unreported speed, and 0.3 mm with a 30 mPa.s liquid is outside its published data."
+  },
+  {
+    "item": "2 Low-viscosity 405 nm UV resin",
+    "role": "Printing liquid; design assumes 30 mPa.s and 30 mN/m at 28 C",
+    "recommended": {
+      "mfr": "Anycubic",
+      "mpn": "High Speed Resin 2.0, 1 kg",
+      "supplier": "Anycubic store (store.anycubic.com) / Amazon",
+      "url": "https://store.anycubic.com/products/high-speed-resin-2",
+      "unit_price_usd": 32.39,
+      "price_qty": 1,
+      "stock_note": "Store pages returned HTTP 429 on every attempt, so price and stock are NOT verified: search snippets of the US store show sale prices 28.99-32.39 USD and regular 44.99-45.99 USD per kg. The technical data sheet itself was read in full.",
+      "verified": false,
+      "verification": "datasheet_only (Anycubic TDS PDF read; shop page not fetchable)"
+    },
+    "alternates": [
+      {
+        "mfr": "Elegoo",
+        "mpn": "Rapid Standard Resin 405 nm, grey, 1 kg",
+        "supplier": "Elegoo store",
+        "url": "https://www.elegoo.com/products/elegoo-rapid-standard-resin",
+        "unit_price_usd": 24.99,
+        "price_qty": 1,
+        "stock_note": "Product page fetched: 24.99 USD, but shown as 'Sold out' when fetched. Page says 'viscosity as low as 60' with no unit or temperature, exposure 0.5-1.8 s.",
+        "verified": false,
+        "verification": "product_page fetched but sold out"
+      },
+      {
+        "mfr": "Generic (AliExpress sellers; one listing branded Winnerjet)",
+        "mpn": "LED-curable UV inkjet ink, 1000 mL, for Ricoh Gen4/Gen5/G6 heads",
+        "supplier": "AliExpress",
+        "url": "https://www.aliexpress.us/item/3256808544841587.html",
+        "unit_price_usd": 29.15,
+        "price_qty": 1,
+        "stock_note": "Seen on a fetched AliExpress results page (five 1000 mL LED UV inks, 29.15-70.69 USD); item pages redirect to login. No listing states viscosity, surface tension or wavelength, and none was a clear varnish. Industrial UV inkjet data sheets I did read give the class: 9.5-10.5 mPa.s at 45 C with 20.9-22.9 mN/m at 25 C (XJL TDS 2021), and 24-25 cps with 395 nm LED cure (INX/Triangle GSP TDS).",
+        "verified": false,
+        "verification": "search_listing"
+      }
+    ],
+    "key_specs": {
+      "anycubic_hs2_viscosity": "75-85 mPa.s at 25 C (ASTM D2196), from the Anycubic TDS",
+      "anycubic_hs2_density": "1.1-1.2 g/cm3",
+      "anycubic_hs2_wavelength": "405 nm; layer exposure 1.5-2.8 s; printing temperature 20-50 C",
+      "anycubic_hs2_cured": "Shore D 83-85, tensile 37-47 MPa, elongation 16-18 %, volume shrinkage 4.5-5.5 %",
+      "surface_tension": "Not published by Anycubic or Elegoo",
+      "Ec_Dp_405nm": "Not published by Anycubic or Elegoo. Liqcreate does publish them (snippet: Rigid Pro Ec 8.76 mJ/cm2, Dp 0.23 mm) but its lowest viscosity found is 290 mPa.s",
+      "other_resins_checked": "Phrozen Speed Plus 150-250 cP at 25 C (retailer snippet); Sunlu standard 100-350 mPa.s; WOL3D washable 50-100 mPa.s (snippet); Siraya Tech publishes no numbers for Fast; 3DMaterials SuperFast 'extremely low viscosity', no number; 3Dresyns inkjet resins < 20 mPa.s at 70 C, made to order, from about 150 EUR",
+      "uv_inkjet_ink_class": "Closest match to the 30 mPa.s / 30 mN/m assumption: roughly 20-25 mPa.s and 21-27 mN/m at 25 C; Konica Minolta MGI JV3D LED varnish SDS states 30-40 mPa.s at 25 C (snippet, not hobby-buyable). DTG Pro UV ink for Epson heads: 'viscosity range of 5cp', 39.99 USD, out of stock - too thin.",
+      "my_estimate_not_sourced": "At 28-30 C the Anycubic resin should be roughly 60-75 mPa.s (acrylates lose a few percent of viscosity per kelvin). Log mixing rule: 80 mPa.s resin plus 30-40 wt% of an 8 mPa.s monomer gives about 40-32 mPa.s."
+    },
+    "dims_mm": {},
+    "risk": "high",
+    "note": "No consumer 405 nm MSLA resin with a data-sheet viscosity at or below 60 mPa.s at 25-30 C was found. The best documented one is 75-85 mPa.s at 25 C; Elegoo's 'as low as 60' is unitless and the product was sold out. Nothing hobby-priced states surface tension, Ec or Dp. Options: design for 60-85 mPa.s, warm the nozzle and resin to about 40 C, dilute with monomer (item 2b), or use a clear LED-UV inkjet varnish and measure it yourself. Pigmented inkjet inks cure only tens of micrometres deep, so a clear grade matters for 0.3 mm droplets (general knowledge)."
+  },
+  {
+    "item": "2b Reactive diluent for thinning resin",
+    "role": "Lowers a 60-85 mPa.s resin toward 30 mPa.s",
+    "recommended": {
+      "mfr": "TCI America",
+      "mpn": "I0638-500G isobornyl acrylate (IBOA), 500 g",
+      "supplier": "Zoro",
+      "url": "https://www.zoro.com/tci-americas-isobornyl-acrylate-500g-i0638-500g/i/G8216910",
+      "unit_price_usd": 160.99,
+      "price_qty": 1,
+      "stock_note": "Price from a search snippet; the Zoro page returned HTTP 403. Lab-chemical suppliers may refuse residential or non-business orders.",
+      "verified": false,
+      "verification": "search_snippet"
+    },
+    "alternates": [
+      {
+        "mfr": "TCI / Sigma-Aldrich / Apollo Scientific",
+        "mpn": "1,6-hexanediol diacrylate (HDDA): TCI B2936, Aldrich 246816 (technical 80 %), Apollo OR1009289",
+        "supplier": "TCI, Sigma-Aldrich, Apollo Scientific, CymitQuimica",
+        "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/246816",
+        "unit_price_usd": null,
+        "price_qty": 1,
+        "stock_note": "Snippets only: Apollo 500 g 36 GBP (out of stock), CymitQuimica 500 g 73 EUR, UK retailer 500 g 130 GBP for the Aldrich grade. No page fetched.",
+        "verified": false,
+        "verification": "search_snippet"
+      },
+      {
+        "mfr": "TCI / Fujifilm Wako",
+        "mpn": "4-acryloylmorpholine (ACMO): TCI A0841, 500 mL",
+        "supplier": "TCI, Fujifilm Wako",
+        "url": "https://www.tcichemicals.com/GB/en/p/A0841",
+        "unit_price_usd": 175.0,
+        "price_qty": 1,
+        "stock_note": "Snippets only: Fujifilm Wako US 175 USD per 500 mL; ChemicalBook lists TCI at 229 USD per 500 mL. No page fetched.",
+        "verified": false,
+        "verification": "search_snippet"
+      }
+    ],
+    "key_specs": {
+      "note_on_hobby_sources": "I found no hobby-retail seller of HDDA, IBOA or ACMO; 3Dresyns sells a proprietary 'Thinner 3Dresyn SFT' (< 100 mPa.s at 23 C) but its page returned 429",
+      "hazard": "All three are skin sensitisers; IBOA has a strong odour (general knowledge)"
+    },
+    "dims_mm": {},
+    "risk": "medium",
+    "note": "Diluting 30-40 wt% changes cure speed, shrinkage, strength and surface tension, so Ec and Dp must be re-measured. Nothing in this entry was verified on a fetched supplier page."
+  },
+  {
+    "item": "3a Resin reservoir syringe",
+    "role": "Luer-lock reservoir feeding the valve; pressurised with regulated air",
+    "recommended": {
+      "mfr": "Jensen Global",
+      "mpn": "JG10CC-LL-25 (25 x 10 cc calibrated manual luer-lock syringes)",
+      "supplier": "Digi-Key (2045-JG10CC-LL-25-ND)",
+      "url": "https://www.digikey.com/en/products/detail/jensen-global-inc/JG10CC-LL-25/9864002",
+      "unit_price_usd": 27.45,
+      "price_qty": 25,
+      "stock_note": "In stock 1,052 when fetched. Clear barrel, so it needs a light-tight sleeve.",
+      "verified": true,
+      "verification": "product_page"
+    },
+    "alternates": [
+      {
+        "mfr": "Jensen Global",
+        "mpn": "JG10M-30-UVA (10 cc UV amber air-operated barrel with plunger, luer lock)",
+        "supplier": "Digi-Key (2045-JG10M-30-UVA-ND)",
+        "url": "https://www.digikey.com/en/products/detail/jensen-global-inc/JG10M-30-UVA/9864155",
+        "unit_price_usd": 87.98,
+        "price_qty": 1,
+        "stock_note": "Price is per box (count per box not stated on the page); not stocked, 2 week lead time. Needs a matching 10 cc air adapter head.",
+        "verified": true,
+        "verification": "product_page (non-stock)"
+      },
+      {
+        "mfr": "Generic",
+        "mpn": "US-style 3-55 cc pneumatic dispensing syringe kit, amber UV-resistant barrel + piston",
+        "supplier": "AliExpress",
+        "url": "https://www.aliexpress.us/item/3256808496512303.html",
+        "unit_price_usd": 13.66,
+        "price_qty": 1,
+        "stock_note": "Seen on a fetched AliExpress results page; 10 cc not named explicitly; item page not fetchable.",
+        "verified": false,
+        "verification": "search_listing"
+      }
+    ],
+    "key_specs": {
+      "volume": "10 cc",
+      "tip": "Luer lock",
+      "body_colour": "Clear (JG10CC), amber (JG10M-30-UVA) per Digi-Key descriptions",
+      "connector": "Male luer lock outlet; open barrel end takes a bayonet air adapter"
+    },
+    "dims_mm": {
+      "length": 97.3,
+      "length_source": "3.83 in from a distributor listing title (search snippet), not from a fetched page",
+      "barrel_outer_diameter": "not found; about 16-19 for 10 cc barrels (unverified)"
+    },
+    "risk": "low",
+    "note": "A 10 cc barrel holds about 700,000 droplets of 14 nL."
+  },
+  {
+    "item": "3b Feed tubing",
+    "role": "Chemically inert line from reservoir to valve",
+    "recommended": {
+      "mfr": "Darwin Microfluidics",
+      "mpn": "BL-PTFE-1608-20 (PTFE, 1/16 in OD x 0.8 mm (1/32 in) ID, 20 m)",
+      "supplier": "Darwin Microfluidics",
+      "url": "https://darwin-microfluidics.com/products/ptfe-tubing-1-16-od-for-microfluidics",
+      "unit_price_usd": 71.2,
+      "price_qty": 1,
+      "stock_note": "'Available immediately' when fetched. 20 m is far more than needed; burst pressure 140 bar.",
+      "verified": true,
+      "verification": "product_page"
+    },
+    "alternates": [
+      {
+        "mfr": "The Lee Company",
+        "mpn": "TUTC3216930L (30 cm PTFE tubing assembly, 0.032 in / 0.81 mm ID, 062 MINSTAC both ends)",
+        "supplier": "The Lee Company (quote; included in the evaluation kit)",
+        "url": "https://www.theleeco.com/uploads/2024/11/INIX0500250A-E1.pdf",
+        "unit_price_usd": null,
+        "price_qty": 1,
+        "stock_note": "Catalogue item; rated to 120 psig; price not published.",
+        "verified": true,
+        "verification": "manufacturer_catalogue"
+      },
+      {
+        "mfr": "Generic / McMaster-Carr",
+        "mpn": "PTFE tubing 1/32 in ID x 1/16 in OD, sold by the foot",
+        "supplier": "McMaster-Carr",
+        "url": "https://www.mcmaster.com/products/tubing/material~teflon-ptfe/",
+        "unit_price_usd": null,
+        "price_qty": 1,
+        "stock_note": "McMaster pages do not render for the fetch tool; part number and price not confirmed.",
+        "verified": false,
+        "verification": "none"
+      }
+    ],
+    "key_specs": {
+      "material": "PTFE",
+      "bore": "0.8 mm"
+    },
+    "dims_mm": {
+      "outer_diameter": 1.59,
+      "inner_diameter": 0.8
+    },
+    "risk": "low",
+    "note": "Keep the line between reservoir and valve as short as possible; Lee says so explicitly, and liquid inertia in a long 0.8 mm line limits sub-millisecond pulses."
+  },
+  {
+    "item": "3c Luer fittings and valve adapters",
+    "role": "Connect syringe to tubing and tubing to the valve",
+    "recommended": {
+      "mfr": "Darwin Microfluidics (maker not stated on the page; the SKU resembles an IDEX part number)",
+      "mpn": "ID-P-857 (barbed to female luer-lock adapter for 1/16 in ID soft tubing, polypropylene, pack of 10)",
+      "supplier": "Darwin Microfluidics",
+      "url": "https://darwin-microfluidics.com/products/barbed-to-female-luer-adapter-for-1-16-1-8-and-3-32-id-soft-walled-tubing-pack-of-10",
+      "unit_price_usd": 15.7,
+      "price_qty": 10,
+      "stock_note": "'Available immediately' when fetched. Barbs are for soft-walled tubing, not rigid PTFE.",
+      "verified": true,
+      "verification": "product_page"
+    },
+    "alternates": [
+      {
+        "mfr": "The Lee Company",
+        "mpn": "TMRA3201950Z (female luer lock to 062 MINSTAC adapter); TMDA3201950Z (1/16 in ID soft tubing to 062 MINSTAC); INMX0350000A (12 um PEEK safety screen, 062 MINSTAC)",
+        "supplier": "The Lee Company (quote)",
+        "url": "https://www.theleeco.com/uploads/2024/04/Technical-Fluid-Control-Handbook-for-Health-Science-10.2-Digital-Edition-High-Quality.pdf",
+        "unit_price_usd": null,
+        "price_qty": 1,
+        "stock_note": "Catalogue items; the luer adapter lets a syringe screw directly onto the valve inlet. Price not published.",
+        "verified": true,
+        "verification": "manufacturer_catalogue"
+      }
+    ],
+    "key_specs": {
+      "filtration": "Lee requires 12 um or finer filtration ahead of the valve"
+    },
+    "dims_mm": {},
+    "risk": "low",
+    "note": "With the Lee valve the cleanest arrangement is syringe -> TMRA3201950Z luer adapter -> safety screen -> valve, with no tubing at all."
+  },
+  {
+    "item": "3d Low-pressure regulated air source (0.05-0.7 bar)",
+    "role": "Holds reservoir head pressure steady; drop speed tracks this pressure",
+    "recommended": {
+      "mfr": "SMC (and unbranded copies)",
+      "mpn": "IR1000-01 precision regulator, Rc 1/8",
+      "supplier": "AliExpress",
+      "url": "https://www.aliexpress.us/item/3256806448633905.html",
+      "unit_price_usd": 14.56,
+      "price_qty": 1,
+      "stock_note": "Eleven IR1000-01 type listings seen on a fetched AliExpress results page, 14.56-46.85 USD; listings do not state the pressure range and cheap ones are probably copies. Genuine SMC via RS or Motion is about 72-190 USD (snippets). The 0.005-0.2 MPa range is from an RS listing snippet for IR1000-F01B-A, not from a fetched page.",
+      "verified": false,
+      "verification": "search_listing"
+    },
+    "alternates": [
+      {
+        "mfr": "The Lee Company",
+        "mpn": "UEKA0500300A disc pump development kit (piezo micropump as closed-loop pressure source)",
+        "supplier": "The Lee Company (quote)",
+        "url": "https://www.theleeco.com/uploads/2024/04/Technical-Fluid-Control-Handbook-for-Health-Science-10.2-Digital-Edition-High-Quality.pdf",
+        "unit_price_usd": null,
+        "price_qty": 1,
+        "stock_note": "Lee's own recommended pressure source for VHS dispensing; price not published and likely high.",
+        "verified": true,
+        "verification": "manufacturer_catalogue"
+      },
+      {
+        "mfr": "Generic",
+        "mpn": "12 V mini diaphragm air pump or aquarium pump plus a 0.5-1 L ballast bottle",
+        "supplier": "Amazon / AliExpress",
+        "url": null,
+        "unit_price_usd": null,
+        "price_qty": 1,
+        "stock_note": "Not searched; commodity part.",
+        "verified": false,
+        "verification": "none"
+      }
+    ],
+    "key_specs": {
+      "requirement": "For 1 % speed repeatability the head pressure has to hold to about 1 % (a few mbar at 0.3 bar) - my estimate, not sourced"
+    },
+    "dims_mm": {},
+    "risk": "medium",
+    "note": "No regulator was verified on a product page. A pressure sensor on the reservoir is worth adding so the controller can see drift."
+  },
+  {
+    "item": "4a Pin-vise collet chuck for the 2.5 mm build rod",
+    "role": "Clamps the disposable build pin at the top of the cavity",
+    "recommended": {
+      "mfr": "L.S. Starrett",
+      "mpn": "162C (EDP 50601)",
+      "supplier": "Starrett web store",
+      "url": "https://checkout.starrett.com/162c-pin-vise/",
+      "unit_price_usd": 34.5,
+      "price_qty": 1,
+      "stock_note": "Orderable online (US), inventory 405 when fetched. Same price at am-ind.com, which also lists the dimensions.",
+      "verified": true,
+      "verification": "product_page"
+    },
+    "alternates": [
+      {
+        "mfr": "General Tools",
+        "mpn": "94C",
+        "supplier": "KBC Tools / ITM / Global Test Supply",
+        "url": "https://www.kbctools.ca/itemdetail/1-805-94-C",
+        "unit_price_usd": 27.52,
+        "price_qty": 1,
+        "stock_note": "KBC page fetched: 27.52 (Canadian store, currency not stated), 1 in stock. ITM page fetched: 17.64 CAD, 2-3 weeks. US snippets 10.95-25.04 USD.",
+        "verified": true,
+        "verification": "product_page"
+      },
+      {
+        "mfr": "Anex",
+        "mpn": "No.98 double-ended pin vise, 0.1-3.2 mm",
+        "supplier": "AliExpress",
+        "url": "https://www.aliexpress.us/item/3256812956844406.html",
+        "unit_price_usd": 33.29,
+        "price_qty": 1,
+        "stock_note": "Seen on a fetched AliExpress results page; '102mm' in the title, body diameter not stated.",
+        "verified": false,
+        "verification": "search_listing"
+      }
+    ],
+    "key_specs": {
+      "starrett_162C_range": "0.050-0.125 in (1.3-3.2 mm), so 2.5 mm is mid-range",
+      "starrett_162C_construction": "Hardened jaws, knurled handle; hole through the full length of the handle so a rod of any length passes through (Starrett catalogue page 358)",
+      "body_colour": "Nickel plated (bright silver)",
+      "general_94C_range": "0.045-0.125 in (1.14-3.18 mm), hollow nickel-plated knurled body",
+      "connector": "none (mechanical)"
+    },
+    "dims_mm": {
+      "starrett_162C_body_diameter": 11.9,
+      "starrett_162C_overall_length": 96.8,
+      "starrett_162C_dims_source": "15/32 in and 3-13/16 in from the am-ind.com product page",
+      "general_94C_body_diameter": 11.1,
+      "general_94C_overall_length": 96.8,
+      "general_94C_dims_source": "length 3-13/16 in from the ITM page; 7/16 in diameter only from listing titles"
+    },
+    "risk": "low",
+    "note": "Both are under the 14 mm limit but about 97 mm long; the through-hole handle lets the rod be fed from above. If the length is a problem, a rotary-tool brass collet chuck (0.5-3.2 mm, about 1 USD on AliExpress) is much shorter, but no listing gave its dimensions."
+  },
+  {
+    "item": "4b 2.5 mm x 100 mm disposable build pins",
+    "role": "Rod the part grows on",
+    "recommended": {
+      "mfr": "Generic (Weiyi)",
+      "mpn": "SUS304 stainless round rod, 2.5 mm diameter option, lengths 50-250 mm",
+      "supplier": "AliExpress",
+      "url": "https://www.aliexpress.us/item/3256812990780136.html",
+      "unit_price_usd": 3.69,
+      "price_qty": 1,
+      "stock_note": "Seen on a fetched AliExpress results page; 2.5 mm is a listed option and the length range covers 100 mm, but 100 mm and the pack count were not confirmed on an item page.",
+      "verified": false,
+      "verification": "search_listing"
+    },
+    "alternates": [
+      {
+        "mfr": "Generic",
+        "mpn": "304 stainless dowel / solid rod GB119, 4-100 mm lengths",
+        "supplier": "AliExpress",
+        "url": "https://www.aliexpress.us/item/3256801316553031.html",
+        "unit_price_usd": 1.09,
+        "price_qty": 1,
+        "stock_note": "Search-listing level; 2.5 mm and 100 mm inferred from the title range.",
+        "verified": false,
+        "verification": "search_listing"
+      },
+      {
+        "mfr": "Generic",
+        "mpn": "Carbon fibre rod, 2.5 mm option, 500 mm long, 10 pcs (cut to 100 mm)",
+        "supplier": "AliExpress",
+        "url": "https://www.aliexpress.us/item/3256806552240988.html",
+        "unit_price_usd": 2.4,
+        "price_qty": 10,
+        "stock_note": "Search-listing level. Ten 500 mm rods give fifty 100 mm pins. Search snippets also show 10-packs of 2.5 x 200 mm and 2.5 x 250 mm 304 stainless rod on eBay and Walmart (pages blocked).",
+        "verified": false,
+        "verification": "search_listing"
+      }
+    ],
+    "key_specs": {
+      "exact_size_note": "The only exact 2.5 x 100 mm single rod found by name was Goodfellow 304L at 142.50 USD (snippet) - not a hobby part"
+    },
+    "dims_mm": {
+      "diameter": 2.5,
+      "length": 100.0
+    },
+    "risk": "low",
+    "note": "Commodity, but no exact 2.5 x 100 mm multi-pack was verified on a product page; cutting longer rod is the safe route."
+  },
+  {
+    "item": "5 Acoustic absorber (melamine foam)",
+    "role": "Lines the enclosure to kill 40 kHz reflections",
+    "recommended": {
+      "mfr": "American Acoustical Products",
+      "mpn": "HC01.0M2448 (melamine foam sheet 48 x 24 x 1 in, plain surface, plain backing)",
+      "supplier": "Penn Tool Co",
+      "url": "https://www.penntoolco.com/01926062",
+      "unit_price_usd": 49.12,
+      "price_qty": 1,
+      "stock_note": "Page fetched; structured data says in stock. One sheet is 0.743 m2. Thickness is 25.4 mm, not 30 mm; 30 mm is not a stock US thickness.",
+      "verified": true,
+      "verification": "product_page"
+    },
+    "alternates": [
+      {
+        "mfr": "Paulstra Hutchinson",
+        "mpn": "RS 433-8523 (adhesive melamine foam 500 x 500 x 30 mm)",
+        "supplier": "RS Components",
+        "url": "https://uk.rs-online.com/web/p/acoustic-insulation/4338523",
+        "unit_price_usd": null,
+        "price_qty": 1,
+        "stock_note": "Snippet: 56.54 GBP ex VAT each; three needed for 0.75 m2. RS page returned 403.",
+        "verified": false,
+        "verification": "search_snippet"
+      },
+      {
+        "mfr": "Techlite",
+        "mpn": "0179-2448SS100-SH-0910-01 (melamine sheet 24 x 48 x 1 in, white, ASJ facing)",
+        "supplier": "Zoro",
+        "url": "https://www.zoro.com/techlite-insulation-insulation-sheet-melamine-foam-24-in-x-48-in-1-in-wall-white-0179-2448ss100-sh-0910-01/i/G8468424",
+        "unit_price_usd": 68.69,
+        "price_qty": 1,
+        "stock_note": "Snippet only; has a foil/paper jacket that would have to face away from the sound.",
+        "verified": false,
+        "verification": "search_snippet"
+      }
+    ],
+    "key_specs": {
+      "temperature_rating": "-45 to 302 F",
+      "absorption_at_40kHz": "No published data found. BASF Basotect data and reseller sheets stop at about 4-5 kHz. At 40 kHz the wavelength is 8.6 mm, so 25-30 mm is about three wavelengths of open-cell foam and high absorption is expected, but that is my inference and should be measured.",
+      "colour": "not stated on the page (melamine foam is normally white or light grey)"
+    },
+    "dims_mm": {
+      "length": 1219.0,
+      "width": 610.0,
+      "thickness": 25.4
+    },
+    "risk": "low",
+    "note": "Area needed about 0.7 m2: one 48 x 24 in sheet. Melamine foam sheds dust; keep fragments away from the valve nozzle."
+  },
+  {
+    "item": "6a Enclosure panels (320 x 320 x 420 mm box)",
+    "role": "Box walls, top and bottom",
+    "recommended": {
+      "mfr": "Woodpeckers Crafts",
+      "mpn": "1/4 in (6 mm) x 24 x 24 in Baltic birch B/BB",
+      "supplier": "woodpeckerscrafts.com",
+      "url": "https://woodpeckerscrafts.com/1-4-x-24-x-24-baltic-birch-sheets-b-bb",
+      "unit_price_usd": 30.18,
+      "price_qty": 1,
+      "stock_note": "Price from a search snippet; page returned 429. A 610 x 610 mm sheet yields only one 320 x 420 mm panel plus offcuts.",
+      "verified": false,
+      "verification": "search_snippet"
+    },
+    "alternates": [
+      {
+        "mfr": "Rockler",
+        "mpn": "1/4 in Baltic birch plywood, 30 x 30 in",
+        "supplier": "Rockler",
+        "url": "https://rockler.com/baltic-birch-plywood-choose-thickness",
+        "unit_price_usd": 22.99,
+        "price_qty": 1,
+        "stock_note": "Snippet only (fetch failed). Two 762 x 762 mm sheets cover all six panels by my cutting layout.",
+        "verified": false,
+        "verification": "search_snippet"
+      }
+    ],
+    "key_specs": {
+      "area_needed": "0.74 m2: four 320 x 420 mm and two 320 x 320 mm panels",
+      "thickness_note": "5 mm plywood is uncommon in US retail; 1/4 in (nominal 6 mm) is the stock size"
+    },
+    "dims_mm": {
+      "thickness": 6.0
+    },
+    "risk": "low",
+    "note": "Commodity; nothing verified on a fetched page. Aluminium composite and acrylic were not searched."
+  },
+  {
+    "item": "6b UV-blocking door window, 3 mm",
+    "role": "Lets the user watch while blocking 405 nm",
+    "recommended": {
+      "mfr": "J Tech Photonics",
+      "mpn": "24 x 12 in Laser Shielding, 250 nm to 520 nm, 1/8 in acrylic",
+      "supplier": "jtechphotonics.com",
+      "url": "https://jtechphotonics.com/?p=1681",
+      "unit_price_usd": 34.99,
+      "price_qty": 1,
+      "stock_note": "Page fetched: sale price 34.99 USD (regular 49.99), add-to-cart shown, stock count not stated.",
+      "verified": true,
+      "verification": "product_page"
+    },
+    "alternates": [
+      {
+        "mfr": "Plexiglas / Acrylite (via ePlastics)",
+        "mpn": "2422 amber acrylic, 0.250 x 24 x 48 in (ACRY24220.250PM24X48)",
+        "supplier": "ePlastics",
+        "url": "https://www.eplastics.com/ACRY24220-250PM24X48",
+        "unit_price_usd": 86.63,
+        "price_qty": 1,
+        "stock_note": "Page fetched. Vendor claims '100% effective at blocking ultraviolet wavelengths' and 'cuts off light at the 530 wavelength' with no test data; only 6.35 mm and thicker found, no 3 mm listing.",
+        "verified": true,
+        "verification": "product_page (wrong thickness)"
+      },
+      {
+        "mfr": "Phillips Safety",
+        "mpn": "Argon / diode laser protective acrylic sheet, amber",
+        "supplier": "phillips-safety.com",
+        "url": "https://phillips-safety.com/shop/laser/laser-safety-windows/acrylic-laser-window/argon-diode-nd-yag-co2-laser-protective-acrylic-sheet-amber/",
+        "unit_price_usd": null,
+        "price_qty": 1,
+        "stock_note": "Snippet: 1.48 USD per square inch, OD 5+ at 190-375 nm and OD 4+ at 376-533 nm. Not fetched.",
+        "verified": false,
+        "verification": "search_snippet"
+      }
+    ],
+    "key_specs": {
+      "blocking": "Rated 250-520 nm; sticker 'OD 3+ @445nm'; page says it was tested with a 405 nm laser to show OD 3+",
+      "visible_light_transmission": "> 55 %",
+      "body_colour": "not stated ('semi-transparent acrylic'); this class of sheet is orange-amber"
+    },
+    "dims_mm": {
+      "length": 606.0,
+      "width": 302.0,
+      "thickness": 3.2
+    },
+    "risk": "low",
+    "note": "OD 3 means 0.1 % transmission at the stated wavelength; fine for scattered LED light behind an interlocked door."
+  },
+  {
+    "item": "6c Door hinges",
+    "role": "Hang the door panel",
+    "recommended": {
+      "mfr": "Generic",
+      "mpn": "Two small stainless butt hinges, about 40 x 30 mm, M3 or M4 holes",
+      "supplier": "Hardware store / Amazon / McMaster-Carr",
+      "url": null,
+      "unit_price_usd": null,
+      "price_qty": 2,
+      "stock_note": "Not researched to a product page (time went to items 1, 2 and 4).",
+      "verified": false,
+      "verification": "none"
+    },
+    "alternates": [],
+    "key_specs": {},
+    "dims_mm": {},
+    "risk": "low",
+    "note": "Commodity; unverified."
+  },
+  {
+    "item": "6d EPDM foam gasket tape",
+    "role": "Seals the door for temperature control and light-tightness",
+    "recommended": {
+      "mfr": "Zoro Select",
+      "mpn": "CCE2518X1250T (closed-cell foam strip, 1/2 in wide x 1/8 in thick x 50 ft, black, adhesive)",
+      "supplier": "Zoro",
+      "url": "https://www.zoro.com/zoro-select-foam-strip-water-resistant-closed-cell-12-in-w-50-ft-l-18-in-thick-black-cce2518x1250t/i/G6565553/",
+      "unit_price_usd": 26.19,
+      "price_qty": 1,
+      "stock_note": "Snippet only; Zoro blocks the fetch tool. The snippet calls it EPDM closed-cell strip; material not confirmed on the page.",
+      "verified": false,
+      "verification": "search_snippet"
+    },
+    "alternates": [
+      {
+        "mfr": "Essentra Components",
+        "mpn": "EPDM weather-stripping gasket tape",
+        "supplier": "Essentra Components",
+        "url": "https://essentracomponents.com/en-ca/p/weather-stripping-gasket-tape-epdm",
+        "unit_price_usd": null,
+        "price_qty": 1,
+        "stock_note": "Page returned 403.",
+        "verified": false,
+        "verification": "none"
+      }
+    ],
+    "key_specs": {
+      "body_colour": "black"
+    },
+    "dims_mm": {
+      "width": 12.7,
+      "thickness": 3.2
+    },
+    "risk": "low",
+    "note": "Commodity; unverified. Door perimeter is about 1.5 m."
+  },
+  {
+    "item": "6e Door interlock microswitch (two needed)",
+    "role": "Cuts 405 nm LEDs and array drive when the door opens",
+    "recommended": {
+      "mfr": "Omron Electronics (EMC Div)",
+      "mpn": "SS-5GL",
+      "supplier": "Digi-Key (SW986-ND)",
+      "url": "https://www.digikey.com/en/products/detail/omron-electronics-inc-emc-div/SS-5GL/272367",
+      "unit_price_usd": 2.09,
+      "price_qty": 1,
+      "stock_note": "In stock 3,576 when fetched.",
+      "verified": true,
+      "verification": "product_page"
+    },
+    "alternates": [
+      {
+        "mfr": "Omron",
+        "mpn": "SS-5GL-F (same switch, lower operating force)",
+        "supplier": "RS Components",
+        "url": "https://ie.rs-online.com/web/p/micro-switches/6822679",
+        "unit_price_usd": null,
+        "price_qty": 5,
+        "stock_note": "Snippet: 6.79 EUR ex VAT for a pack of 5. Not fetched.",
+        "verified": false,
+        "verification": "search_snippet"
+      }
+    ],
+    "key_specs": {
+      "circuit": "SPDT, 5 A at 125 V AC",
+      "actuator": "Straight hinge lever (Digi-Key: 'Lever, Straight')",
+      "connector": "Three solder-lug terminals",
+      "body_colour": "not stated on the page",
+      "operating_position": "8.8 mm"
+    },
+    "dims_mm": {
+      "body_length": 19.8,
+      "body_thickness": 6.4,
+      "body_height": 10.2,
+      "dims_source": "TME distributor listing quoted in a search snippet; the Digi-Key page lists no outline dimensions"
+    },
+    "risk": "low",
+    "note": "Wire the two switches in series on their normally-open contacts so either one opening kills the hazard. A TME page now labels this range 'Aratas, formerly Omron components'; Digi-Key still lists it under Omron."
+  },
+  {
+    "item": "7a Peltier cooler assembly",
+    "role": "Heats or cools the enclosure air to hold 28 C",
+    "recommended": {
+      "mfr": "Adafruit",
+      "mpn": "1335 (Peltier thermo-electric cooler module + heatsink assembly, 12 V 5 A)",
+      "supplier": "Adafruit",
+      "url": "https://www.adafruit.com/product/1335",
+      "unit_price_usd": 34.95,
+      "price_qty": 1,
+      "stock_note": "In stock when fetched.",
+      "verified": true,
+      "verification": "product_page"
+    },
+    "alternates": [
+      {
+        "mfr": "Generic",
+        "mpn": "TEC1-12706 bare module, or a TEC1-12706 kit with two heatsinks and two fans",
+        "supplier": "AliExpress / Amazon",
+        "url": null,
+        "unit_price_usd": null,
+        "price_qty": 1,
+        "stock_note": "Not verified; none appeared on the pages fetched.",
+        "verified": false,
+        "verification": "none"
+      }
+    ],
+    "key_specs": {
+      "power": "60 W nominal (12 V x 5 A), 72 W max",
+      "module": "40 x 40 mm Peltier clamped to a fan heatsink with a 40 x 60 mm aluminium cold plate; module type number not given on the page",
+      "connector": "Four wires, 280 mm long; no connector described (bare leads assumed); wire colours not stated",
+      "body_colour": "not stated"
+    },
+    "dims_mm": {
+      "heatsink_footprint": "90 x 90",
+      "overall_height": 78.0,
+      "cold_plate": "40 x 60",
+      "peltier_module": "40 x 40",
+      "weight_g": 455
+    },
+    "risk": "low",
+    "note": "Only one side has a heatsink and fan; the plate side that faces into the box needs its own finned sink in the air stream of the 120 mm fan. Mount it through the wall with the fan heatsink outside."
+  },
+  {
+    "item": "7b H-bridge driver for the Peltier",
+    "role": "Bidirectional PWM drive so the Peltier can heat and cool",
+    "recommended": {
+      "mfr": "Generic (Infineon BTS7960 half-bridges, 'IBT-2' style board)",
+      "mpn": "Double BTS7960 43 A H-bridge module",
+      "supplier": "AliExpress",
+      "url": "https://www.aliexpress.us/item/3256812496144615.html",
+      "unit_price_usd": 2.38,
+      "price_qty": 1,
+      "stock_note": "Seen on a fetched AliExpress results page: 4.77 USD for 2 pcs; other listings 5.42 and 14.29 USD. Item page not fetchable.",
+      "verified": false,
+      "verification": "search_listing"
+    },
+    "alternates": [
+      {
+        "mfr": "Generic",
+        "mpn": "BTS7960 dual H-bridge 5.5-27 V 43 A (SKU 41035909)",
+        "supplier": "Electrokit (Sweden)",
+        "url": "https://www.electrokit.com/en/motordrivare-dubbel-h-brygga-6-27v-43a-bts7960",
+        "unit_price_usd": 11.0,
+        "price_qty": 1,
+        "stock_note": "Page fetched: 119 SEK including VAT (about 11 USD, my conversion), 114 in stock.",
+        "verified": true,
+        "verification": "product_page"
+      },
+      {
+        "mfr": "Generic",
+        "mpn": "MOT-BTS7960B",
+        "supplier": "Abra Electronics",
+        "url": "https://abra-electronics.com/electromechanical/motors/motor-controllers/mot-bts7960b-43a-h-bridge-bts7960b-pwm-via-microcontroller-logic.html",
+        "unit_price_usd": 27.93,
+        "price_qty": 1,
+        "stock_note": "Price from a snippet; the page text reached by the fetch tool was all navigation.",
+        "verified": false,
+        "verification": "search_snippet"
+      }
+    ],
+    "key_specs": {
+      "supply": "6-27 V (5.5-27 V on Electrokit)",
+      "current": "43 A rated",
+      "pwm": "up to 25 kHz",
+      "logic": "3.3-5 V",
+      "heat_sink": "built in",
+      "connector": "not described on the pages read; these boards normally have a 2 x 4 pin 2.54 mm header for logic and a 4-way screw terminal for B+, B-, M+, M- (unverified)",
+      "body_colour": "not stated"
+    },
+    "dims_mm": {
+      "length": 50.0,
+      "width": 50.0,
+      "height": 40.0,
+      "dims_source": "makerselectronics.com product page ('50mm x 50mm x 40mm'); other shops list 43 mm height"
+    },
+    "risk": "low",
+    "note": "Put an LC filter between the bridge and the Peltier, or PWM above 20 kHz; Peltier modules dislike large ripple (general knowledge)."
+  },
+  {
+    "item": "7c 120 mm PWM fan",
+    "role": "Circulates enclosure air over the Peltier sink and the sensors",
+    "recommended": {
+      "mfr": "Arctic",
+      "mpn": "P12 PWM PST (ACFAN00170A)",
+      "supplier": "Arctic (manufacturer page links to Amazon)",
+      "url": "https://www.arctic.de/en/P12-PWM-PST/ACFAN00170A",
+      "unit_price_usd": null,
+      "price_qty": 1,
+      "stock_note": "Manufacturer page fetched and current, but it shows no price, only 'BUY NOW at Amazon'. Street price of roughly 8-10 USD is from memory, not verified.",
+      "verified": true,
+      "verification": "manufacturer_catalogue (price not shown)"
+    },
+    "alternates": [
+      {
+        "mfr": "Noctua",
+        "mpn": "NF-P12 redux-1700 PWM",
+        "supplier": "Noctua / Amazon",
+        "url": "https://noctua.at/en/nf-p12-redux-1700-pwm/specification",
+        "unit_price_usd": null,
+        "price_qty": 1,
+        "stock_note": "Page returned 429; nothing verified.",
+        "verified": false,
+        "verification": "none"
+      }
+    ],
+    "key_specs": {
+      "speed": "200-1800 rpm PWM controlled (0 rpm below 5 % PWM)",
+      "electrical": "12 V DC, 0.1 A, starting voltage 3.9 V",
+      "airflow": "56.3 cfm (95.7 m3/h), static pressure 2.20 mmH2O",
+      "noise": "0.3 sone",
+      "connector": "4-pin PWM fan connector plus 4-pin PST daisy-chain socket, 400 mm cable",
+      "body_colour": "black (white and white/transparent also listed)"
+    },
+    "dims_mm": {
+      "length": 120.0,
+      "width": 120.0,
+      "height": 25.0
+    },
+    "risk": "low",
+    "note": "A fan in the cavity is also an airflow disturbance for levitated droplets; duct it behind the foam."
+  },
+  {
+    "item": "7d Second air-temperature probe",
+    "role": "Independent check on enclosure air temperature",
+    "recommended": {
+      "mfr": "Adafruit",
+      "mpn": "381 (waterproof 1-Wire DS18B20 digital temperature sensor)",
+      "supplier": "Adafruit",
+      "url": "https://www.adafruit.com/product/381",
+      "unit_price_usd": 9.95,
+      "price_qty": 1,
+      "stock_note": "31 in stock when fetched.",
+      "verified": true,
+      "verification": "product_page"
+    },
+    "alternates": [],
+    "key_specs": {
+      "accuracy": "+/-0.5 C from -10 to +85 C",
+      "range": "-55 to 125 C (PVC cable: stay under 100 C)",
+      "connector": "Bare leads: red 3-5 V, black (or blue) ground, white (or yellow) data; needs a 4.7 k pull-up",
+      "body_colour": "stainless steel tube; cable colour not stated"
+    },
+    "dims_mm": {
+      "probe_diameter": 6.0,
+      "probe_length": 30.0,
+      "cable_length": 910.0,
+      "cable_diameter": 4.0
+    },
+    "risk": "low",
+    "note": "Absolute accuracy is +/-0.5 K, coarser than the +/-0.2 K control band; use it for drift and fault detection after a one-point calibration against the primary sensor."
+  },
+  {
+    "item": "8a Filament for the 180 mm array frame",
+    "role": "Rigid, dimensionally accurate frame at 28-35 C near uncured acrylate and 405 nm light",
+    "recommended": {
+      "mfr": "Prusa Polymers",
+      "mpn": "Prusament PETG Jet Black 1 kg, 1.75 mm",
+      "supplier": "Prusa Research",
+      "url": "https://www.prusa3d.com/en/product/prusament-petg-jet-black-1kg/",
+      "unit_price_usd": 23.99,
+      "price_qty": 1,
+      "stock_note": "In stock when fetched; 23.99 USD is a sale price (regular 29.99). +/-0.02 mm diameter precision.",
+      "verified": true,
+      "verification": "product_page"
+    },
+    "alternates": [
+      {
+        "mfr": "Prusa Polymers",
+        "mpn": "Prusament ASA Jet Black 800 g",
+        "supplier": "Prusa Research",
+        "url": "https://www.prusa3d.com/en/product/prusament-asa-jet-black-850g/",
+        "unit_price_usd": 20.73,
+        "price_qty": 1,
+        "stock_note": "In stock when fetched; sale price (regular 25.92) for 800 g, i.e. about 26-32 USD per kg. Page: 'UV stable', 'Large models tend to warp'.",
+        "verified": true,
+        "verification": "product_page"
+      },
+      {
+        "mfr": "Polymaker",
+        "mpn": "Fiberon PA6-CF20, 0.5 kg, 1.75 mm",
+        "supplier": "Polymaker US / MatterHackers",
+        "url": "https://www.matterhackers.com/store/l/polymaker-fiberon-pa6-cf20-black-carbon-fiber-filament-175mm/sk/MU76LUVC",
+        "unit_price_usd": 33.99,
+        "price_qty": 1,
+        "stock_note": "Price from a snippet (Polymaker US sale price for 0.5 kg; MatterHackers 1 kg 52.99 in another snippet). MatterHackers page fetched but showed no price. Needs a hardened nozzle, 280 C all-metal hot end and drying.",
+        "verified": false,
+        "verification": "search_snippet"
+      }
+    ],
+    "key_specs": {
+      "comparison_basis": "Apart from the quoted page statements, this comparison is general materials knowledge, not sourced from fetched pages",
+      "PLA": "Stiffest of the unfilled options and the most accurate to print, but softens near 55-60 C and creeps under sustained load even at 35 C; fair against isopropanol, poor against prolonged monomer contact. About 20-30 USD per kg (not verified).",
+      "PETG": "Softens near 80 C, low creep at 35 C, good against isopropanol and brief acrylate contact, prints large parts with little warping. Reasonable 405 nm tolerance in black.",
+      "ASA": "Softens near 100 C and is the most UV-stable, but styrenic plastics are attacked by ester monomers and can stress-crack with isopropanol; warps on large prints (Prusa says so).",
+      "PA-CF": "Highest stiffness and heat resistance (snippet: HDT 215 C at 0.45 MPa for PA6-CF20) and the best chemical resistance, but PA6 swells with humidity, which works against dimensional accuracy; PA12-CF absorbs less."
+    },
+    "dims_mm": {},
+    "risk": "medium",
+    "note": "PETG in black is the pragmatic choice; print the 28 C enclosure spare parts in the same material. Keep liquid resin off any of these plastics rather than relying on resistance."
+  },
+  {
+    "item": "8b M2 x 8 thread-forming screws for plastic",
+    "role": "Fix transducer boards or clips into printed bosses",
+    "recommended": {
+      "mfr": "Generic",
+      "mpn": "400 pc cross pan-head self-tapping assortment, M2 x 4/5/6/8 and M2.6 x 6/8/10/12",
+      "supplier": "AliExpress",
+      "url": "https://www.aliexpress.us/item/3256809734826587.html",
+      "unit_price_usd": 10.9,
+      "price_qty": 400,
+      "stock_note": "Seen on a fetched AliExpress results page (list 10.90 USD, promotional 1.09). Only part of the kit is M2 x 8.",
+      "verified": false,
+      "verification": "search_listing"
+    },
+    "alternates": [
+      {
+        "mfr": "Zoro Select",
+        "mpn": "1PU85 (thread-cutting screw M2 x 8 mm, zinc steel, pan head Torx, 25 pk)",
+        "supplier": "Zoro",
+        "url": "https://www.zoro.com/zoro-select-thread-cutting-screw-m2-x-8-mm-trivalent-clear-chromate-zinc-steel-pan-head-torx-drive-25-pk-1pu85/i/G2876745",
+        "unit_price_usd": 8.89,
+        "price_qty": 25,
+        "stock_note": "Snippet only.",
+        "verified": false,
+        "verification": "search_snippet"
+      },
+      {
+        "mfr": "Generic (PT-style)",
+        "mpn": "M2-0.89 x 8 mm PT-style thread-forming, Torx pan, zinc",
+        "supplier": "Fastener Superstore",
+        "url": "https://www.fastenersuperstore.com/products/586350/thread-forming-screws",
+        "unit_price_usd": 514.85,
+        "price_qty": 5000,
+        "stock_note": "Snippet only; sold by the carton of 5,000 - not a hobby quantity.",
+        "verified": false,
+        "verification": "search_snippet"
+      }
+    ],
+    "key_specs": {
+      "quantity_hint": "450 transducers suggests several hundred screws; the 25-packs get expensive, so check McMaster-Carr 100-packs (not fetchable by the tool)"
+    },
+    "dims_mm": {
+      "thread_diameter": 2.0,
+      "length": 8.0
+    },
+    "risk": "low",
+    "note": "Commodity; nothing verified on a product page."
+  },
+  {
+    "item": "8c M2.5 and M3 machine screws",
+    "role": "General assembly",
+    "recommended": {
+      "mfr": "Generic",
+      "mpn": "Stainless socket-head assortment, M2.5 and M3, 6-20 mm",
+      "supplier": "Amazon / AliExpress / McMaster-Carr",
+      "url": null,
+      "unit_price_usd": null,
+      "price_qty": 1,
+      "stock_note": "Not researched to a product page.",
+      "verified": false,
+      "verification": "none"
+    },
+    "alternates": [],
+    "key_specs": {},
+    "dims_mm": {},
+    "risk": "low",
+    "note": "Commodity; unverified."
+  },
+  {
+    "item": "8d M3 brass heat-set inserts",
+    "role": "Reusable threads in the printed frame",
+    "recommended": {
+      "mfr": "CNC Kitchen (sold by Prusa Research)",
+      "mpn": "Heat Set Inserts M3 standard, M3 x 5.7 mm, 100 pcs",
+      "supplier": "Prusa Research",
+      "url": "https://www.prusa3d.com/en/product/threaded-inserts-m3-standard-100-pcs/",
+      "unit_price_usd": 10.99,
+      "price_qty": 100,
+      "stock_note": "In stock when fetched. Page gives the 5.7 mm length; the outer diameter is only in an image.",
+      "verified": true,
+      "verification": "product_page"
+    },
+    "alternates": [
+      {
+        "mfr": "Generic",
+        "mpn": "M3 x 5.7, OD 4.6 knurled brass heat-set insert, 120 pcs",
+        "supplier": "AliExpress",
+        "url": "https://www.aliexpress.us/item/3256809267901665.html",
+        "unit_price_usd": 4.82,
+        "price_qty": 120,
+        "stock_note": "Search-listing level.",
+        "verified": false,
+        "verification": "search_listing"
+      },
+      {
+        "mfr": "Generic (Voron style)",
+        "mpn": "M3 x 5 x 4.5 knurled brass heat-set insert (OD 5 mm, length 4.5 mm per title), 100 pcs",
+        "supplier": "AliExpress",
+        "url": "https://www.aliexpress.com/ssr/300000512/BundleDeals2?productIds=1005010376524046:12000052195292321",
+        "unit_price_usd": 5.42,
+        "price_qty": 100,
+        "stock_note": "Search-listing level.",
+        "verified": false,
+        "verification": "search_listing"
+      }
+    ],
+    "key_specs": {
+      "material": "Brass, lead and cadmium free (Prusa page)"
+    },
+    "dims_mm": {
+      "length": 5.7,
+      "outer_diameter": 4.6,
+      "outer_diameter_source": "from AliExpress titles for the same M3 x 5.7 style ('OD4.6'); not stated on the Prusa page",
+      "hole_diameter": "about 4.0 (common practice; check the CNC Kitchen size chart)"
+    },
+    "risk": "low",
+    "note": "Short Voron-style inserts (5 mm OD x 4 to 4.5 mm long) suit thin walls."
+  },
+  {
+    "item": "8e 3 mm dowel pins",
+    "role": "Locate frame segments to each other",
+    "recommended": {
+      "mfr": "Generic",
+      "mpn": "304 stainless cylindrical dowel pin GB119, 3 mm diameter, 10 pcs",
+      "supplier": "AliExpress",
+      "url": "https://www.aliexpress.us/item/3256803440853860.html",
+      "unit_price_usd": 1.31,
+      "price_qty": 10,
+      "stock_note": "Seen on a fetched AliExpress results page; 3 mm and the length are variant choices not confirmed on an item page.",
+      "verified": false,
+      "verification": "search_listing"
+    },
+    "alternates": [
+      {
+        "mfr": "Generic",
+        "mpn": "Hardened bearing-steel dowel pin (HRC63), 3 mm OD, lengths 8/9/10/15/20 mm",
+        "supplier": "AliExpress",
+        "url": "https://www.aliexpress.us/item/3256805936285774.html",
+        "unit_price_usd": 10.79,
+        "price_qty": 1,
+        "stock_note": "Search-listing level; pack count not stated.",
+        "verified": false,
+        "verification": "search_listing"
+      }
+    ],
+    "key_specs": {},
+    "dims_mm": {
+      "diameter": 3.0
+    },
+    "risk": "low",
+    "note": "Commodity; search-listing level only."
+  },
+  {
+    "item": "9 Acoustic vent mesh (optional)",
+    "role": "Acoustically transparent, liquid-repellent cover over transducers or vents",
+    "recommended": {
+      "mfr": "SAATI",
+      "mpn": "Saatifil Acoustex 075 (75 MKS Rayl); also 065, 045, 032, 026, 020 below 75 Rayl",
+      "supplier": "SAATI Americas (Fountain Inn, SC) or converter Marian Inc",
+      "url": "https://marianinc.com/wp-content/uploads/2024/09/SAATIFIL-ACOUSTEX-RANGE_6.pdf",
+      "unit_price_usd": null,
+      "price_qty": 1,
+      "stock_note": "Data sheet (dated 2018, hosted by Marian Inc) read in full. No retail listing or price found anywhere; quote or sample request only. Whether an individual can buy a single small sheet is unconfirmed.",
+      "verified": false,
+      "verification": "datasheet_only"
+    },
+    "alternates": [
+      {
+        "mfr": "Generic",
+        "mpn": "Polyester or nylon speaker dust mesh sold by the sheet",
+        "supplier": "AliExpress / Amazon",
+        "url": null,
+        "unit_price_usd": null,
+        "price_qty": 1,
+        "stock_note": "Not searched; such listings carry no acoustic impedance rating.",
+        "verified": false,
+        "verification": "none"
+      }
+    ],
+    "key_specs": {
+      "acoustex_075": "75 MKS Rayl, pore 25 um, open area 20 %, thickness 52 um, 33 g/m2",
+      "acoustex_065": "65 MKS Rayl, pore 30 um, open area 24 %, thickness 60 um",
+      "acoustex_045": "45 MKS Rayl, pore 51 um, open area 18 %, thickness 108 um",
+      "acoustex_032": "32 MKS Rayl, pore 38 um, open area 31 %, thickness 48 um",
+      "coating": "Data sheet offers a 'Hydrophobic Coating' as customisation; it does not mention an oleophobic grade, which is what resin mist would need"
+    },
+    "dims_mm": {
+      "thickness": 0.052
+    },
+    "risk": "medium",
+    "note": "Optional item. Impedance figures are for audio frequencies; behaviour at 40 kHz is not given."
+  }
+]

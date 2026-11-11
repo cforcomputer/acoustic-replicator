@@ -1,0 +1,981 @@
+{
+ "report": {
+  "n_wires": 224,
+  "length_m": 51.45,
+  "dangling": [],
+  "through": []
+ },
+ "legend": {
+  "drive+": {
+   "color": "#d11f1f",
+   "meaning": "transducer drive supply (+18 to +24 V)"
+  },
+  "gnd": {
+   "color": "#101114",
+   "meaning": "ground / return"
+  },
+  "5v": {
+   "color": "#f08a1c",
+   "meaning": "+5 V logic supply"
+  },
+  "rs485a": {
+   "color": "#f2d21b",
+   "meaning": "command bus RS-485 A"
+  },
+  "rs485b": {
+   "color": "#1faa4b",
+   "meaning": "command bus RS-485 B"
+  },
+  "sync": {
+   "color": "#f2f2f2",
+   "meaning": "SYNC: restarts every board's 40 kHz period together"
+  },
+  "uv+": {
+   "color": "#8a3ffc",
+   "meaning": "405 nm LED string (+)"
+  },
+  "strobe+": {
+   "color": "#8a5a2b",
+   "meaning": "red strobe LED (+)"
+  },
+  "usb": {
+   "color": "#3a3d44",
+   "meaning": "camera USB cable"
+  },
+  "trigger": {
+   "color": "#58b7f0",
+   "meaning": "camera trigger"
+  },
+  "valve": {
+   "color": "#1f5fd1",
+   "meaning": "piezo pulse of the droplet generator (+/- up to 30 V)"
+  },
+  "heater": {
+   "color": "#e11d48",
+   "meaning": "nozzle heater supply"
+  },
+  "therm": {
+   "color": "#84cc16",
+   "meaning": "nozzle thermistor"
+  },
+  "gate": {
+   "color": "#9aa0a6",
+   "meaning": "droplet light gate signal"
+  },
+  "laser": {
+   "color": "#f06fb0",
+   "meaning": "line laser supply"
+  },
+  "3v3": {
+   "color": "#ff6b6b",
+   "meaning": "+3.3 V sensor supply"
+  },
+  "sda": {
+   "color": "#3b82f6",
+   "meaning": "I2C data"
+  },
+  "scl": {
+   "color": "#eab308",
+   "meaning": "I2C clock"
+  },
+  "interlock": {
+   "color": "#d8d8d8",
+   "meaning": "door / lid interlock loop"
+  },
+  "tec+": {
+   "color": "#b91c1c",
+   "meaning": "Peltier supply (12 V, through the H-bridge)"
+  },
+  "fan": {
+   "color": "#6b7280",
+   "meaning": "fan supply / PWM"
+  },
+  "resin": {
+   "color": "#e9e2c8",
+   "meaning": "resin feed tube (PTFE)"
+  }
+ },
+ "by_function": {
+  "5v": {
+   "conductors": 20,
+   "length_m": 3.64
+  },
+  "gnd": {
+   "conductors": 82,
+   "length_m": 19.02
+  },
+  "rs485a": {
+   "conductors": 18,
+   "length_m": 3.44
+  },
+  "rs485b": {
+   "conductors": 18,
+   "length_m": 3.43
+  },
+  "sync": {
+   "conductors": 18,
+   "length_m": 3.44
+  },
+  "drive+": {
+   "conductors": 21,
+   "length_m": 3.48
+  },
+  "usb": {
+   "conductors": 4,
+   "length_m": 1.42
+  },
+  "trigger": {
+   "conductors": 3,
+   "length_m": 1.29
+  },
+  "uv+": {
+   "conductors": 11,
+   "length_m": 2.28
+  },
+  "strobe+": {
+   "conductors": 3,
+   "length_m": 1.24
+  },
+  "laser": {
+   "conductors": 1,
+   "length_m": 0.51
+  },
+  "3v3": {
+   "conductors": 3,
+   "length_m": 1.18
+  },
+  "sda": {
+   "conductors": 2,
+   "length_m": 0.88
+  },
+  "scl": {
+   "conductors": 2,
+   "length_m": 0.88
+  },
+  "valve": {
+   "conductors": 2,
+   "length_m": 0.36
+  },
+  "heater": {
+   "conductors": 1,
+   "length_m": 0.23
+  },
+  "therm": {
+   "conductors": 1,
+   "length_m": 0.23
+  },
+  "gate": {
+   "conductors": 1,
+   "length_m": 0.3
+  },
+  "resin": {
+   "conductors": 1,
+   "length_m": 0.05
+  },
+  "interlock": {
+   "conductors": 3,
+   "length_m": 1.11
+  },
+  "tec+": {
+   "conductors": 3,
+   "length_m": 0.84
+  },
+  "fan": {
+   "conductors": 6,
+   "length_m": 2.21
+  }
+ },
+ "cables": {
+  "bus trunk, sector 1": {
+   "from_part": "sq17.parts",
+   "to_part": "hub",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 413
+  },
+  "bus jumper sq17 -> sq01": {
+   "from_part": "sq17.parts",
+   "to_part": "sq01.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 136
+  },
+  "bus jumper sq01 -> sq11": {
+   "from_part": "sq01.parts",
+   "to_part": "sq11.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 104
+  },
+  "bus jumper sq11 -> sq16": {
+   "from_part": "sq11.parts",
+   "to_part": "sq16.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 148
+  },
+  "power trunk, sector 1": {
+   "from_part": "sq17.parts",
+   "to_part": "buck18",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 388
+  },
+  "power jumper sq17 -> sq01": {
+   "from_part": "sq17.parts",
+   "to_part": "sq01.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 77
+  },
+  "power jumper sq01 -> sq11": {
+   "from_part": "sq01.parts",
+   "to_part": "sq11.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 109
+  },
+  "power jumper sq11 -> sq16": {
+   "from_part": "sq11.parts",
+   "to_part": "sq16.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 135
+  },
+  "bus trunk, sector 2": {
+   "from_part": "sq09.parts",
+   "to_part": "hub",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 413
+  },
+  "bus jumper sq09 -> sq03": {
+   "from_part": "sq09.parts",
+   "to_part": "sq03.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 136
+  },
+  "bus jumper sq03 -> sq08": {
+   "from_part": "sq03.parts",
+   "to_part": "sq08.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 82
+  },
+  "bus jumper sq08 -> sq15": {
+   "from_part": "sq08.parts",
+   "to_part": "sq15.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 142
+  },
+  "power trunk, sector 2": {
+   "from_part": "sq09.parts",
+   "to_part": "buck18",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 487
+  },
+  "power jumper sq09 -> sq03": {
+   "from_part": "sq09.parts",
+   "to_part": "sq03.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 77
+  },
+  "power jumper sq03 -> sq08": {
+   "from_part": "sq03.parts",
+   "to_part": "sq08.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 89
+  },
+  "power jumper sq08 -> sq15": {
+   "from_part": "sq08.parts",
+   "to_part": "sq15.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 140
+  },
+  "bus trunk, sector 3": {
+   "from_part": "sq13.parts",
+   "to_part": "hub",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 458
+  },
+  "bus jumper sq13 -> sq05": {
+   "from_part": "sq13.parts",
+   "to_part": "sq05.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 136
+  },
+  "bus jumper sq05 -> sq07": {
+   "from_part": "sq05.parts",
+   "to_part": "sq07.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 104
+  },
+  "bus jumper sq07 -> sq12": {
+   "from_part": "sq07.parts",
+   "to_part": "sq12.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 148
+  },
+  "power trunk, sector 3": {
+   "from_part": "sq13.parts",
+   "to_part": "buck18",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 394
+  },
+  "power jumper sq13 -> sq05": {
+   "from_part": "sq13.parts",
+   "to_part": "sq05.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 77
+  },
+  "power jumper sq05 -> sq07": {
+   "from_part": "sq05.parts",
+   "to_part": "sq07.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 109
+  },
+  "power jumper sq07 -> sq12": {
+   "from_part": "sq07.parts",
+   "to_part": "sq12.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 135
+  },
+  "bus trunk, cap (unplugs at the first cap board)": {
+   "from_part": "sq14.parts",
+   "to_part": "hub",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 524
+  },
+  "bus jumper sq14 -> sq02": {
+   "from_part": "sq14.parts",
+   "to_part": "sq02.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 104
+  },
+  "bus jumper sq02 -> sq06": {
+   "from_part": "sq02.parts",
+   "to_part": "sq06.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 136
+  },
+  "bus jumper sq06 -> sq04": {
+   "from_part": "sq06.parts",
+   "to_part": "sq04.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 104
+  },
+  "bus jumper sq04 -> sq10": {
+   "from_part": "sq04.parts",
+   "to_part": "sq10.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 136
+  },
+  "bus jumper sq10 -> sq00": {
+   "from_part": "sq10.parts",
+   "to_part": "sq00.parts",
+   "conductors": [
+    "5v",
+    "gnd",
+    "rs485a",
+    "rs485b",
+    "sync",
+    "gnd"
+   ],
+   "length_mm": 104
+  },
+  "power trunk, cap (unplugs at the first cap board)": {
+   "from_part": "sq14.parts",
+   "to_part": "buck18",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 501
+  },
+  "power jumper sq14 -> sq02": {
+   "from_part": "sq14.parts",
+   "to_part": "sq02.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 112
+  },
+  "power jumper sq02 -> sq06": {
+   "from_part": "sq02.parts",
+   "to_part": "sq06.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 81
+  },
+  "power jumper sq06 -> sq04": {
+   "from_part": "sq06.parts",
+   "to_part": "sq04.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 112
+  },
+  "power jumper sq04 -> sq10": {
+   "from_part": "sq04.parts",
+   "to_part": "sq10.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 81
+  },
+  "power jumper sq10 -> sq00": {
+   "from_part": "sq10.parts",
+   "to_part": "sq00.parts",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 112
+  },
+  "camera 1 USB": {
+   "from_part": "cam0.usb",
+   "to_part": "pi.ports",
+   "conductors": [
+    "usb"
+   ],
+   "length_mm": 346
+  },
+  "camera 1 trigger": {
+   "from_part": "cam0.pcb",
+   "to_part": "hub",
+   "conductors": [
+    "trigger",
+    "gnd"
+   ],
+   "length_mm": 387
+  },
+  "camera 2 USB": {
+   "from_part": "cam1.usb",
+   "to_part": "pi.ports",
+   "conductors": [
+    "usb"
+   ],
+   "length_mm": 494
+  },
+  "camera 2 trigger": {
+   "from_part": "cam1.pcb",
+   "to_part": "hub",
+   "conductors": [
+    "trigger",
+    "gnd"
+   ],
+   "length_mm": 442
+  },
+  "camera 3 USB": {
+   "from_part": "cam2.usb",
+   "to_part": "pi.ports",
+   "conductors": [
+    "usb"
+   ],
+   "length_mm": 503
+  },
+  "camera 3 trigger": {
+   "from_part": "cam2.pcb",
+   "to_part": "hub",
+   "conductors": [
+    "trigger",
+    "gnd"
+   ],
+   "length_mm": 465
+  },
+  "UV string 1 (+)": {
+   "from_part": "uv_u0a.star",
+   "to_part": "ldd0",
+   "conductors": [
+    "uv+"
+   ],
+   "length_mm": 407
+  },
+  "UV string 1 link uv_u0a -> uv_l0a": {
+   "from_part": "uv_u0a.star",
+   "to_part": "uv_l0a.star",
+   "conductors": [
+    "uv+"
+   ],
+   "length_mm": 168
+  },
+  "UV string 1 link uv_l0a -> uv_l0b": {
+   "from_part": "uv_l0a.star",
+   "to_part": "uv_l0b.star",
+   "conductors": [
+    "uv+"
+   ],
+   "length_mm": 68
+  },
+  "UV string 1 (-)": {
+   "from_part": "uv_l0b.star",
+   "to_part": "ldd0",
+   "conductors": [
+    "gnd"
+   ],
+   "length_mm": 375
+  },
+  "UV string 2 (+)": {
+   "from_part": "uv_u1a.star",
+   "to_part": "ldd1",
+   "conductors": [
+    "uv+"
+   ],
+   "length_mm": 449
+  },
+  "UV string 2 link uv_u1a -> uv_u1b": {
+   "from_part": "uv_u1a.star",
+   "to_part": "uv_u1b.star",
+   "conductors": [
+    "uv+"
+   ],
+   "length_mm": 55
+  },
+  "UV string 2 link uv_u1b -> uv_l1a": {
+   "from_part": "uv_u1b.star",
+   "to_part": "uv_l1a.star",
+   "conductors": [
+    "uv+"
+   ],
+   "length_mm": 205
+  },
+  "UV string 2 link uv_l1a -> uv_l1b": {
+   "from_part": "uv_l1a.star",
+   "to_part": "uv_l1b.star",
+   "conductors": [
+    "uv+"
+   ],
+   "length_mm": 68
+  },
+  "UV string 2 (-)": {
+   "from_part": "uv_l1b.star",
+   "to_part": "ldd1",
+   "conductors": [
+    "gnd"
+   ],
+   "length_mm": 406
+  },
+  "UV string 3 (+)": {
+   "from_part": "uv_u2a.star",
+   "to_part": "ldd2",
+   "conductors": [
+    "uv+"
+   ],
+   "length_mm": 528
+  },
+  "UV string 3 link uv_u2a -> uv_u2b": {
+   "from_part": "uv_u2a.star",
+   "to_part": "uv_u2b.star",
+   "conductors": [
+    "uv+"
+   ],
+   "length_mm": 55
+  },
+  "UV string 3 link uv_u2b -> uv_l2a": {
+   "from_part": "uv_u2b.star",
+   "to_part": "uv_l2a.star",
+   "conductors": [
+    "uv+"
+   ],
+   "length_mm": 205
+  },
+  "UV string 3 link uv_l2a -> uv_l2b": {
+   "from_part": "uv_l2a.star",
+   "to_part": "uv_l2b.star",
+   "conductors": [
+    "uv+"
+   ],
+   "length_mm": 68
+  },
+  "UV string 3 (-)": {
+   "from_part": "uv_l2b.star",
+   "to_part": "ldd2",
+   "conductors": [
+    "gnd"
+   ],
+   "length_mm": 470
+  },
+  "strobe 1": {
+   "from_part": "strobe0.star",
+   "to_part": "fet0",
+   "conductors": [
+    "strobe+",
+    "gnd"
+   ],
+   "length_mm": 391
+  },
+  "strobe 2": {
+   "from_part": "strobe1.star",
+   "to_part": "fet1",
+   "conductors": [
+    "strobe+",
+    "gnd"
+   ],
+   "length_mm": 355
+  },
+  "strobe 3": {
+   "from_part": "strobe2.star",
+   "to_part": "fet2",
+   "conductors": [
+    "strobe+",
+    "gnd"
+   ],
+   "length_mm": 494
+  },
+  "line laser": {
+   "from_part": "laser",
+   "to_part": "hub",
+   "conductors": [
+    "laser",
+    "gnd"
+   ],
+   "length_mm": 511
+  },
+  "air sensor (top)": {
+   "from_part": "bme_a",
+   "to_part": "hub",
+   "conductors": [
+    "3v3",
+    "gnd",
+    "sda",
+    "scl"
+   ],
+   "length_mm": 544
+  },
+  "air sensor (bottom)": {
+   "from_part": "bme_b",
+   "to_part": "hub",
+   "conductors": [
+    "3v3",
+    "gnd",
+    "sda",
+    "scl"
+   ],
+   "length_mm": 340
+  },
+  "piezo pulse": {
+   "from_part": "jet.clamp",
+   "to_part": "valvedrv",
+   "conductors": [
+    "valve",
+    "valve"
+   ],
+   "length_mm": 181
+  },
+  "nozzle heater and thermistor": {
+   "from_part": "jet.block",
+   "to_part": "valvedrv",
+   "conductors": [
+    "heater",
+    "gnd",
+    "therm",
+    "gnd"
+   ],
+   "length_mm": 226
+  },
+  "light gate": {
+   "from_part": "gate.base",
+   "to_part": "hub",
+   "conductors": [
+    "3v3",
+    "gnd",
+    "gate",
+    "gnd"
+   ],
+   "length_mm": 299
+  },
+  "resin feed": {
+   "from_part": "jet.barb",
+   "to_part": "res.barrel",
+   "conductors": [
+    "resin"
+   ],
+   "length_mm": 47
+  },
+  "interlock loop": {
+   "from_part": "sw.door",
+   "to_part": "hub",
+   "conductors": [
+    "interlock",
+    "interlock"
+   ],
+   "length_mm": 551
+  },
+  "interlock link": {
+   "from_part": "sw.door",
+   "to_part": "sw.lid",
+   "conductors": [
+    "interlock"
+   ],
+   "length_mm": 10
+  },
+  "Peltier right": {
+   "from_part": "tec_right.sink_out",
+   "to_part": "hbridge",
+   "conductors": [
+    "tec+",
+    "gnd"
+   ],
+   "length_mm": 278
+  },
+  "outside fan right": {
+   "from_part": "tec_right.sink_out",
+   "to_part": "psu12",
+   "conductors": [
+    "fan",
+    "gnd"
+   ],
+   "length_mm": 248
+  },
+  "inside fan right": {
+   "from_part": "tec_right.fan",
+   "to_part": "hub",
+   "conductors": [
+    "fan",
+    "gnd",
+    "fan"
+   ],
+   "length_mm": 334
+  },
+  "Peltier left": {
+   "from_part": "tec_left.sink_out",
+   "to_part": "hbridge",
+   "conductors": [
+    "tec+",
+    "gnd"
+   ],
+   "length_mm": 458
+  },
+  "outside fan left": {
+   "from_part": "tec_left.sink_out",
+   "to_part": "psu12",
+   "conductors": [
+    "fan",
+    "gnd"
+   ],
+   "length_mm": 394
+  },
+  "inside fan left": {
+   "from_part": "tec_left.fan",
+   "to_part": "hub",
+   "conductors": [
+    "fan",
+    "gnd",
+    "fan"
+   ],
+   "length_mm": 452
+  },
+  "24 V to drive converter": {
+   "from_part": "psu24",
+   "to_part": "buck18",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 37
+  },
+  "24 V to 5 V converter": {
+   "from_part": "psu24",
+   "to_part": "buck5",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 85
+  },
+  "24 V to UV drivers": {
+   "from_part": "psu24",
+   "to_part": "hub",
+   "conductors": [
+    "drive+",
+    "gnd"
+   ],
+   "length_mm": 145
+  },
+  "5 V to hub": {
+   "from_part": "buck5",
+   "to_part": "hub",
+   "conductors": [
+    "5v",
+    "gnd"
+   ],
+   "length_mm": 96
+  },
+  "5 V to host": {
+   "from_part": "buck5",
+   "to_part": "pi",
+   "conductors": [
+    "5v",
+    "gnd"
+   ],
+   "length_mm": 55
+  },
+  "12 V to H-bridge": {
+   "from_part": "psu12",
+   "to_part": "hbridge",
+   "conductors": [
+    "tec+",
+    "gnd"
+   ],
+   "length_mm": 109
+  },
+  "hub to host (USB)": {
+   "from_part": "pico",
+   "to_part": "pi.ports",
+   "conductors": [
+    "usb"
+   ],
+   "length_mm": 77
+  }
+ }
+}

@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+.DS_Store
+# third-party model, download it yourself (see README)
+assets/
+# large simulation outputs; regenerate with the commands in README
+out/*
+!out/*.json
+!out/sourcing/
+!out/viewer/
+out/viewer/target.bin
+!out/print/
+out/print/*
+!out/print/meta.json
+!out/print/deposits.bin
+!out/print/*.json

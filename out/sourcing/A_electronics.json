@@ -1,0 +1,717 @@
+[
+  {
+    "item": "1 - 40 kHz transmitter transducer, 10 mm can",
+    "role": "450 phased-array emitters (order ~475-500)",
+    "recommended": {
+      "mfr": "Sunny Electronics",
+      "mpn": "TCT40-10T2 (ALU, silver mesh); Maritex code 40ST10-ALU-SILVER",
+      "supplier": "Maritex (Poland, EU)",
+      "url": "https://www.maritex.eu/en/product/sunny-electronics-tct40-10t2-alu-silver-mesh-ultrasonic-sensors-40st10-alu-silver",
+      "unit_price_usd": 0.24,
+      "price_qty": 500,
+      "stock_note": "Page showed 4,552 in stock; net prices 1.15 PLN (1+), 1.04 (100+), 0.89 (500+), 0.63 (1000+), VAT and shipping excluded. USD figure is 0.89 PLN at an assumed 0.27 USD/PLN. Shipping outside the EU not checked.",
+      "verified": true
+    },
+    "alternates": [
+      {
+        "mfr": "Murata",
+        "mpn": "MA40S4S",
+        "supplier": "Digi-Key",
+        "url": "https://www.digikey.com/en/products/detail/murata-electronics/MA40S4S/4358147",
+        "unit_price_usd": 4.27935,
+        "price_qty": 540,
+        "stock_note": "4,211 in stock; status 'Not For New Designs'. $6.12 @1, $4.6395 @100, $4.27935 @540, $4.1519 @1080.",
+        "verified": true
+      },
+      {
+        "mfr": "Manorshi",
+        "mpn": "MSO-P1040H07T",
+        "supplier": "Alibaba (Manorshi store)",
+        "url": "https://manorshi.en.alibaba.com/product/60757880811-801018150/10mm_40kHz_ultrasonic_sensor_transmitter_with_pin_plastic_case.html",
+        "unit_price_usd": 1.0,
+        "price_qty": 500,
+        "stock_note": "Page fetch returned empty content. Price tiers ($1.00 for 100-999, $0.40 for 1,000-9,999) and specs come from search snippets only.",
+        "verified": false
+      },
+      {
+        "mfr": "INGHAi",
+        "mpn": "GU1008C-40T (sold as pair listing GU1008C-40T & GU1008C-40R), LCSC C242178",
+        "supplier": "JLCPCB parts library / LCSC",
+        "url": "https://jlcpcb.com/partdetail/C242178",
+        "unit_price_usd": null,
+        "price_qty": null,
+        "stock_note": "Library page fetched: Extended, through-hole ('Plugin'), dia 10 x H 7 mm, open type 40 kHz. Stock and price not shown on the fetched page (a search snippet said 65 in stock at LCSC).",
+        "verified": true
+      }
+    ],
+    "key_specs": {
+      "TCT40-10T (Sunny datasheet hosted by Maritex, read)": "SPL min 110 dB at 10 V, 30 cm (0 dB = 0.02 mPa); capacitance 2000 pF +/-30 %; -6 dB directivity 60 deg; SPL-vs-voltage chart drawn up to 30 Vrms (about 117 dB there); no explicit maximum-voltage line; aluminium housing",
+      "MA40S4S (Murata spec Rev N 2015, read)": "Absolute max input 20 Vp-p, 40 kHz square continuous; SPL 120 +/-3 dB at 10 Vrms sine, 30 cm; capacitance 2550 pF +/-20 %; -40..+85 C",
+      "MSO-P1040H07T (search snippets of Alibaba listing, not fetched)": "SPL >= 115 dB; max input 40 Vp-p; 2200 pF +/-25 %; directivity 80 +/-15 deg; plastic housing",
+      "can tied to a pin": "NOT stated in any document I could read (Sunny datasheet silent; Murata drawing page was not in the copy I fetched). Treat as unknown: check continuity can-to-pin on receipt and put the can-side pin on GND.",
+      "other distributor parts seen": "Prowave 400ST100 (Digi-Key marketplace, 152 in stock, $3.45 @500, listed 10 V rated); PUI SMUT-1040K-TT is surface-mount ($4.63 @500)"
+    },
+    "dims_mm": {"can_diameter": 9.9, "can_height": 7.0, "pin_pitch": 5.0, "pin_diameter": 0.7, "pin_length": 7.6},
+    "colour": "aluminium can, silver mesh (black-mesh variant 40ST10-ALU-BLACK also listed: 704 in stock, 1.68 PLN @500)",
+    "connector": "2 through-hole pins",
+    "risk": "medium",
+    "file_conventions": "Applies to every entry in this file. Research date 2026-11-10. verified=true means a supplier, manufacturer or parts-library page for that exact part was fetched and showed it listed for sale or in the library; stock_note says what the page actually showed. 'read' means read from the PDF itself. 'search snippet', 'from memory' and 'my calculation / inference' mean NOT seen on a fetched product page. JLCPCB and LCSC pages did not expose live stock or price to a page fetch, so JLCPCB entries confirm library membership and class only. PLN converted at an assumed 0.27 USD/PLN.",
+    "note": "Model check (my calculation, assuming the datasheet '10 V' is 10 Vrms sine and a square wave's fundamental is 4/pi of half its swing): the generic part's guaranteed 110 dB corresponds to about 0.12 Pa*m per Vpp of square drive, below the 0.17 used in replicator/constants.py (P_REF_PER_VPP); Manorshi's claimed 115 dB gives about 0.21; Murata nominal 120 dB gives about 0.38. So the cheapest part may deliver about 3 dB less pressure than the simulation assumes unless units are measured or sorted. Murata's 20 Vp-p is an absolute maximum, so 18 V drive leaves 10 %. Murata at ~$4.28 for 475 pieces is about $2,030."
+  },
+  {
+    "item": "2 - dual low-side MOSFET driver, SOIC-8, 18 V rail",
+    "role": "13 per board, each output drives one transducer 0..V_DRIVE",
+    "recommended": {
+      "mfr": "Littelfuse / IXYS Integrated Circuits",
+      "mpn": "IX4427NTR (reel, JLCPCB C171845) / IX4427N (tube, Digi-Key)",
+      "supplier": "Digi-Key (IX4427N) and JLCPCB parts library (IX4427NTR, C171845)",
+      "url": "https://www.digikey.com/en/products/detail/ixys-integrated-circuits-division/IX4427N/4009906",
+      "unit_price_usd": 0.6766,
+      "price_qty": 250,
+      "stock_note": "Digi-Key: Active, 4,124 in stock; $1.17 @1, $0.6766 @100, $0.62673 @300, $0.60826 @500 (250 pieces fall in the 100+ tier; 300 pieces cost $188.02). JLCPCB library page for C171845 fetched: Extended, SOIC-8, 4.5-30 V; JLCPCB stock and price not shown.",
+      "verified": true
+    },
+    "alternates": [
+      {
+        "mfr": "Littelfuse / IXYS Integrated Circuits",
+        "mpn": "IXDN602SIA (JLCPCB C74351)",
+        "supplier": "Digi-Key / JLCPCB parts library",
+        "url": "https://www.digikey.com/en/products/detail/ixys-integrated-circuits-division/IXDN602SIA/2416297",
+        "unit_price_usd": 0.917,
+        "price_qty": 250,
+        "stock_note": "Digi-Key: Active, 3,726 in stock; $0.917 @100, $0.85247 @300. 4.5-35 V, 2 A/2 A, dual non-inverting, SOIC-8. JLCPCB C74351 library page fetched: Extended.",
+        "verified": true
+      },
+      {
+        "mfr": "Texas Instruments",
+        "mpn": "UCC27624DR",
+        "supplier": "Digi-Key",
+        "url": "https://www.digikey.com/en/products/detail/texas-instruments/UCC27624DR/15853920",
+        "unit_price_usd": 0.92104,
+        "price_qty": 250,
+        "stock_note": "Active but 0 in stock at Digi-Key (2,498 expected 4 Jan 2027). 4.5-26 V, 5 A/5 A. Pins 1 and 8 are enable inputs on this family rather than no-connects (from memory, check before reusing the TC4427 footprint).",
+        "verified": false
+      }
+    ],
+    "key_specs": {
+      "TC4427A finding": "Microchip datasheet DS20001422G (TC4426/27/28, the PDF Digi-Key links from the TC4427AEOA713 page; read): operating range 4.5 V to 18 V, every electrical spec is conditioned on 4.5 V <= VDD <= 18 V, absolute maximum supply +22 V, peak output 1.5 A. Digi-Key lists TC4427AEOA713 as 4.5-18 V. Running at 18.0 V is exactly at the recommended maximum: zero operating headroom.",
+      "TC4427A availability": "Digi-Key: TC4427AEOA713 out of stock, 3,300 expected 4 Jan 2027, $1.22 @100. JLCPCB C20551: Extended (stock not shown).",
+      "IX4427 supply": "Digi-Key and JLCPCB tables: 4.5-30 V. Datasheet feature line says 4.5-35 V; recommended 4.5-30 V and absolute max 35 V per search snippets of the Littelfuse datasheet (PDF itself returned HTTP 403, not read). 18 V is 60 % of 30 V.",
+      "IX4427 output": "1.5 A source / 1.5 A sink, rise/fall 10/8 ns typ, dual non-inverting, 8-SOIC 3.9 mm, -40..125 C",
+      "candidates rejected": "MIC4127 (4.5-20 V per Digi-Key listing snippet: only 10 % headroom, exposed-pad SOIC); MIC4427, UCC27524A, FAN3224 are 18 V-class parts (not individually fetched; from memory/snippets)",
+      "dissipation (my calculation)": "C*V^2*f = 2.5 nF x 18^2 x 40 kHz = 32 mW per channel, about 65 mW per IC"
+    },
+    "dims_mm": {"package": "8-SOIC, 3.90 mm body width"},
+    "risk": "low",
+    "note": "Change the design part from TC4427A to IX4427N/IX4427NTR. Pin-compatibility with the TC4427 pinout is as described for the IX4426/27/28 family; I did not re-read the pin drawing because the Littelfuse PDF was blocked. Cost impact: 13 x $0.63-0.68 = $8.15-8.80 per board versus the $4.60 allowed in hardware/bom.json. LCSC lists second-source 'IX4427NTR' parts from JSMSEMI/MSKSEMI at $0.17-0.35 (seen via the findchips aggregator); their ratings were not checked."
+  },
+  {
+    "item": "3a - RP2040",
+    "role": "Board MCU, QFN-56",
+    "recommended": {
+      "mfr": "Raspberry Pi",
+      "mpn": "RP2040 / SC0914(7) (JLCPCB C2040)",
+      "supplier": "Digi-Key; JLCPCB parts library C2040",
+      "url": "https://www.digikey.com/en/products/detail/raspberry-pi/SC0914-7/14306009",
+      "unit_price_usd": 0.92,
+      "price_qty": 1,
+      "stock_note": "Digi-Key: Active, 28,568 in stock, $0.92 @1 (cut tape), $0.80 @500 (reel). JLCPCB C2040 page fetched: Extended, LQFN-56 (7x7); stock/price not shown.",
+      "verified": true
+    },
+    "alternates": [
+      {"mfr": "Raspberry Pi", "mpn": "RP2040 (7-inch reel of 500)", "supplier": "TME", "url": "https://www.findchips.com/search/RP2040", "unit_price_usd": 0.83, "price_qty": 1, "stock_note": "705 in stock at $0.83, as shown by the findchips aggregator (TME page itself not fetched).", "verified": false}
+    ],
+    "key_specs": {"package": "QFN-56 7 x 7 mm", "JLCPCB class": "Extended"},
+    "dims_mm": {"body": "7 x 7"},
+    "risk": "low",
+    "note": ""
+  },
+  {
+    "item": "3b - QSPI flash",
+    "role": "RP2040 boot flash, SOIC-8 208 mil",
+    "recommended": {
+      "mfr": "Winbond",
+      "mpn": "W25Q16JVSSIQ (JLCPCB C82317)",
+      "supplier": "JLCPCB parts library",
+      "url": "https://jlcpcb.com/partdetail/C82317",
+      "unit_price_usd": null,
+      "price_qty": null,
+      "stock_note": "Library page fetched: Extended, SOIC-8-208mil, 16 Mbit, 2.7-3.6 V, 133 MHz. Stock and price not shown. Digi-Key search page showed $2.17 @1 (stock not shown).",
+      "verified": true
+    },
+    "alternates": [],
+    "key_specs": {"JLCPCB class": "Extended"},
+    "dims_mm": {},
+    "risk": "low",
+    "note": "The low LCSC price assumed in the BOM (about $0.40) was not seen on any fetched page."
+  },
+  {
+    "item": "3c - 12 MHz crystal, 3225",
+    "role": "RP2040 clock",
+    "recommended": {
+      "mfr": "YXC",
+      "mpn": "X322512MSB4SI (JLCPCB C9002)",
+      "supplier": "JLCPCB parts library / LCSC",
+      "url": "https://jlcpcb.com/partdetail/C9002",
+      "unit_price_usd": 0.096,
+      "price_qty": 1,
+      "stock_note": "Library page fetched: SMD3225-4P, 12 MHz, 20 pF, +/-10 ppm; library class not explicit on the fetched page. LCSC stock 28,135 and price range $0.048-0.096 as shown by the findchips aggregator.",
+      "verified": true
+    },
+    "alternates": [],
+    "key_specs": {"load capacitance": "20 pF (choose load capacitors accordingly; Raspberry Pi's reference design uses a different crystal - from memory)"},
+    "dims_mm": {"body": "3.2 x 2.5"},
+    "risk": "low",
+    "note": ""
+  },
+  {
+    "item": "3d - 3.3 V LDO, SOT-223",
+    "role": "Board logic rail from the +5 V bus",
+    "recommended": {
+      "mfr": "Advanced Monolithic Systems",
+      "mpn": "AMS1117-3.3 (JLCPCB C6186)",
+      "supplier": "JLCPCB parts library",
+      "url": "https://jlcpcb.com/partdetail/C6186",
+      "unit_price_usd": null,
+      "price_qty": null,
+      "stock_note": "Library page fetched: Basic, SOT-223, 1 A, 15 V max input. Stock and price not shown. LCSC rows for other-brand AMS1117-3.3 parts were $0.02-0.10 on findchips.",
+      "verified": true
+    },
+    "alternates": [],
+    "key_specs": {"JLCPCB class": "Basic", "max input": "15 V - must be fed from the 5 V bus, never from V_DRIVE"},
+    "dims_mm": {},
+    "risk": "low",
+    "note": ""
+  },
+  {
+    "item": "3e - 3.3 V half-duplex RS-485 transceiver, SOIC-8",
+    "role": "Command bus on each board",
+    "recommended": {
+      "mfr": "MaxLinear",
+      "mpn": "SP3485EN-L/TR (JLCPCB C8963)",
+      "supplier": "Digi-Key; JLCPCB parts library",
+      "url": "https://www.digikey.com/en/products/result?keywords=SP3485EN-L%2FTR",
+      "unit_price_usd": 0.544,
+      "price_qty": 250,
+      "stock_note": "Digi-Key: Active, 12,381 in stock; $1.02 @1, $0.5819 @100, $0.544 @250. JLCPCB C8963 page fetched: Basic, SOIC-8, 3.3 V, 10 Mbps, half-duplex.",
+      "verified": true
+    },
+    "alternates": [
+      {"mfr": "Texas Instruments", "mpn": "THVD1420DR", "supplier": "Digi-Key", "url": "https://www.digikey.com/en/products/detail/texas-instruments/THVD1420DR/14123985", "unit_price_usd": 1.36, "price_qty": 1, "stock_note": "Search-result page showed $1.36 @1; stock and status not shown there.", "verified": false}
+    ],
+    "key_specs": {"JLCPCB class": "Basic"},
+    "dims_mm": {},
+    "risk": "low",
+    "note": ""
+  },
+  {
+    "item": "4 - ultrasonic MEMS microphone",
+    "role": "One per board, measures the 40 kHz field for calibration",
+    "recommended": {
+      "mfr": "Knowles (listed under Syntiant at Digi-Key)",
+      "mpn": "SPH0641LU4H-1 (JLCPCB C2879853)",
+      "supplier": "Digi-Key; JLCPCB parts library",
+      "url": "https://www.digikey.com/en/products/detail/knowles/SPH0641LU4H-1/5332438",
+      "unit_price_usd": 1.97604,
+      "price_qty": 250,
+      "stock_note": "Digi-Key: Active, 2,827 in stock; $3.68 @1, $2.1776 @100, $1.97604 @250. Digi-Key lists 100 Hz-80 kHz, PDM, bottom port. JLCPCB C2879853 page fetched: Extended, LGA-5 (3.5x2.7); stock not shown (a search snippet said LCSC stock was 0).",
+      "verified": true
+    },
+    "alternates": [
+      {"mfr": "Infineon", "mpn": "IM73D122V01XTMA1", "supplier": "Digi-Key", "url": "https://www.digikey.com/en/products/result?keywords=IM73D122V01XTMA1", "unit_price_usd": 1.45552, "price_qty": 250, "stock_note": "Active, 40,964 in stock; PDM, bottom port. Digi-Key lists 20 Hz-19 kHz only; I found no document stating its response at 40 kHz.", "verified": true},
+      {"mfr": "Knowles / Syntiant", "mpn": "SPH0644LM4H-1", "supplier": "Digi-Key", "url": "https://www.digikey.com/en/products/result?keywords=SPH0644LM4H-1", "unit_price_usd": 1.75, "price_qty": 1, "stock_note": "Search-result page showed $1.75; stock and status not shown (a regional Digi-Key page marks it Not For New Designs per search snippet). -37 dBFS sensitivity; listed bandwidth 20 Hz-10 kHz; no 40 kHz data found; overload point given as 116.5 or 132.5 dB SPL in conflicting snippets.", "verified": false},
+      {"mfr": "TDK InvenSense", "mpn": "ICS-41352", "supplier": "Digi-Key", "url": "https://www.digikey.com/en/products/result?keywords=ICS-41352", "unit_price_usd": null, "price_qty": null, "stock_note": "Digi-Key status 'Not Available'. Do not design in.", "verified": false}
+    ],
+    "key_specs": {
+      "status": "Active and purchasable (Digi-Key); business now sold under the Syntiant name",
+      "response at 40 kHz (datasheet Rev B 2015, read from the 'Typical Ultrasonic Response' graph, CLK 3.072 MHz, VDD 1.8 V)": "about +8 dB relative to 1 kHz, flat within about 1 dB from 37 to 55 kHz; peak about +14.5 dB near 25 kHz; +13 dB at 80 kHz",
+      "ultrasonic mode clock": "3.072-4.8 MHz, duty 48-52 % above 2.4 MHz; datasheet notes: do not power up into, or wake from sleep into, ultrasonic mode",
+      "supply": "1.62-3.6 V; 845 uA typ in ultrasonic mode",
+      "sensitivity / overload": "-26 dBFS +/-1 at 94 dB SPL 1 kHz; acoustic overload point 120 dB SPL (10 % THD at 1 kHz)",
+      "IM69D130": "not checked at a distributor; its datasheet response table stops at 15 kHz per a search snippet"
+    },
+    "dims_mm": {"length": 3.5, "width": 2.65, "height": 0.98, "port_diameter": 0.325},
+    "connector": "LGA-5, bottom port (needs a hole through the PCB)",
+    "risk": "medium",
+    "note": "Overload risk (my inference): with +8 dB response at 40 kHz and a 120 dB SPL overload point, the microphone saturates near 112 dB SPL at 40 kHz. One Murata-class transducer at 18 Vpp seen from 160 mm gives about 117 dB SPL using the model's own 0.17 Pa*m/Vpp, and the full array is far louder. Plan to calibrate at reduced drive (shortened pulse width) or add an acoustic attenuator over the port. Price is $1.98-2.18, not the $1.30 in the BOM."
+  },
+  {
+    "item": "5a - JST-SH 6-pin side-entry SMD header",
+    "role": "J_BUS on each board (5V, GND, A, B, SYNC, GND)",
+    "recommended": {
+      "mfr": "JST",
+      "mpn": "SM06B-SRSS-TB(LF)(SN) (JLCPCB C160405)",
+      "supplier": "JLCPCB parts library",
+      "url": "https://jlcpcb.com/partdetail/C160405",
+      "unit_price_usd": null,
+      "price_qty": null,
+      "stock_note": "Library page fetched: Extended, 1x6P, 1 mm pitch, right angle SMD, 1 A, 50 V. Stock and price not shown.",
+      "verified": true
+    },
+    "alternates": [],
+    "key_specs": {"matching cable": "Pololu #5543 JST SH-style 6-pin female-female 10 cm, 28 AWG, rated 1 A / 50 V: $3.32 @1, $3.05 @5, $2.81 @25 (page fetched; stock count not shown, 'Active and Preferred'). Longer: #5544 16 cm $3.61, #5545 25 cm, #5546 40 cm, #5547 63 cm (search snippet). Pimoroni 6-pin JST-SH cable 100 mm, pack of 4, GBP 2.50 (search snippet).", "cable url": "https://www.pololu.com/product/5543"},
+    "dims_mm": {"pitch": 1.0},
+    "connector": "JST-SH 6-pin, 1.0 mm",
+    "risk": "medium",
+    "note": "Connector and cable are rated 1 A. If +5 V for 18 boards is daisy-chained through this cable from one end, the first link carries the sum of all board currents; feed 5 V in a star or from both ends (my inference, board current not measured)."
+  },
+  {
+    "item": "5b - JST-PH 2-pin side-entry SMD header",
+    "role": "J_PWR on each board (V_DRIVE, GND)",
+    "recommended": {
+      "mfr": "JST",
+      "mpn": "S2B-PH-SM4-TB(LF)(SN) (JLCPCB C295747)",
+      "supplier": "JLCPCB parts library",
+      "url": "https://jlcpcb.com/partdetail/C295747",
+      "unit_price_usd": null,
+      "price_qty": null,
+      "stock_note": "Library page fetched: Extended, 1x2P, 2 mm pitch, right angle SMD, 2 A, 100 V. Stock and price not shown.",
+      "verified": true
+    },
+    "alternates": [],
+    "key_specs": {"matching cable": "Adafruit 261 'JST PH 2-Pin Cable - Female Connector 100mm', single-ended pigtail, 26 AWG red/black: $0.75, in stock (page fetched).", "cable url": "https://www.adafruit.com/product/261"},
+    "dims_mm": {"pitch": 2.0},
+    "connector": "JST-PH 2-pin, 2.0 mm",
+    "risk": "low",
+    "note": "2 A rating: fine per board (about 0.1 A), but a single 18-board chain at about 30 W / 18 V = 1.7 A is close to the limit; split into two or three chains."
+  },
+  {
+    "item": "6 - global-shutter monochrome camera, OV9281, external trigger",
+    "role": "3 cameras for droplet tracking",
+    "recommended": {
+      "mfr": "InnoMaker",
+      "mpn": "U20CAM-9281M",
+      "supplier": "inno-maker.com (also Amazon ASIN B0CLRN9QRC)",
+      "url": "https://www.inno-maker.com/product/u20cam-9281m/",
+      "unit_price_usd": 32.99,
+      "price_qty": 1,
+      "stock_note": "Product page fetched: $32.99 (sale, regular $36.99), add-to-cart shown, no stock count. Amazon price about $35.99 per a search snippet.",
+      "verified": true
+    },
+    "alternates": [
+      {"mfr": "Arducam", "mpn": "B0332 (OV9281 UVC, M12 low-distortion lens)", "supplier": "RobotShop US (RB-Adu-256); Arducam direct; Core Electronics AU (AC-B0332)", "url": "https://robotshop.com/products/arducam-120fps-global-shutter-usb-camera-board-1mp-ov9281-uvc-m12-lens", "unit_price_usd": 63.12, "price_qty": 1, "stock_note": "RobotShop page fetched: $63.12, available on backorder. Core Electronics page fetched: AUD 82.50 inc GST, lead-time item. Arducam's own page returned HTTP 403; $49.99 there is from a search snippet.", "verified": true},
+      {"mfr": "Raspberry Pi", "mpn": "Global Shutter Camera (Sony IMX296LQR-C)", "supplier": "raspberrypi.com resellers", "url": "https://www.raspberrypi.com/products/raspberry-pi-global-shutter-camera/", "unit_price_usd": null, "price_qty": null, "stock_note": "Product page fetched; no price shown on it. In production until at least January 2032.", "verified": true}
+    ],
+    "key_specs": {
+      "U20CAM-9281M (manual V1.1, read)": "OV9281 1/4 inch mono global shutter, 3 um pixels, 1280x800; MJPG 1280x800 up to 120 fps (default 30); YUY2 1280x800 only 10 fps; UVC, USB 2.0; 5 V 86 mA",
+      "trigger input": "FSIN header: FSIN+ takes 3.3-5 V, FSIN- is ground; reference circuit shows an opto-isolated input with a 200 ohm series resistor; image is output on the rising edge. Enabled over UVC by setting Focus=auto and manual exposure (Linux script in the vendor GitHub repo).",
+      "strobe output": "STROBE header: opto-isolated open-collector output (on-board TLP281), max 50 mA; manual says the strobe timing is fixed by the UVC firmware",
+      "max triggered frame rate": "Not stated. The manual's own demo screenshot shows 44-47 fps at 1280x800 from a GPIO loop with 5 ms high / 5 ms low.",
+      "stock lens": "M12, 2.8 mm, F2.2, FOV(D) 148 deg, TV distortion < -17 %, no IR filter, 18 mm lens-seat hole spacing",
+      "Arducam B0332": "1280x800 MJPG 100 fps, YUY2 10 fps; M12 low-distortion lens, 70 deg HFOV, no IR filter; board 38 x 38 mm, hole pitch 34 x 34 and 28 x 28 mm; 'reserved external trigger ports'. Arducam doc (fetched): solder trigger to pad F and ground to pad G, rising edge, pulse >= 2 us, up to 100 fps in trigger mode in Arducam's test; enabled on Linux with v4l2-ctl -c exposure_dynamic_framerate=1. Strobe pad S (3.3 V, fixed width) is from a search snippet only.",
+      "Raspberry Pi GS camera": "1456x1088, 60 fps, 3.45 um pixels, colour sensor, C/CS mount, CSI-2 ribbon, 38 x 38 x 19.8 mm. External trigger not mentioned on the product page.",
+      "why not the Pi GS camera": "60 fps instead of 100-120; C/CS lenses are larger than M12 for small ports; it is the colour variant; and a Pi 5 has two CSI connectors, so three cameras need a second Pi or a multiplexer that cannot stream all three at once. USB OV9281 boards are the better buy here."
+    },
+    "dims_mm": {"board": "32 x 32", "mounting_holes": "4 x dia 2.1 on 28 x 28", "lens_holder_hole_spacing": 18, "stock_lens": "dia 14 x 22 long"},
+    "colour": "black PCB, black lens holder and lens (manual photo)",
+    "connector": "USB on a 1.25 mm-pitch 5-pin board connector (5V, D-, D+, GND, GND) with 1 m cable supplied; FSIN 2-pin 2.0 mm header; STROBE 2-pin 2.0 mm header",
+    "risk": "medium",
+    "note": "Fits the $38 budget. Drive the three FSIN inputs and the LED strobes from one microcontroller (Pico hub) and place the 20 us flash inside the exposure window; do not rely on the camera STROBE pin, whose width is firmware-fixed. The opto-isolated trigger adds microsecond-scale delay. Verify the real triggered frame rate on one unit before buying three. MJPG is lossy; uncompressed YUY2 is only 10 fps at full resolution."
+  },
+  {
+    "item": "7 - M12 lens, 3.6 mm (plus 2.8 mm and 6 mm)",
+    "role": "Camera lenses, 1/4 inch sensor, no IR-cut wanted",
+    "recommended": {
+      "mfr": "Commonlands",
+      "mpn": "CIL036-F2.2-M12ANIR (3.6 mm, no IR filter)",
+      "supplier": "commonlands.com",
+      "url": "https://commonlands.com/products/wideangle-m12-lens-cil036",
+      "unit_price_usd": null,
+      "price_qty": null,
+      "stock_note": "Page returned HTTP 429 on three attempts. From a search snippet only: no-filter part number exists, 50 units in US stock, distortion < 1 % TV, 1/2.7 inch format. Price not seen.",
+      "verified": false
+    },
+    "alternates": [
+      {"mfr": "Arducam", "mpn": "M25360H06 (LN004), 3.6 mm, 1/2.5 inch", "supplier": "RobotShop (RB-Adu-228)", "url": "https://ca.robotshop.com/products/arducam-1-25-m12-mount-camera-lens-m25360h06", "unit_price_usd": null, "price_qty": 1, "stock_note": "RobotShop Canada page fetched: 11.41 CAD, available on backorder; HAS a 650 nm IR-cut filter, working range 400-700 nm; holder not included. (US price $11.41 and Welectron EUR 9.90 are search snippets.)", "verified": true},
+      {"mfr": "Arducam", "mpn": "M25360H06S (LN012), 3.6 mm low distortion, F2.8", "supplier": "arducam.com / resellers", "url": "https://www.arducam.com/product/m25360h06s-2/", "unit_price_usd": null, "price_qty": null, "stock_note": "Arducam page returned HTTP 403. Search snippets: has a 650 nm IR filter; distortion quoted as 3 % on one page and < -0.35 % on another.", "verified": false},
+      {"mfr": "Kurokesu", "mpn": "L135 (3.5 mm low-distortion M12, no filter, f/1.8)", "supplier": "shop2.kurokesu.com", "url": "https://shop2.kurokesu.com/item/L135", "unit_price_usd": null, "price_qty": null, "stock_note": "Fetch failed (TLS error); existence from a search snippet only.", "verified": false}
+    ],
+    "key_specs": {
+      "2.8 mm option (verified, no extra cost)": "the lens supplied on the U20CAM-9281M: 2.8 mm, F2.2, no IR filter, but TV distortion < -17 %. The Arducam B0332's supplied lens is low-distortion, 70 deg HFOV on the 1/4 inch sensor (about 2.8 mm by my calculation), no IR filter.",
+      "6 mm option": "none verified",
+      "IR-cut caveat": "a 650 nm IR-cut lens passes a 620-630 nm strobe but sits on the edge for a 650-660 nm source such as the line laser"
+    },
+    "dims_mm": {"thread": "M12 x 0.5", "barrel_reference": "dia 14 x 22 long (the verified U20CAM stock lens; 3.6 mm lens dimensions not seen)"},
+    "colour": "black",
+    "connector": "M12 x 0.5 thread into the board's lens holder",
+    "risk": "medium",
+    "note": "No 3.6 mm no-IR lens could be verified with price and dimensions. Cheapest safe path: test with the supplied lens first, then order one candidate lens before buying three."
+  },
+  {
+    "item": "8 - red long-pass filter (block 405 nm, pass 620-660 nm)",
+    "role": "One per camera",
+    "recommended": {
+      "mfr": "Edmund Optics (SCHOTT glass)",
+      "mpn": "#46-428, RG-610, 12.5 mm dia, 3 mm thick",
+      "supplier": "Edmund Optics",
+      "url": "https://www.edmundoptics.com/p/rg-610-125mm-dia-longpass-filter/6859/",
+      "unit_price_usd": 37.0,
+      "price_qty": 1,
+      "stock_note": "Page returned HTTP 403. From a search snippet: $37.00 each (1-5), $33.50 (6-10), cut-on 610 +/-6 nm.",
+      "verified": false
+    },
+    "alternates": [
+      {"mfr": "UQG Optics (SCHOTT glass)", "mpn": "RG610, dia 25 x 3 mm", "supplier": "uqgoptics.com", "url": "https://uqgoptics.com/product/schott-rg610-2", "unit_price_usd": null, "price_qty": 1, "stock_note": "GBP 16.00 per a search snippet; page not fetched.", "verified": false},
+      {"mfr": "LEE Filters", "mpn": "106 Primary Red lighting gel", "supplier": "leefiltersdirect.com", "url": "https://usa.leefiltersdirect.com/products/106-primary-red", "unit_price_usd": null, "price_qty": null, "stock_note": "Search snippets give only overall transmission (12.8 % under 3200 K). No figure for 405 nm or 630 nm was found, so its 405 nm blocking is NOT documented here.", "verified": false}
+    ],
+    "key_specs": {"transmission at 405 nm": "not seen on any fetched page for any option", "transmission at 630 nm": "not seen on any fetched page", "Thorlabs FGL610": "product page fetch returned no content"},
+    "dims_mm": {"diameter": 12.5, "thickness": 3.0},
+    "colour": "deep red glass",
+    "connector": "none (needs a printed cap in front of the dia 14 mm lens barrel)",
+    "risk": "medium",
+    "note": "Three glass filters are about $111, with no line in the BOM. A gel sheet costs a few dollars but I could not find published 405 nm data for one; test a gel directly by imaging the 405 nm LED through it before deciding."
+  },
+  {
+    "item": "9a - high-power red LED for strobing",
+    "role": "3 backlights, 20-100 us pulses",
+    "recommended": {
+      "mfr": "Cree LED on LEDSupply INDUS 20 mm star",
+      "mpn": "CREEXPE2-RED-1 (XP-E2 Red, 1-up star)",
+      "supplier": "LEDSupply",
+      "url": "https://www.ledsupply.com/leds/cree-xlamp-xp-e2-color-high-power-led-star",
+      "unit_price_usd": 5.25,
+      "price_qty": 1,
+      "stock_note": "Page fetched: sale $5.25 (regular $5.71); '1582 pcs in stock' for the product family, but an option-unavailable notice also appears - confirm the red option at checkout.",
+      "verified": true
+    },
+    "alternates": [],
+    "key_specs": {"dominant wavelength": "620-630 nm", "flux": "min 67.2 lm at 350 mA (radiant flux not given)", "max DC current": "1000 mA", "forward voltage": "2.2-2.6 V at 350 mA, 2.65 V at 1 A", "viewing angle": "130 deg", "max pulsed current": "not given on the page; Cree datasheet not fetched"},
+    "dims_mm": {"star": "20 mm hexagonal aluminium MCPCB", "emitter": "3.45 x 3.45"},
+    "colour": "not stated on the page",
+    "connector": "four solder pads; optional factory-fitted 6 inch wire leads",
+    "risk": "medium",
+    "note": "Nothing fetched supports driving above the 1 A DC rating, so 2-3 A pulses are unverified. Star alone uses the whole $5 per-backlight budget."
+  },
+  {
+    "item": "9b - opal diffuser sheet",
+    "role": "Backlight diffuser",
+    "recommended": {
+      "mfr": "generic (cast acrylic, white 7328 translucent)",
+      "mpn": "0.125 in x 12 in x 12 in white 7328 acrylic sheet",
+      "supplier": "US Plastic",
+      "url": "https://www.usplastic.com/catalog/item.aspx?itemid=23681",
+      "unit_price_usd": 10.68,
+      "price_qty": 1,
+      "stock_note": "Search snippet only; page not fetched. UK suppliers quote 36-37 % transmission for 3 mm opal Perspex (snippets).",
+      "verified": false
+    },
+    "alternates": [],
+    "key_specs": {},
+    "dims_mm": {"thickness": 3.2},
+    "colour": "translucent white",
+    "risk": "low",
+    "note": ""
+  },
+  {
+    "item": "10a - 405 nm high-power LED, 3535",
+    "role": "11 flash-cure emitters",
+    "recommended": {
+      "mfr": "Luminus",
+      "mpn": "SST-10-UV-A130-G405-00",
+      "supplier": "Digi-Key",
+      "url": "https://www.digikey.com/en/products/detail/luminus-devices-inc/SST-10-UV-A130-G405-00/16611104",
+      "unit_price_usd": 3.203,
+      "price_qty": 10,
+      "stock_note": "Active, 6,698 in stock; $4.34 @1, $3.203 @10, $2.5317 @100. US tariffs may be added in the cart.",
+      "verified": true
+    },
+    "alternates": [
+      {"mfr": "SemiLEDs on LEDSupply INDUS star", "mpn": "A007-UV400-65 (1-up 400-410 nm, 20 mm star)", "supplier": "LEDSupply", "url": "https://www.ledsupply.com/leds/ultra-violet-uv-high-power-led-star", "unit_price_usd": 9.8, "price_qty": 1, "stock_note": "Page fetched: sale $9.80 (regular $12.11), '133 pcs in stock' but the 400-410 nm option is flagged temporarily unavailable. Pre-mounted on a star (no reflow needed). 650-700 mW at 500 mA, 800 mA absolute max, 125 deg.", "verified": true},
+      {"mfr": "Honglitronic", "mpn": "HL-C3535F10V405-D1-LVR9(Au60)(1000mA), JLCPCB C5369245", "supplier": "JLCPCB parts library", "url": "https://jlcpcb.com/partdetail/C5369245", "unit_price_usd": null, "price_qty": null, "stock_note": "Library page fetched: Extended; 405 nm, built-in 60 deg lens, 1.8 W radiant, Vf 4.2 V at 1 A, 1.2 A max, 3.45 x 3.45 mm. Stock and price not shown. Assembly-only (cannot be shipped loose).", "verified": true},
+      {"mfr": "Everlight", "mpn": "ELUA3535NU3-P0010U5136481K0-V41G (405 nm, built-in 30 deg lens)", "supplier": "Digi-Key", "url": "https://www.digikey.com/en/products/detail/molex/1733590002/10281461", "unit_price_usd": 7.58, "price_qty": 1, "stock_note": "0 in stock and Digi-Key is not accepting backorders. Not purchasable now.", "verified": false}
+    ],
+    "key_specs": {
+      "datasheet (Luminus PDS-002674 Rev 05, read)": "405 nm bin 400-410 nm; flux min 900 mW (G bin), typ 930 mW at 500 mA (20 ms pulse, 25 C); absolute max CW current 1.5 A; relative flux about 185 % at 1.0 A and about 270 % at 1.5 A (read from graph), i.e. about 1.7 W and 2.5 W; Vf typ 3.3 V at 500 mA, max 4.0 V; viewing angle 130 deg; 1 mm^2 die; thermal resistance 1.4 C/W; duty cycles 1-100 % allowed; current rise time should be longer than 0.5 us",
+      "obsolete code": "SST-10-UV-A130-F405-00 (the older 1 A code) is marked Obsolete at Digi-Key per a search snippet; use the G405 code",
+      "star board": "this is a bare 3.5 x 3.5 mm part. No pre-mounted 405 nm SST-10 star was found (Mouser lists a 395 nm starboard at $18.96 per snippet). It needs a 20 mm 3535 star MCPCB plus reflow, or a small aluminium PCB in the JLCPCB order."
+    },
+    "dims_mm": {"emitter": "3.5 x 3.5", "star_board": "20 mm hexagonal (if a star is used)"},
+    "colour": "not stated",
+    "connector": "solder pads on the star / PCB",
+    "risk": "medium",
+    "note": "BOM allows $4 per emitter including driver; emitter $3.20 + lens $1.68 + carrier + driver share is about $7-9."
+  },
+  {
+    "item": "10b - narrow lens for the 405 nm LED, 15 mm diameter or less",
+    "role": "Concentrate UV on a 30 mm zone at 82 mm",
+    "recommended": {
+      "mfr": "Ledil",
+      "mpn": "FP11055_LISA2-RS-PIN",
+      "supplier": "Digi-Key",
+      "url": "https://www.digikey.com/en/products/detail/ledil/FP11055-LISA2-RS-PIN/2354834",
+      "unit_price_usd": 1.683,
+      "price_qty": 10,
+      "stock_note": "Active, 3,470 in stock; $2.34 @1, $1.683 @10, $1.2919 @100.",
+      "verified": true
+    },
+    "alternates": [
+      {"mfr": "Carclo", "mpn": "10412 (10 mm TIR narrow spot)", "supplier": "LEDSupply", "url": "https://www.ledsupply.com/led-optics/10412-carclo-lens-narrow-spot-led-optic", "unit_price_usd": 1.91, "price_qty": 1, "stock_note": "Page fetched: sale $1.91 (regular $2.39), '320 pcs in stock' but flagged temporarily unavailable. 10 mm dia (10 mm square footprint, four legs), 6 mm high, UV-stabilised polycarbonate. FWHM 15.9 deg on XP-E2, 16.4 on XP-E, 17.7 on Rebel, 22-24 on larger-die 3535 parts. Page says it fits 1-up Indus stars.", "verified": true},
+      {"mfr": "Ledil", "mpn": "FCA15008_G2-ROSE-UV-M (silicone UV lens)", "supplier": "Ledil distributors", "url": "https://www.ledil.com/data/prod/Rose/15008/15008-ds.pdf", "unit_price_usd": null, "price_qty": null, "stock_note": "Datasheet read: measured FWHM 18 deg on SST-10-B130, simulated 26 deg on SST-10-UV-X130, 89 % efficiency; but 21.6 x 21.6 x 12.9 mm with holder, so it exceeds the 15 mm limit. MOQ 360.", "verified": false}
+    ],
+    "key_specs": {"LISA2-RS-PIN": "dia 9.9 mm; acrylic (PMMA), clear; viewing angle 15-24 deg depending on LED (Digi-Key); height 6.8 mm (RS listing, search snippet); adhesive / locating-pin mounting", "beam on SST-10-UV": "not documented for either 10 mm lens", "UV transmission": "no 405 nm transmission figure found for either lens; the Carclo is polycarbonate with UV stabiliser, which is a concern at 405 nm"},
+    "dims_mm": {"diameter": 9.9, "height": 6.8},
+    "colour": "clear",
+    "connector": "none (glued or pinned over the LED)",
+    "risk": "medium",
+    "note": "Rough estimate (my calculation, optics not verified): the 30 mm zone at 82 mm subtends +/-10.4 deg. With a roughly 20 deg FWHM beam about 45 % of lens output lands in the zone: 1.7 W at 1 A x 0.85 x 0.45 = about 0.65 W over 7.1 cm^2, about 90 mW/cm^2 per emitter."
+  },
+  {
+    "item": "11a - LED driver for the UV LEDs (0.7-1.5 A, 5-100 ms pulses)",
+    "role": "Constant-current pulse driver",
+    "recommended": {
+      "mfr": "Mean Well",
+      "mpn": "LDD-700L",
+      "supplier": "Digi-Key",
+      "url": "https://www.digikey.com/en/products/detail/mean-well-usa-inc/LDD-700L/7704757",
+      "unit_price_usd": 3.25,
+      "price_qty": 1,
+      "stock_note": "Active, $3.25 @1. The page showed no stock figure for this part and a 20-week lead time (substitute NLDD-700H: 144 in stock), so in-stock availability is not confirmed.",
+      "verified": false
+    },
+    "alternates": [
+      {"mfr": "Mean Well", "mpn": "LDD-1000L", "supplier": "distributors", "url": "https://www.meanwellusa.com/upload/pdf/LDD-L/LDD-L-spec.pdf", "unit_price_usd": null, "price_qty": null, "stock_note": "Datasheet read; no distributor page fetched.", "verified": false}
+    ],
+    "key_specs": {
+      "LDD-700L (datasheet 2026-09-15, read)": "9-36 V in, 2-32 V out, 700 mA constant current; PWM dimming 100-1000 Hz; DIM pin: ON above 3.5-8 V or open circuit, OFF below 0.5 V or shorted; 1 mA quiescent when off; no rise/fall time or minimum pulse width given",
+      "LDD-1000L (same datasheet)": "6-36 V in, 2-30 V out, 1000 mA; PWM 100-500 Hz; DIM ON above 2.6-5.5 V or open, OFF below 0.4 V",
+      "logic-level caveat": "the LDD-700L ON threshold (3.5 V) is above 3.3 V logic. Leave DIM open for ON and pull it low with an open-drain transistor for OFF (inverted logic). The LDD-1000L accepts 3.3 V directly."
+    },
+    "dims_mm": {"LDD-700L": "22.6 x 9.9 x 8.9", "LDD-1000L": "31.8 x 20.3 x 12.2"},
+    "colour": "black potted module",
+    "connector": "through-hole pins on a 2.54 mm grid (+Vin, PWM DIM, -Vin, -Vout, +Vout); LDD-700LW variant has 100 mm flying leads",
+    "risk": "low",
+    "note": "Adequate for 5-100 ms flashes. One driver per LED (or per series string within the 2-32 V output range)."
+  },
+  {
+    "item": "11b - switch for the red strobes (20-100 us pulses, 1-3 A)",
+    "role": "Fast LED pulser",
+    "recommended": {
+      "mfr": "Adafruit",
+      "mpn": "5648 MOSFET Driver (AO3406), STEMMA JST PH",
+      "supplier": "Adafruit",
+      "url": "https://www.adafruit.com/product/5648",
+      "unit_price_usd": 3.95,
+      "price_qty": 1,
+      "stock_note": "In stock; $3.95 (1-9), $3.56 (10-99).",
+      "verified": true
+    },
+    "alternates": [
+      {"mfr": "Alpha & Omega", "mpn": "AO3400A (JLCPCB C20917)", "supplier": "JLCPCB parts library", "url": "https://jlcpcb.com/partdetail/C20917", "unit_price_usd": null, "price_qty": null, "stock_note": "Library page fetched: SOT-23, 30 V, 5.7 A, 48 mohm at 2.5 V gate, Vgs(th) 1.45 V, Qg 7 nC. Library class not explicit; stock/price not shown.", "verified": true}
+    ],
+    "key_specs": {"Adafruit 5648": "AO3406 N-MOSFET, 30 V, 3.6 A peak, 70 mohm; 1.5 A continuous / 3 A peak load; 3-20 V logic input; 3-30 V load supply; on-board 1N4007 flyback diode", "switching speed": "not documented on the page", "why not a buck module": "Mean Well LDD PWM is specified only to 1 kHz; 20 us pulses need a direct MOSFET + series resistor + local bulk capacitor"},
+    "dims_mm": {"board": "25.4 x 17.7 x 7.2"},
+    "colour": "not stated",
+    "connector": "JST-PH (2 mm) signal input, two screw terminal blocks for supply and load, optional 0.1 inch header",
+    "risk": "medium",
+    "note": "Size the series resistor for the pulse current and add a low-ESR capacitor at the LED. PicoBuck, AL8805 and PT4115 boards were not checked."
+  },
+  {
+    "item": "12 - line laser module, 650 nm, 5 mW",
+    "role": "Surface scan of the part",
+    "recommended": {
+      "mfr": "Adafruit",
+      "mpn": "1057 Line Laser Diode - 5mW 650nm Red",
+      "supplier": "Adafruit",
+      "url": "https://www.adafruit.com/product/1057",
+      "unit_price_usd": 8.95,
+      "price_qty": 1,
+      "stock_note": "In stock; $8.95 (1-9), $8.06 (10-99).",
+      "verified": true
+    },
+    "alternates": [],
+    "key_specs": {"wavelength": "650 nm", "power": "5 mW, Class IIIa", "supply": "2.8-5.2 V DC, 25 mA max", "fan angle": "120 deg (line about 15 cm long at 5 cm)"},
+    "dims_mm": {"barrel_diameter": 10.11, "barrel_length": 32.82, "lead_length": 100},
+    "colour": "not stated",
+    "connector": "two flying leads, red and black, 100 mm",
+    "risk": "low",
+    "note": "BOM assumed $4. Generic marketplace modules were not verified."
+  },
+  {
+    "item": "13 - slotted photo-interrupter, narrow aperture",
+    "role": "Droplet light gate at the jet",
+    "recommended": {
+      "mfr": "Vishay",
+      "mpn": "TCST2300",
+      "supplier": "Digi-Key",
+      "url": "https://www.digikey.com/en/products/result?keywords=TCST2300",
+      "unit_price_usd": 1.54,
+      "price_qty": 1,
+      "stock_note": "Active, 44 in stock; $1.54 @1, $1.292 @10; 14-week lead time.",
+      "verified": true
+    },
+    "alternates": [
+      {"mfr": "Vishay", "mpn": "TCST2202 (0.5 mm aperture)", "supplier": "distributors", "url": "https://www.vishay.com/docs/81147/tcst2103.pdf", "unit_price_usd": null, "price_qty": null, "stock_note": "Datasheet read; distributor stock not checked.", "verified": false},
+      {"mfr": "Vishay", "mpn": "TCST2103 (1 mm aperture)", "supplier": "distributors", "url": "https://www.vishay.com/docs/81147/tcst2103.pdf", "unit_price_usd": null, "price_qty": null, "stock_note": "Datasheet read; distributor stock not checked.", "verified": false}
+    ],
+    "key_specs": {
+      "datasheet (Vishay 81147, read)": "gap 3.1 mm; aperture width 0.25 mm (TCST2300), 0.5 mm (TCST2202), 1 mm (TCST2103); typical collector current at IF 20 mA: 0.5 / 2 / 4 mA; resolution 0.2 / 0.4 / 0.6 mm; turn-on 10 us, turn-off 8 us (2 mA, 100 ohm); 950 nm emitter; daylight-blocking package; IF max 60 mA",
+      "not checked": "Omron EE-SX1041, Sharp GP1A57HRJ00F"
+    },
+    "dims_mm": {"body": "24.5 x 6.3 x 10.8 (11.1 max height)", "gap": 3.1, "aperture": 0.25, "flange_hole_spacing": 19.0, "emitter_detector_pin_spacing": 7.6, "pin_pitch": 2.54},
+    "colour": "black",
+    "connector": "4 through-hole pins, mounting flange with two holes",
+    "risk": "medium",
+    "note": "A 0.3 mm droplet covers the 0.25 mm slit width but only part of its length, so expect a small dip on a 0.5 mA signal (my inference; slit length is not in the datasheet). Use an AC-coupled comparator. The laser + photodiode gate in the BOM remains a reasonable fallback."
+  },
+  {
+    "item": "14a - BME280 breakout",
+    "role": "2 sensors for speed of sound",
+    "recommended": {
+      "mfr": "Adafruit",
+      "mpn": "2652 BME280 I2C or SPI - STEMMA QT",
+      "supplier": "Adafruit",
+      "url": "https://www.adafruit.com/product/2652",
+      "unit_price_usd": 14.95,
+      "price_qty": 1,
+      "stock_note": "In stock, ships today; $14.95 (1-9), $13.46 (10-99).",
+      "verified": true
+    },
+    "alternates": [],
+    "key_specs": {"interface": "I2C or SPI"},
+    "dims_mm": {"board": "25.2 x 18.0 x 4.6"},
+    "colour": "not stated on the page",
+    "connector": "two STEMMA QT sockets (JST-SH 4-pin, Qwiic-compatible) plus 0.1 inch header pads",
+    "risk": "low",
+    "note": "BOM assumed $4 each. Generic GY-BME280 boards at that price were not verified."
+  },
+  {
+    "item": "14b - host computer",
+    "role": "Planning, cameras, viewer",
+    "recommended": {
+      "mfr": "Raspberry Pi",
+      "mpn": "Raspberry Pi 5, 4 GB",
+      "supplier": "Adafruit (product 5812)",
+      "url": "https://www.adafruit.com/product/5812",
+      "unit_price_usd": 130.0,
+      "price_qty": 1,
+      "stock_note": "In stock, limit 2 per customer, $130.00. Search snippets: official list about $110 after 2026 memory-price increases; SparkFun $110 but out of stock. raspberrypi.com product page showed a price only for the 16 GB model ($305).",
+      "verified": true
+    },
+    "alternates": [],
+    "key_specs": {"power": "5 V 5 A over USB-C (Power Delivery)", "ports": "2 x USB 3.0, 2 x USB 2.0, 2 x 4-lane MIPI camera/display, 40-pin header, Gigabit Ethernet, microSD, PCIe FFC, dual HDMI"},
+    "dims_mm": {"board": "85 x 56 (from memory; not on the fetched pages)"},
+    "colour": "green PCB (image description)",
+    "connector": "USB-C power, USB-A for the three cameras, 40-pin 2.54 mm header",
+    "risk": "medium",
+    "note": "BOM assumed $60. An existing PC costs nothing and is listed as acceptable in the BOM."
+  },
+  {
+    "item": "14c - bus hub microcontroller",
+    "role": "RS-485 master, SYNC fan-out, camera/strobe timing",
+    "recommended": {
+      "mfr": "Raspberry Pi",
+      "mpn": "Raspberry Pi Pico",
+      "supplier": "raspberrypi.com resellers",
+      "url": "https://www.raspberrypi.com/products/raspberry-pi-pico/",
+      "unit_price_usd": 4.0,
+      "price_qty": 1,
+      "stock_note": "Official page: Pico 1 series 'available from $4', Pico 2 from $5. No reseller stock page fetched.",
+      "verified": true
+    },
+    "alternates": [],
+    "key_specs": {},
+    "dims_mm": {"board": "21 x 51"},
+    "colour": "green PCB (from memory)",
+    "connector": "micro-USB, 2 x 20 castellated pads on 2.54 mm pitch (from memory; not stated on the fetched page)",
+    "risk": "low",
+    "note": ""
+  },
+  {
+    "item": "14d - RS-485 transceiver module for the hub",
+    "role": "Hub side of the command bus",
+    "recommended": {
+      "mfr": "SparkFun",
+      "mpn": "BOB-10124 Transceiver Breakout - RS-485 (SP3485)",
+      "supplier": "SparkFun",
+      "url": "https://www.sparkfun.com/sparkfun-transceiver-breakout-rs-485.html",
+      "unit_price_usd": 12.5,
+      "price_qty": 1,
+      "stock_note": "In stock, $12.50.",
+      "verified": true
+    },
+    "alternates": [],
+    "key_specs": {"IC": "SP3485, 3.3 V supply"},
+    "dims_mm": {"board": "22.9 x 25.4 (0.9 x 1.0 in)"},
+    "colour": "not stated",
+    "connector": "unpopulated footprints: RJ-45, 3-pin 3.5 mm screw terminal, 3-pin 0.1 inch header",
+    "risk": "low",
+    "note": "With the $4 Pico this is $16.50 against the $12 hub line. A bare SP3485 (Digi-Key $1.02) on protoboard is cheaper."
+  },
+  {
+    "item": "14e - 18 V supply for the array",
+    "role": "V_DRIVE, about 30 W continuous plus LED pulses",
+    "recommended": {
+      "mfr": "Mean Well",
+      "mpn": "LRS-100-15 (trimmed up to 18.0 V)",
+      "supplier": "Master Electronics",
+      "url": "https://www.masterelectronics.com/en/mean-well/lrs10015-48461617.html",
+      "unit_price_usd": 15.8,
+      "price_qty": 1,
+      "stock_note": "Page fetched: 97 in stock, but no web price ('call for quote'). $15.80 is from a search snippet. Digi-Key says 'no longer available at DigiKey'. Other snippet prices: $17.72 (Xonelec), $23.60 (Newark).",
+      "verified": true
+    },
+    "alternates": [
+      {"mfr": "Mean Well", "mpn": "GST90A19-P1M (19 V 4.74 A desktop brick)", "supplier": "Digi-Key", "url": "https://www.digikey.com/en/products/result?keywords=GST90A19-P1M", "unit_price_usd": 30.8, "price_qty": 1, "stock_note": "Active, 520 in stock. 145 x 60 x 32 mm; barrel 2.5 x 5.5 x 11 mm; IEC C14 inlet, cord sold separately.", "verified": true},
+      {"mfr": "Mean Well", "mpn": "GST60A18-P1J (18 V 3.33 A, 60 W desktop brick)", "supplier": "Digi-Key", "url": "https://www.digikey.com/en/products/result?keywords=GST60A18-P1J", "unit_price_usd": 19.4, "price_qty": 1, "stock_note": "Active; no stock figure shown for this part, 17-week lead time (substitute GSM60A18-P1J: 214 in stock). 125 x 50 x 31.5 mm; barrel 2.1 x 5.5 x 11 mm; IEC C14.", "verified": false},
+      {"mfr": "SL Power / Advanced Energy", "mpn": "ME90A1803F01 (18 V 5 A, 90 W desktop, medical grade)", "supplier": "Digi-Key", "url": "https://www.digikey.com/en/products/detail/sl-power-advanced-energy/ME90A1803F01/7173784", "unit_price_usd": 85.81, "price_qty": 1, "stock_note": "Active, 71 in stock. 150.5 x 65.5 x 34 mm; barrel 2.5 x 5.5 x 9.5 mm; IEC C14, cord separate.", "verified": true}
+    ],
+    "key_specs": {
+      "LRS-100-15 (Mean Well datasheet 2025-04-07, read)": "15 V 7 A 105 W; voltage adjustment range 13.5-18 V; over-voltage protection trips at 18.75-21.75 V; 85-264 VAC; open-frame metal mesh case with a screw terminal block",
+      "GST90A18-P1M": "does not exist at Digi-Key (search returned no results); the 90 W GST family has a 19 V model instead",
+      "NGE90I18-P1J (18 V 5 A wall-mount)": "'no longer available at DigiKey'"
+    },
+    "dims_mm": {"LRS-100-15": "129 x 97 x 30", "GST90A19-P1M": "145 x 60 x 32"},
+    "colour": "LRS: bare metal mesh case; bricks: not stated",
+    "connector": "LRS: screw terminal block (mains L/N/earth in, +V/-V out) - needs a cover and mains wiring; bricks: IEC C14 inlet and 5.5 mm barrel plug",
+    "risk": "medium",
+    "note": "18.0 V is the very top of the LRS-100-15 trim range and only 0.75 V under the lowest over-voltage trip point, so a given unit may not sit reliably at 18.0 V. The simple exact-18 V brick at 90 W costs $86. Options: run at 17.5 V from the LRS, accept 19 V from the GST90A19 (fine for IX4427 and generic transducers; only 5 % under the Murata 20 Vp-p limit), or use the 60 W 18 V brick and power the UV LEDs separately."
+  },
+  {
+    "item": "14f - 5 V 5 A supply for the Pi",
+    "role": "Host power",
+    "recommended": {
+      "mfr": "Raspberry Pi",
+      "mpn": "27W USB-C Power Supply",
+      "supplier": "raspberrypi.com resellers",
+      "url": "https://www.raspberrypi.com/products/27w-power-supply/",
+      "unit_price_usd": null,
+      "price_qty": null,
+      "stock_note": "Official page fetched; no price shown on it and no reseller page fetched.",
+      "verified": true
+    },
+    "alternates": [],
+    "key_specs": {"output": "5.1 V 5.0 A (25.5 W); also 9 V 3 A, 12 V 2.25 A, 15 V 1.8 A"},
+    "dims_mm": {"cable_length": 1200},
+    "colour": "black or white",
+    "connector": "captive USB-C cable, 1.2 m, 17 AWG",
+    "risk": "low",
+    "note": "This powers the Pi only. The +5 V bus for the 18 boards needs its own 5 V source (the BOM's 5 V 3 A buck from the 18 V rail)."
+  },
+  {
+    "item": "15 - PCB fabrication and assembly",
+    "role": "20 x TB-25, 56 x 56 mm, 2-layer, single-side SMD",
+    "recommended": {
+      "mfr": "JLCPCB",
+      "mpn": "Economic PCBA, single side",
+      "supplier": "JLCPCB",
+      "url": "https://jlcpcb.com/help/article/pcb-assembly-price",
+      "unit_price_usd": 15.5,
+      "price_qty": 20,
+      "stock_note": "Fee schedule fetched from JLCPCB's price page. The per-board figure is my estimate built from those fees and distributor part prices; it is not a JLCPCB quote. Bare-PCB price was not fetched.",
+      "verified": false
+    },
+    "alternates": [],
+    "key_specs": {
+      "JLCPCB Economic PCBA fees (page fetched)": "setup $8.18; stencil $1.53; SMT $0.0016 per joint; extended-part feeder fee $3.07 per unique extended part; placement confirmation $0.45; manual assembly $0.0164 per joint (1-10,000 joints); hand-soldering labour $3.58 per order",
+      "JLCPCB Standard PCBA fees (page fetched)": "setup $25.56 single-side / $51.12 double-side; stencil $8.21; feeder loading $1.53 per component type; handling fee at least $14.93",
+      "assembly labour estimate, 20 boards (my calculation)": "8.18 + 1.53 + 0.45 + about 8 extended parts x 3.07 + about 270 joints x 20 x 0.0016 = about $43, or $2.2 per board",
+      "parts per board (distributor prices seen)": "13 x IX4427 at $0.63-0.68 = $8.2-8.8; RP2040 $0.80-0.92; microphone $1.98-2.18; SP3485 $0.54-0.58; flash, crystal, LDO, connectors, passives about $1.5 (not verified)",
+      "estimate vs BOM": "about $15-16 per assembled board with genuine IX4427 and SPH0641, against $10.50 in hardware/bom.json; about +$100 over 20 boards. Reaching $10.50 needs drivers at about $0.35 each.",
+      "through-hole transducers (my calculation from the fetched fee table)": "25 x 2 pins x 20 boards = 1,000 joints x $0.0164 + $3.58 = about $20 for the order, about $1 per board, provided JLCPCB can source the part (INGHAi GU1008C-40T, C242178, is in the library as an Extended through-hole part) or accepts it consigned",
+      "not verified": "whether Economic PCBA accepts through-hole parts on the side opposite the SMD parts (Standard PCBA adds roughly $40 in fixed fees); whether JLCPCB will keep 500 cans in one polarity orientation; JLCPCB stock of C242178 (a snippet said 65); PCBWay was not checked"
+    },
+    "dims_mm": {"board": "56 x 56"},
+    "risk": "medium",
+    "note": "Wave soldering is not listed on the price page; through-hole work appears only as per-joint manual assembly."
+  }
+]

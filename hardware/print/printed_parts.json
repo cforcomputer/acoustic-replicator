@@ -1,0 +1,212 @@
+{
+ "frame_cap": {
+  "solids": 1,
+  "volume_cm3": 51.4,
+  "size_mm": [
+   156.2,
+   161.7,
+   75.5
+  ],
+  "neck": {
+   "voxels": 135673,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "frame_lower": {
+  "solids": 1,
+  "volume_cm3": 118.4,
+  "size_mm": [
+   177.4,
+   203.6,
+   92.5
+  ],
+  "neck": {
+   "voxels": 295277,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "frame_mid": {
+  "solids": 1,
+  "volume_cm3": 62.4,
+  "size_mm": [
+   177.4,
+   203.6,
+   50.0
+  ],
+  "neck": {
+   "voxels": 158855,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "chuck": {
+  "solids": 1,
+  "volume_cm3": 15.7,
+  "size_mm": [
+   58.2,
+   40.0,
+   35.5
+  ],
+  "neck": {
+   "voxels": 84028,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "stand_leg0": {
+  "solids": 1,
+  "volume_cm3": 24.1,
+  "size_mm": [
+   79.1,
+   54.6,
+   70.9
+  ],
+  "neck": {
+   "voxels": 125986,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "stand_leg1": {
+  "solids": 1,
+  "volume_cm3": 22.4,
+  "size_mm": [
+   79.1,
+   54.6,
+   70.9
+  ],
+  "neck": {
+   "voxels": 115862,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "stand_leg2": {
+  "solids": 1,
+  "volume_cm3": 22.2,
+  "size_mm": [
+   23.0,
+   85.5,
+   70.9
+  ],
+  "neck": {
+   "voxels": 116191,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "dock": {
+  "solids": 1,
+  "volume_cm3": 6.7,
+  "size_mm": [
+   67.5,
+   62.5,
+   4.0
+  ],
+  "neck": {
+   "voxels": 39444,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "jet_body": {
+  "solids": 1,
+  "volume_cm3": 23.6,
+  "size_mm": [
+   48.0,
+   48.0,
+   38.5
+  ],
+  "neck": {
+   "voxels": 130671,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "jet_clamp": {
+  "solids": 1,
+  "volume_cm3": 8.3,
+  "size_mm": [
+   48.0,
+   48.0,
+   6.6
+  ],
+  "neck": {
+   "voxels": 45302,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "gate_bracket": {
+  "solids": 1,
+  "volume_cm3": 0.7,
+  "size_mm": [
+   8.0,
+   16.8,
+   10.1
+  ],
+  "neck": {
+   "voxels": 4716,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "res_clamp": {
+  "solids": 1,
+  "volume_cm3": 3.7,
+  "size_mm": [
+   12.0,
+   16.0,
+   20.0
+  ],
+  "neck": {
+   "voxels": 19421,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "pod0": {
+  "solids": 1,
+  "volume_cm3": 5.7,
+  "size_mm": [
+   32.7,
+   45.7,
+   49.2
+  ],
+  "neck": {
+   "voxels": 36339,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "pod1": {
+  "solids": 1,
+  "volume_cm3": 5.7,
+  "size_mm": [
+   32.7,
+   45.7,
+   49.2
+  ],
+  "neck": {
+   "voxels": 36339,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ },
+ "pod2": {
+  "solids": 1,
+  "volume_cm3": 7.5,
+  "size_mm": [
+   50.9,
+   29.7,
+   71.6
+  ],
+  "neck": {
+   "voxels": 46467,
+   "pieces_after_peeling": 1,
+   "largest_share": 1.0
+  }
+ }
+}
