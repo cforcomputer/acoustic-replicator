@@ -4,6 +4,9 @@ A feasibility study for a 3D printer that carries UV-resin droplets through the 
 
 **Verdict:** the simulation says the idea is physically sound and worth a bench prototype. It does not prove the machine will print. Nothing has been built, there is no firmware, and the droplet generator has not been proven at this size. The full reasoning is in [REPORT.md](REPORT.md).
 
+**In the future**
+I believe this may be more interesting to examine how matter can be manipulated in sonic ways by precise sonic effects. I think I'll do another pass on this project and improve it by adding more sensors, and higher resolution high speed cameras.
+
 ![Machine](docs/img/machine.png)
 
 | | |
